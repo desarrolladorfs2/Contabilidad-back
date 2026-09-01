@@ -1,0 +1,108 @@
+/**
+ * Seed / backfill de responsabilidades fiscales.
+ * Migra los valores existentes en:
+ *   - companies.tax_level_code   -> company_responsabilidades
+ *   - terceros.nivel_tributario  -> tercero_responsabilidades
+ *
+ * Tambien siembra los codigos DIAN estandar en cat_responsabilidades_fiscales
+ * si aun no existen (esto normalmente lo hace catalogo.seed.ts, pero se
+ * garantiza aqui para independencia).
+ *
+ * Idempotente: no duplica registros existentes.
+ */
+import { DataSource } from 'typeorm';
+import { Company } from '../entities/Company';
+import { Tercero } from '../entities/Tercero';
+import { CompanyResponsabilidad } from '../entities/CompanyResponsabilidad';
+import { TerceroResponsabilidad } from '../entities/TerceroResponsabilidad';
+import { TipoResponsabilidadFiscal } from '../entities/catalogo/TipoResponsabilidadFiscal';
+
+// Catalogo completo DIAN de responsabilidades fiscales
+const RESPONSABILIDADES_DIAN = [
+  { codigo: 'O-13',   nombre: 'Gran contribuyente',                         aplica_persona_natural: false, aplica_persona_juridica: true,  orden: 1 },
+  { codigo: 'O-15',   nombre: 'Autorretenedor',                              aplica_persona_natural: true,  aplica_persona_juridica: true,  orden: 2 },
+  { codigo: 'O-23',   nombre: 'Agente de retención en la fuente',            aplica_persona_natural: true,  aplica_persona_juridica: true,  orden: 3 },
+  { codigo: 'O-24',   nombre: 'Declarante de ingresos y patrimonio',         aplica_persona_natural: true,  aplica_persona_juridica: true,  orden: 4 },
+  { codigo: 'O-47',   nombre: 'Régimen simple de tributación (SIMPLE)',      aplica_persona_natural: true,  aplica_persona_juridica: true,  orden: 5 },
+  { codigo: 'R-99-PN',nombre: 'No responsable de IVA (Régimen Simplificado)',aplica_persona_natural: true,  aplica_persona_juridica: false, orden: 6 },
+  { codigo: 'O-07',   nombre: 'Gran responsable del IVA',                    aplica_persona_natural: false, aplica_persona_juridica: true,  orden: 7 },
+  { codigo: 'O-09',   nombre: 'Responsable del impuesto sobre las ventas IVA', aplica_persona_natural: true, aplica_persona_juridica: true, orden: 8 },
+  { codigo: 'O-14',   nombre: 'Informante de exógena',                       aplica_persona_natural: true,  aplica_persona_juridica: true,  orden: 9 },
+  { codigo: 'O-16',   nombre: 'Obligación financiera y de cambios',          aplica_persona_natural: true,  aplica_persona_juridica: true,  orden: 10 },
+  { codigo: 'O-25',   nombre: 'Declarante del impuesto sobre la renta CREE', aplica_persona_natural: false, aplica_persona_juridica: true,  orden: 11 },
+  { codigo: 'O-32',   nombre: 'Impuesto sobre las ventas régimen común',     aplica_persona_natural: true,  aplica_persona_juridica: true,  orden: 12 },
+  { codigo: 'O-33',   nombre: 'Servicios excluidos del impuesto sobre ventas', aplica_persona_natural: true, aplica_persona_juridica: true, orden: 13 },
+  { codigo: 'O-49',   nombre: 'Patrimonio',                                  aplica_persona_natural: true,  aplica_persona_juridica: false, orden: 14 },
+  { codigo: 'O-50',   nombre: 'Productor de bienes exentos del IVA',         aplica_persona_natural: true,  aplica_persona_juridica: true,  orden: 15 },
+  { codigo: 'O-53',   nombre: 'Usuario aduanero',                            aplica_persona_natural: true,  aplica_persona_juridica: true,  orden: 16 },
+];
+
+export async function seedResponsabilidadesBackfill(ds: DataSource): Promise<void> {
+  const respRepo    = ds.getRepository(TipoResponsabilidadFiscal);
+  const compRepo    = ds.getRepository(Company);
+  const tercRepo    = ds.getRepository(Tercero);
+  const compRespRepo = ds.getRepository(CompanyResponsabilidad);
+  const tercRespRepo = ds.getRepository(TerceroResponsabilidad);
+
+  // 1. Garantizar que el catalogo tiene todos los codigos DIAN
+  for (const r of RESPONSABILIDADES_DIAN) {
+    const existe = await respRepo.findOne({ where: { codigo: r.codigo } });
+    if (!existe) {
+      await respRepo.save(respRepo.create({
+        codigo: r.codigo,
+        nombre: r.nombre,
+        aplica_persona_natural: r.aplica_persona_natural,
+        aplica_persona_juridica: r.aplica_persona_juridica,
+        orden: r.orden,
+        activo: true,
+      }));
+    }
+  }
+
+  // 2. Backfill company_responsabilidades desde companies.tax_level_code
+  const companies = await compRepo.find();
+  let compInsert = 0;
+  for (const company of companies) {
+    if (!company.tax_level_code) continue;
+    const resp = await respRepo.findOne({ where: { codigo: company.tax_level_code } });
+    if (!resp) continue; // codigo desconocido — saltar
+
+    const existe = await compRespRepo.findOne({
+      where: { company_id: company.id, responsabilidad_codigo: company.tax_level_code },
+    });
+    if (!existe) {
+      await compRespRepo.save(compRespRepo.create({
+        company_id:              company.id,
+        responsabilidad_codigo:  company.tax_level_code,
+        es_principal:            true,
+      }));
+      compInsert++;
+    }
+  }
+
+  // 3. Backfill tercero_responsabilidades desde terceros.nivel_tributario
+  const terceros = await tercRepo.find();
+  let tercInsert = 0;
+  for (const tercero of terceros) {
+    if (!tercero.nivel_tributario) continue;
+    const resp = await respRepo.findOne({ where: { codigo: tercero.nivel_tributario } });
+    if (!resp) continue;
+
+    const existe = await tercRespRepo.findOne({
+      where: { tercero_id: tercero.id, responsabilidad_codigo: tercero.nivel_tributario },
+    });
+    if (!existe) {
+      await tercRespRepo.save(tercRespRepo.create({
+        tercero_id:             tercero.id,
+        responsabilidad_codigo: tercero.nivel_tributario,
+        es_principal:           true,
+      }));
+      tercInsert++;
+    }
+  }
+
+  const total = compInsert + tercInsert;
+  if (total > 0) {
+    console.log(`[Seed] Responsabilidades backfill: ${compInsert} empresas, ${tercInsert} terceros`);
+  }
+}

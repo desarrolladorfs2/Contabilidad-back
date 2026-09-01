@@ -1,0 +1,2107 @@
+codigo,nombre,tipo,nivel,naturaleza,codigo_padre,acepta_movimientos
+1,ACTIVO,activo,1,debito,,0
+11,EFECTIVO Y EQUIVALENTES AL EFECTIVO,activo,2,debito,1,0
+1101,Efectivo,activo,3,debito,11,0
+110101,Caja general,activo,4,debito,1101,0
+11010104,Caja Tarjeta 23701 karol,activo,5,debito,110101,1
+11010105,Caja Tarjeta transportes 14287,activo,5,debito,110101,1
+11010106,Caja general copagos MDE,activo,5,debito,110101,1
+11010107,Caja tarjeta 93776 CALI,activo,5,debito,110101,1
+11010108,Caja tarjeta 70283 MDE,activo,5,debito,110101,1
+11010109,Caja tarjeta 79266 MELANY,activo,5,debito,110101,1
+11010110,Caja tarjeta 48890 PEREIRA,activo,5,debito,110101,1
+11010111,Caja copagos Pereira,activo,5,debito,110101,1
+110102,Cajas menores,activo,4,debito,1101,0
+11010204,Tarjeta prepago 23701 karol,activo,5,debito,110102,1
+11010205,Tarjeta prepago transportes 14287,activo,5,debito,110102,1
+11010206,Tarjeta prepago admin 70283 MEDELLIN,activo,5,debito,110102,1
+11010207,Tarjeta prepago 93776 CALI,activo,5,debito,110102,1
+11010208,Tarjeta prepago 48890 PEREIRA,activo,5,debito,110102,1
+11010209,Tarjeta prepago 79266 MELANY,activo,5,debito,110102,1
+11010210,Caja copago SURA,activo,5,debito,110102,1
+11010211,Caja copagos CALI,activo,5,debito,110102,1
+11010212,Caja base Cali,activo,5,debito,110102,1
+110104,Bancos cuentas corrientes-moneda naciona,activo,4,debito,1101,0
+11010406,Bancos cuentas corrientes-moneda naciona,activo,5,debito,110104,1
+110106,Bancos cuentas de ahorro-bancos moneda n,activo,4,debito,1101,0
+11010606,Cuenta de ahorros bancolombia #236373132,activo,5,debito,110106,1
+11010607,Cuenta banco de bogotá # xxx,activo,5,debito,110106,1
+11010699,Partidas conciliatorias,activo,5,debito,110106,1
+1103,Equivalentes al efectivo,activo,3,debito,11,0
+110301,Depósitos a corto plazo,activo,4,debito,1103,0
+11030106,Depósitos a corto plazo,activo,5,debito,110301,1
+110302,Inversiones a corto plazo,activo,4,debito,1103,0
+11030206,Inversiones a corto plazo,activo,5,debito,110302,1
+110303,Fondos fiduciarios a la vista,activo,4,debito,1103,0
+11030306,Fondos fiduciarios a la vista,activo,5,debito,110303,1
+110305,Sobregiros,activo,4,debito,1103,0
+11030506,Sobregiros,activo,5,debito,110305,1
+12,INVERSIONES E INSTRUMENTOS DERIVADOS,activo,2,debito,1,0
+1201,Derechos de recompra de inversiones,activo,3,debito,12,0
+120103,Inversiones en instrumentos de deuda a,activo,4,debito,1201,0
+12010306,Inversiones en instrumentos de deuda a,activo,5,debito,120103,1
+1202,Inversiones en instrumentos de deuda o p,activo,3,debito,12,0
+120201,Certificados de depósito a término,activo,4,debito,1202,0
+12020106,Certificados de depósito a término,activo,5,debito,120201,1
+120212,Derechos fiduciarios,activo,4,debito,1202,0
+12021206,Derechos fiduciarios,activo,5,debito,120212,1
+120217,Acciones en Otros sectores,activo,4,debito,1202,0
+12021706,Acciones en Otros sectores,activo,5,debito,120217,1
+120220,Otros títulos de deuda,activo,4,debito,1202,0
+12022006,Otros títulos de deuda,activo,5,debito,120220,1
+1222,Deterioro acumulado de inversiones (cr),activo,3,debito,12,0
+122201,Inversiones en instrumentos de deuda a,activo,4,debito,1222,0
+12220106,Inversiones en instrumentos de deuda a,activo,5,debito,122201,1
+1245,Derechos fiduciarios,activo,3,debito,12,0
+124505,Fideicomisos de inversión moneda naciona,activo,4,debito,1245,0
+12450501,Fiducuenta Bancolombia 3746,activo,5,debito,124505,1
+13,CUENTAS POR COBRAR,activo,2,debito,1,0
+1301,Deudores del sistema- precio de la trans,activo,3,debito,13,0
+130110,Cuentas por cobrar a IPS,activo,4,debito,1301,0
+13011006,Prestadores de servicios de salud,activo,5,debito,130110,1
+130111,Cuotas moderadoras,activo,4,debito,1301,0
+13011101,Régimen Contributivo RC,activo,5,debito,130111,1
+13011103,Plan de Atención Complementaria PAC,activo,5,debito,130111,1
+13011104,Empresa de Medicina Prepagada EMP,activo,5,debito,130111,1
+13011105,Servicio de Ambulancia Prepagada SAP,activo,5,debito,130111,1
+130114,Copagos,activo,4,debito,1301,0
+13011401,Régimen Contributivo RC,activo,5,debito,130114,1
+13011402,Régimen Subsidiado RS,activo,5,debito,130114,1
+13011403,Plan de Atención Complementaria PAC,activo,5,debito,130114,1
+130125,Cuentas por cobrar salud-pend radicar,activo,4,debito,1301,0
+13012506,"Cuentas por cobrar salud,-pend radicar",activo,5,debito,130125,1
+13012599,Provision ingresos no facturados,activo,5,debito,130125,1
+130126,Cuentas por cobrar salud-radicadas,activo,4,debito,1301,0
+13012606,Cuentas por cobrar salud contributivo,activo,5,debito,130126,1
+13012607,Cuentas por cobrar salud subsidiado,activo,5,debito,130126,1
+130127,Glosas- Radicada,activo,4,debito,1301,0
+13012706,Glosas- Radicada,activo,5,debito,130127,1
+130128,Glosas-Conciliadas,activo,4,debito,1301,0
+13012806,Glosas-Conciliadas,activo,5,debito,130128,1
+130129,Particulares,activo,4,debito,1301,0
+13012906,Particulares,activo,5,debito,130129,1
+1305,Cuentas por cobrar a socios y accionista,activo,3,debito,13,0
+130502,Prestamos a accionistas,activo,4,debito,1305,0
+13050206,Prestamos a accionistas,activo,5,debito,130502,1
+1311,Arrendamiento operativo,activo,3,debito,13,0
+131102,Construcciones o edificaciones,activo,4,debito,1311,0
+13110206,Construcciones o edificaciones,activo,5,debito,131102,1
+1313,Activos no financieros-anticipos,activo,3,debito,13,0
+131301,Anticipos a proveedores,activo,4,debito,1313,0
+13130106,Anticipos a proveedores,activo,5,debito,131301,1
+131303,Anticipos a empleados,activo,4,debito,1313,0
+13130306,Anticipos salarios y pagos laborales,activo,5,debito,131303,1
+13130307,Anticipos Gastos de viaje,activo,5,debito,131303,1
+1314,Anticipo de impuestos y contribuciones o,activo,3,debito,13,0
+131401,Anticipo de impuestos de renta y complem,activo,4,debito,1314,0
+13140106,Anticipo de impuestos de renta y complem,activo,5,debito,131401,1
+13140107,Autoretencion 1.10%,activo,5,debito,131401,1
+131402,Retención en la fuente,activo,4,debito,1314,0
+13140206,Retención en la fuente por honorarios 11,activo,5,debito,131402,1
+13140207,Retención en la fuente por serv de salud,activo,5,debito,131402,1
+13140208,Retención en la fuente por datafonos 1.5,activo,5,debito,131402,1
+13140209,Retención en la fuente rendtos fros 7,activo,5,debito,131402,1
+13140210,Retencion en la fuente por compras 2.5,activo,5,debito,131402,1
+13140211,RETENCION SERVICIOS 4%,activo,5,debito,131402,1
+13140299,Retencion por cobrar años anteriores,activo,5,debito,131402,1
+131403,Impuesto a las ventas retenido,activo,4,debito,1314,0
+13140306,Impuesto a las ventas retenido,activo,5,debito,131403,1
+131404,Impuesto de industria y comercio retenid,activo,4,debito,1314,0
+13140406,Impuesto de industria y comercio retenid,activo,5,debito,131404,1
+131406,Impuestos descontables,activo,4,debito,1314,0
+13140606,Impuestos descontables,activo,5,debito,131406,1
+131407,Otros anticipos de impuestos y contribuc,activo,4,debito,1314,0
+13140706,Otros anticipos de impuestos y contribuc,activo,5,debito,131407,1
+131499,Saldo a favor por impuestos,activo,4,debito,1314,0
+13149901,Saldo a favor IVA,activo,5,debito,131499,1
+13149902,Saldo a favor RENTA,activo,5,debito,131499,1
+13149903,Saldo a favor RTF (excedentes),activo,5,debito,131499,1
+1315,Reclamaciones,activo,3,debito,13,0
+131501,A compañías aseguradoras,activo,4,debito,1315,0
+13150106,A compañías aseguradoras,activo,5,debito,131501,1
+1316,Cuentas por cobrar a trabajadores benefi,activo,3,debito,13,0
+131601,Vivienda,activo,4,debito,1316,0
+13160106,Vivienda,activo,5,debito,131601,1
+131602,Vehículos,activo,4,debito,1316,0
+13160206,Vehículos,activo,5,debito,131602,1
+131603,Educación,activo,4,debito,1316,0
+13160306,Educación,activo,5,debito,131603,1
+131604,Médicos y similares,activo,4,debito,1316,0
+13160406,Médicos y similares,activo,5,debito,131604,1
+131605,Calamidad domestica,activo,4,debito,1316,0
+13160506,Calamidad domestica,activo,5,debito,131605,1
+131607,Libranzas,activo,4,debito,1316,0
+13160705,Libranzas AFC,activo,5,debito,131607,1
+13160706,Libranza EMI,activo,5,debito,131607,1
+13160707,Libranza Prever,activo,5,debito,131607,1
+13160708,Libranza lentes,activo,5,debito,131607,1
+13160709,Libranza JFK,activo,5,debito,131607,1
+13160710,Libranza caja de compensación,activo,5,debito,131607,1
+13160711,Beneficios Comfama,activo,5,debito,131607,1
+13160712,Póliza Salud Colectiva,activo,5,debito,131607,1
+13160713,Póliza Seguro Vehiculos,activo,5,debito,131607,1
+13160714,Libranza Emermedica,activo,5,debito,131607,1
+13160715,Póliza Seguro de Vida,activo,5,debito,131607,1
+1319,Deudores varios,activo,3,debito,13,0
+131902,Intereses,activo,4,debito,1319,0
+13190206,Intereses,activo,5,debito,131902,1
+131904,Embargos judiciales,activo,4,debito,1319,0
+13190406,Embargos judiciales,activo,5,debito,131904,1
+131909,Préstamo de medicamentos,activo,4,debito,1319,0
+13190906,Préstamo de medicamentos,activo,5,debito,131909,1
+131910,Servicios,activo,4,debito,1319,0
+13191006,Servicios,activo,5,debito,131910,1
+131911,Otros deudores,activo,4,debito,1319,0
+13191106,Otros deudores,activo,5,debito,131911,1
+13191107,Incapacidades EPS,activo,5,debito,131911,1
+13191108,Incapacidades ARL,activo,5,debito,131911,1
+13191109,CxC entre compañias,activo,5,debito,131911,1
+13191110,Partidas conciliatorias,activo,5,debito,131911,1
+1320,Deterioro acumulado de cuentas por cobra,activo,3,debito,13,0
+132014,Deudores varios,activo,4,debito,1320,0
+13201406,Deudores varios,activo,5,debito,132014,1
+1399,Cuenta Puente,activo,3,debito,13,0
+139999,Cuenta Puente,activo,4,debito,1399,0
+13999999,Cuenta Puente,activo,5,debito,139999,1
+14,INVENTARIOS,activo,2,debito,1,0
+1403,Inventarios para ser vendidos,activo,3,debito,14,0
+140301,Medicamentos,activo,4,debito,1403,0
+14030106,Medicamentos,activo,5,debito,140301,1
+14030107,IVA mayor valor medicamentos,activo,5,debito,140301,1
+140302,Material médico quirúrgico,activo,4,debito,1403,0
+14030206,Material médico quirúrgico,activo,5,debito,140302,1
+14030207,IVA mayor valor material médico,activo,5,debito,140302,1
+140303,Materiales reactivos y de laboratorio,activo,4,debito,1403,0
+14030306,Materiales reactivos y de laboratorio,activo,5,debito,140303,1
+14030307,IVA mayor valor materiales reactivos,activo,5,debito,140303,1
+140304,Materiales odontológicos,activo,4,debito,1403,0
+14030406,Materiales odontológicos,activo,5,debito,140304,1
+14030407,IVA mayor valor materiales odontológicos,activo,5,debito,140304,1
+140305,Materiales para imagenologia,activo,4,debito,1403,0
+14030506,Materiales para imagenologia,activo,5,debito,140305,1
+140306,Material oftalmico,activo,4,debito,1403,0
+14030606,Material oftalmico,activo,5,debito,140306,1
+140307,Banco de sangre,activo,4,debito,1403,0
+14030706,Banco de sangre,activo,5,debito,140307,1
+14030707,IVA mayor valor banco de sangre,activo,5,debito,140307,1
+140311,Elementos de aseo y cafeteria,activo,4,debito,1403,0
+14031106,Elementos de aseo y cafeteria,activo,5,debito,140311,1
+14031107,IVA mayor valor aseo y cafeteria,activo,5,debito,140311,1
+140312,Papeleria,activo,4,debito,1403,0
+14031206,Papeleria,activo,5,debito,140312,1
+14031207,IVA mayor valor papeleria,activo,5,debito,140312,1
+140314,Otros materiales,activo,4,debito,1403,0
+14031406,Otros materiales,activo,5,debito,140314,1
+14031407,IVA mayor valor otros materiales,activo,5,debito,140314,1
+1404,Deterioro de inventarios (cr),activo,3,debito,14,0
+140401,Inventarios para ser vendidos,activo,4,debito,1404,0
+14040106,Inventarios para ser vendidos,activo,5,debito,140401,1
+1405,Compensacion BU para traslados,activo,3,debito,14,0
+140501,Compensacion BU para traslados,activo,4,debito,1405,0
+14050101,Compensacion BU para traslados,activo,5,debito,140501,1
+15,PROPIEDAD PLANTA Y EQUIPO,activo,2,debito,1,0
+1501,Propiedad planta y equipo al modelo del,activo,3,debito,15,0
+150101,Terrenos,activo,4,debito,1501,0
+15010106,Terrenos,activo,5,debito,150101,1
+150102,Construcciones en curso-construcciones y,activo,4,debito,1501,0
+15010206,Construcciones en curso-construcciones y,activo,5,debito,150102,1
+15010207,IVA asumido en construcciones en curso-c,activo,5,debito,150102,1
+150113,Construcciones y edificaciones-edificios,activo,4,debito,1501,0
+15011306,Construcciones y edificaciones-edificios,activo,5,debito,150113,1
+15011307,IVA asumido en construcciones y edificac,activo,5,debito,150113,1
+150114,Construcciones y edificaciones-oficinas,activo,4,debito,1501,0
+15011406,Construcciones y edificaciones-oficinas,activo,5,debito,150114,1
+15011407,IVA asumido en construcciones y edificac,activo,5,debito,150114,1
+150117,Maquinaria y equipo- industrial,activo,4,debito,1501,0
+15011706,Maquinaria y equipo- industrial,activo,5,debito,150117,1
+15011707,IVA asumido en maquinaria y equipo- indu,activo,5,debito,150117,1
+150124,Equipo de oficina-muebles y enseres,activo,4,debito,1501,0
+15012406,Equipo de oficina-muebles y enseres,activo,5,debito,150124,1
+15012407,IVA asumido en equipo de oficina-muebles,activo,5,debito,150124,1
+150127,Equipo de computación y comunicación-equ,activo,4,debito,1501,0
+15012706,Equipo de computación y comunicación-equ,activo,5,debito,150127,1
+15012707,IVA asumido en Equipo de computación y c,activo,5,debito,150127,1
+150133,Equipo médico científico-equipo de inves,activo,4,debito,1501,0
+15013306,Equipo médico científico-equipo de inves,activo,5,debito,150133,1
+15013307,IVA asumido en Equipo médico científico-,activo,5,debito,150133,1
+150134,Equipo médico,activo,4,debito,1501,0
+15013406,Equipo médico,activo,5,debito,150134,1
+15013407,IVA asumido en Equipo médico,activo,5,debito,150134,1
+150135,Equipo médico científico-equipo de labor,activo,4,debito,1501,0
+15013506,Equipo médico científico-equipo de labor,activo,5,debito,150135,1
+15013507,IVA asumido en Equipo médico científico-,activo,5,debito,150135,1
+150139,Equipo médico -equipo de apoyo diagnósti,activo,4,debito,1501,0
+15013906,Equipo médico -equipo de apoyo diagnósti,activo,5,debito,150139,1
+15013907,IVA asumido en Equipo médico -equipo de,activo,5,debito,150139,1
+150140,Equipo médico-equipo de apoyo terapéutic,activo,4,debito,1501,0
+15014006,Equipo médico-equipo de apoyo terapéutic,activo,5,debito,150140,1
+15014007,IVA asumido en Equipo médico-equipo de a,activo,5,debito,150140,1
+150141,Equipo de servicios ambulatorios,activo,4,debito,1501,0
+15014106,Equipo de servicios ambulatorios,activo,5,debito,150141,1
+15014107,IVA asumido en Equipo de servicios ambul,activo,5,debito,150141,1
+150142,Otros equipos médicos-científico,activo,4,debito,1501,0
+15014206,Otros equipos médicos-científico,activo,5,debito,150142,1
+15014207,IVA asumido en otros equipos médicos-cie,activo,5,debito,150142,1
+150143,Dotación de clínicas y restaurantes-mobi,activo,4,debito,1501,0
+15014306,Dotación de clínicas y restaurantes-mobi,activo,5,debito,150143,1
+15014307,IVA asumido en dotación de clínicas y re,activo,5,debito,150143,1
+150148,Equipo de transporte-autos. camionetas y,activo,4,debito,1501,0
+15014806,Equipo de transporte-autos. camionetas y,activo,5,debito,150148,1
+15014807,IVA asumido en Equipo de transporte-auto,activo,5,debito,150148,1
+150149,Equipo de transporte-ambulancias,activo,4,debito,1501,0
+15014906,Equipo de transporte-ambulancias,activo,5,debito,150149,1
+15014907,IVA asumido en Equipo de transporte-ambu,activo,5,debito,150149,1
+1503,Depreciación acumulada propiedad planta,activo,3,debito,15,0
+150301,Construcciones y edificaciones,activo,4,debito,1503,0
+15030106,Construcciones y edificaciones,activo,5,debito,150301,1
+15030107,IVA asumido en construcciones y edificac,activo,5,debito,150301,1
+15030108,Construcciones y edificaciones - Depreci,activo,5,debito,150301,1
+150302,Maquinaria y equipo,activo,4,debito,1503,0
+15030206,Maquinaria y equipo,activo,5,debito,150302,1
+15030207,IVA asumido en Maquinaria y equipo,activo,5,debito,150302,1
+15030208,Maquinaria y equipo - Depreciacion,activo,5,debito,150302,1
+150303,Equipo de oficina,activo,4,debito,1503,0
+15030306,Equipo de oficina,activo,5,debito,150303,1
+15030307,IVA asumido en Equipo de oficina,activo,5,debito,150303,1
+15030308,Equipo de oficina - Depreciacion,activo,5,debito,150303,1
+150304,Equipo de computación y comunicación,activo,4,debito,1503,0
+15030406,Equipo de computación y comunicación,activo,5,debito,150304,1
+15030407,IVA asumido en Equipo de computación y c,activo,5,debito,150304,1
+15030408,Equipo computo y comunicacion - Deprecia,activo,5,debito,150304,1
+150305,Equipo médico científico,activo,4,debito,1503,0
+15030506,Equipo médico científico,activo,5,debito,150305,1
+15030507,IVA asumido en Equipo médico científico,activo,5,debito,150305,1
+15030508,Equipo médico científico - Depreciacion,activo,5,debito,150305,1
+150306,Dotación de clínicas y restaurantes,activo,4,debito,1503,0
+15030606,Dotación de clínicas y restaurantes,activo,5,debito,150306,1
+15030607,IVA asumido en Dotación de clínicas y re,activo,5,debito,150306,1
+15030608,Dotacion clinicas y restaurantes - Depre,activo,5,debito,150306,1
+150307,Equipo de transporte,activo,4,debito,1503,0
+15030706,Equipo de transporte,activo,5,debito,150307,1
+15030707,IVA asumido en Equipo de transporte,activo,5,debito,150307,1
+15030708,Equipo de transporte - Depreciacion,activo,5,debito,150307,1
+1505,Deterioro / Baja acumulado PPYE,activo,3,debito,15,0
+150501,Construcciones y edificaciones,activo,4,debito,1505,0
+15050106,Construcciones y edificaciones,activo,5,debito,150501,1
+150502,Maquinaria y equipo,activo,4,debito,1505,0
+15050206,Maquinaria y equipo,activo,5,debito,150502,1
+150503,Equipo de oficina,activo,4,debito,1505,0
+15050306,Equipo de oficina,activo,5,debito,150503,1
+150504,Equipo de computación y comunicación,activo,4,debito,1505,0
+15050406,Equipo de computación y comunicación,activo,5,debito,150504,1
+150505,Equipo médico científico,activo,4,debito,1505,0
+15050506,Equipo médico científico,activo,5,debito,150505,1
+150506,Dotación de clínicas y restaurantes,activo,4,debito,1505,0
+15050606,Dotación de clínicas y restaurantes,activo,5,debito,150506,1
+150507,Equipo de transporte,activo,4,debito,1505,0
+15050706,Equipo de transporte,activo,5,debito,150507,1
+150508,Terrenos,activo,4,debito,1505,0
+15050806,Terrenos,activo,5,debito,150508,1
+17,ACTIVOS INTANGIBLES Y DIFERIDOS,activo,2,debito,1,0
+1701,Activos intangibles al costo,activo,3,debito,17,0
+170101,Marcas comerciales,activo,4,debito,1701,0
+17010106,Marcas comerciales,activo,5,debito,170101,1
+170103,Activos diferidos,activo,4,debito,1701,0
+17010306,Seguros,activo,5,debito,170103,1
+17010307,Licencias,activo,5,debito,170103,1
+17010308,Mejoras en propiedad ajena,activo,5,debito,170103,1
+17010309,Otros activos diferidos,activo,5,debito,170103,1
+17010310,Iva Asumido 19%,activo,5,debito,170103,1
+170105,Derechos de propiedad intelectual. paten,activo,4,debito,1701,0
+17010506,Derechos de propiedad intelectual. paten,activo,5,debito,170105,1
+1703,Amortización acumulada de activos intang,activo,3,debito,17,0
+170301,Marcas comerciales,activo,4,debito,1703,0
+17030106,Marcas comerciales,activo,5,debito,170301,1
+1705,Deterioro acumulado de activos intangibl,activo,3,debito,17,0
+170501,Marcas comerciales,activo,4,debito,1705,0
+17050106,Marcas comerciales,activo,5,debito,170501,1
+2,PASIVOS,pasivo,1,credito,,0
+21,PASIVOS FINANCIEROS,pasivo,2,credito,2,0
+2102,Obligaciones financieras al costo amorti,pasivo,3,credito,21,0
+210201,Bancos nacionales-sobregiros bancario,pasivo,4,credito,2102,0
+21020106,Bancos nacionales-sobregiros bancario,pasivo,5,credito,210201,1
+210202,Bancos nacionales-pagares,pasivo,4,credito,2102,0
+21020206,Bancos nacionales-pagares,pasivo,5,credito,210202,1
+210205,Corporaciones financieras-pagares,pasivo,4,credito,2102,0
+21020506,Corporaciones financieras-pagares,pasivo,5,credito,210205,1
+210211,Entidades financieras del exterior-opera,pasivo,4,credito,2102,0
+21021106,Entidades financieras del exterior-opera,pasivo,5,credito,210211,1
+210212,Otras obligaciones-particulares,pasivo,4,credito,2102,0
+21021206,Otras obligaciones-particulares,pasivo,5,credito,210212,1
+210213,Otras obligaciones-compañias vinculadas,pasivo,4,credito,2102,0
+21021306,Otras obligaciones-compañias vinculadas,pasivo,5,credito,210213,1
+2105,Cuentas por pagar-al costo,pasivo,3,credito,21,0
+210501,Proveedores nacionales -bienes y servici,pasivo,4,credito,2105,0
+21050106,Proveedores nacionales -bienes y servici,pasivo,5,credito,210501,1
+210502,Proveedores nacionales -prestadores de s,pasivo,4,credito,2105,0
+21050206,Proveedores nacionales -prestadores de s,pasivo,5,credito,210502,1
+210503,Proveedores nacionales -usuarios,pasivo,4,credito,2105,0
+21050306,Proveedores nacionales -usuarios,pasivo,5,credito,210503,1
+210506,Proveedores del exterior-bienes y servic,pasivo,4,credito,2105,0
+21050606,Proveedores del exterior-bienes y servic,pasivo,5,credito,210506,1
+2109,Cuentas por pagar a vinculados economico,pasivo,3,credito,21,0
+210901,Cuentas por pagar -partes relacionadas,pasivo,4,credito,2109,0
+21090106,Cuentas por pagar -partes relacionadas,pasivo,5,credito,210901,1
+210904,Cuentas por pagar - asociadas,pasivo,4,credito,2109,0
+21090406,Cuentas por pagar - asociadas,pasivo,5,credito,210904,1
+2113,Cuentas por pagar con contratistas -al c,pasivo,3,credito,21,0
+211301,Cuentas por pagar a contratistas naciona,pasivo,4,credito,2113,0
+21130106,Cuentas por pagar a contratistas naciona,pasivo,5,credito,211301,1
+2120,Costos y gastos por pagar al costo,pasivo,3,credito,21,0
+212001,Gastos legales,pasivo,4,credito,2120,0
+21200106,Gastos legales,pasivo,5,credito,212001,1
+212002,Libros. suscripciones. periódicos y revi,pasivo,4,credito,2120,0
+21200206,Libros. suscripciones. periódicos y revi,pasivo,5,credito,212002,1
+212003,Comisiones,pasivo,4,credito,2120,0
+21200306,Comisiones,pasivo,5,credito,212003,1
+212004,Honorarios,pasivo,4,credito,2120,0
+21200406,Honorarios,pasivo,5,credito,212004,1
+212005,Servicios técnicos,pasivo,4,credito,2120,0
+21200506,Servicios técnicos,pasivo,5,credito,212005,1
+212006,Servicios de mantenimiento,pasivo,4,credito,2120,0
+21200606,Servicios de mantenimiento,pasivo,5,credito,212006,1
+212007,Arrendamientos,pasivo,4,credito,2120,0
+21200706,Arrendamiento operativo,pasivo,5,credito,212007,1
+212009,Transportes. fletes y acarreos,pasivo,4,credito,2120,0
+21200906,Transportes. fletes y acarreos,pasivo,5,credito,212009,1
+212010,Servicios públicos,pasivo,4,credito,2120,0
+21201006,Servicios públicos,pasivo,5,credito,212010,1
+212011,Seguros,pasivo,4,credito,2120,0
+21201106,Seguros,pasivo,5,credito,212011,1
+212012,Gastos de viaje,pasivo,4,credito,2120,0
+21201206,Gastos de viaje,pasivo,5,credito,212012,1
+212013,Gastos de representación y relaciones pu,pasivo,4,credito,2120,0
+21201306,Gastos de representación y relaciones pu,pasivo,5,credito,212013,1
+212014,Servicios aduaneros,pasivo,4,credito,2120,0
+21201406,Servicios aduaneros,pasivo,5,credito,212014,1
+212015,Papelería y útiles de oficina,pasivo,4,credito,2120,0
+21201506,Papelería y útiles de oficina,pasivo,5,credito,212015,1
+212016,Otros costos y gastos por pagar,pasivo,4,credito,2120,0
+21201606,Otros costos y gastos por pagar,pasivo,5,credito,212016,1
+21201607,CxP construcciones,pasivo,5,credito,212016,1
+21201608,CxP no deducibles por soporte,pasivo,5,credito,212016,1
+2124,Acreedores oficiales al costo,pasivo,3,credito,21,0
+212401,Gobierno nacional,pasivo,4,credito,2124,0
+21240106,Gobierno nacional,pasivo,5,credito,212401,1
+212402,Entidades oficiales,pasivo,4,credito,2124,0
+21240206,Entidades oficiales,pasivo,5,credito,212402,1
+212403,Entidades territoriales,pasivo,4,credito,2124,0
+21240306,Entidades territoriales,pasivo,5,credito,212403,1
+2127,Cuentas por pagar con socios o accionist,pasivo,3,credito,21,0
+212702,Otras cuentas por pagar con accionistas,pasivo,4,credito,2127,0
+21270206,Otras cuentas por pagar con accionistas,pasivo,5,credito,212702,1
+2130,Dividendos y participaciones por pagar a,pasivo,3,credito,21,0
+213002,Dividendos por pagar,pasivo,4,credito,2130,0
+21300206,Dividendos por pagar,pasivo,5,credito,213002,1
+2131,Retenciones y aportes de nomina,pasivo,3,credito,21,0
+213101,Aportes a seguridad social en salud,pasivo,4,credito,2131,0
+21310106,Aportes a EPS,pasivo,5,credito,213101,1
+21310107,Aportes a pensión,pasivo,5,credito,213101,1
+213102,Aportes a ARP,pasivo,4,credito,2131,0
+21310206,Aportes a ARP,pasivo,5,credito,213102,1
+213103,Aportes al icbf. sena y cajas de compens,pasivo,4,credito,2131,0
+21310306,Aportes al icbf. sena y cajas de compens,pasivo,5,credito,213103,1
+213104,Aportes a fondos pensiónales,pasivo,4,credito,2131,0
+21310406,Aportes a fondos pensiónales,pasivo,5,credito,213104,1
+213105,Embargos judiciales,pasivo,4,credito,2131,0
+21310506,Embargos judiciales,pasivo,5,credito,213105,1
+213106,Libranzas,pasivo,4,credito,2131,0
+21310606,Libranzas,pasivo,5,credito,213106,1
+213108,Cooperativas,pasivo,4,credito,2131,0
+21310806,Cooperativas,pasivo,5,credito,213108,1
+213109,Fondos,pasivo,4,credito,2131,0
+21310906,Fondos Solidaridad pensional - FSP,pasivo,5,credito,213109,1
+213110,Otros,pasivo,4,credito,2131,0
+21311006,Otros,pasivo,5,credito,213110,1
+2132,Acreedores varios al costo amortizado,pasivo,3,credito,21,0
+213201,Otros,pasivo,4,credito,2132,0
+21320106,CxP entre compañias,pasivo,5,credito,213201,1
+21320107,Otras CxP,pasivo,5,credito,213201,1
+22,IMPUESTOS. GRAVAMENES Y TASAS,pasivo,2,credito,2,0
+2201,Retencion en la fuente,pasivo,3,credito,22,0
+220101,Salarios y pagos laborales,pasivo,4,credito,2201,0
+22010101,Salarios y pagos laborales,pasivo,5,credito,220101,1
+22010102,Retencion servicios personales art.383,pasivo,5,credito,220101,1
+22010106,Salarios y pagos laborales,pasivo,5,credito,220101,1
+22010107,Indemnizaciones laborales,pasivo,5,credito,220101,1
+22010108,Retenciones servicios personales art. 38,pasivo,5,credito,220101,1
+220102,Dividendos y/o participaciones,pasivo,4,credito,2201,0
+22010206,Dividendos y/o participaciones,pasivo,5,credito,220102,1
+220103,Honorarios,pasivo,4,credito,2201,0
+22010306,Honorarios 10%,pasivo,5,credito,220103,1
+22010307,Honorarios 11%,pasivo,5,credito,220103,1
+220104,Comisiones,pasivo,4,credito,2201,0
+22010406,Comisiones 10%,pasivo,5,credito,220104,1
+22010407,Comisiones 11%,pasivo,5,credito,220104,1
+220105,Servicios,pasivo,4,credito,2201,0
+22010506,Servicios de salud 2%,pasivo,5,credito,220105,1
+22010507,Servicios 4%,pasivo,5,credito,220105,1
+22010508,Servicios 6%,pasivo,5,credito,220105,1
+22010509,Servicios informaticos 3.5%,pasivo,5,credito,220105,1
+22010510,Servicios de restaurante 3.5%,pasivo,5,credito,220105,1
+22010511,Servicio de transporte de pasajeros 3.5%,pasivo,5,credito,220105,1
+22010512,Servicio de transporte de carga 1%,pasivo,5,credito,220105,1
+22010513,Servicios de aseo y vigilancia 2% AIU,pasivo,5,credito,220105,1
+220106,Arrendamientos,pasivo,4,credito,2201,0
+22010606,Arrendamientos inmuebles 3.5%,pasivo,5,credito,220106,1
+22010607,Arrendamiento muebles 4%,pasivo,5,credito,220106,1
+220107,Rendimientos financieros,pasivo,4,credito,2201,0
+22010706,Rendimientos financieros 7%,pasivo,5,credito,220107,1
+220108,Compras,pasivo,4,credito,2201,0
+22010806,Compras 2.5%,pasivo,5,credito,220108,1
+22010807,Compras 3.5%,pasivo,5,credito,220108,1
+22010808,Compra de combustible 0.10%,pasivo,5,credito,220108,1
+220109,Loterías. rifas. apuestas y similares,pasivo,4,credito,2201,0
+22010906,Loterías. rifas. apuestas y similares 2%,pasivo,5,credito,220109,1
+220110,Por pagos al exterior,pasivo,4,credito,2201,0
+22011006,Por pagos al exterior 20%,pasivo,5,credito,220110,1
+220111,Por ingresos obtenidos en el exterior,pasivo,4,credito,2201,0
+22011106,Por ingresos obtenidos en el exterior,pasivo,5,credito,220111,1
+220112,Pagos retencion en la fuente,pasivo,4,credito,2201,0
+22011201,Pagos por retención en la fuente,pasivo,5,credito,220112,1
+22011202,Pagos retencion en la fuente,pasivo,5,credito,220112,1
+220113,Contratos de construccion,pasivo,4,credito,2201,0
+22011306,Contratos de construccion 2%,pasivo,5,credito,220113,1
+220114,Autorretenciones,pasivo,4,credito,2201,0
+22011406,Autorretenciones 1.1%,pasivo,5,credito,220114,1
+22011407,Autorretencion por pagar 1.1%,pasivo,5,credito,220114,1
+220115,Retención por iva,pasivo,4,credito,2201,0
+22011506,Retención por iva,pasivo,5,credito,220115,1
+220116,Retención por ica,pasivo,4,credito,2201,0
+22011606,Retención por ica,pasivo,5,credito,220116,1
+2202,De renta y complementarios,pasivo,3,credito,22,0
+220201,Vigencia fiscal corriente,pasivo,4,credito,2202,0
+22020106,Vigencia fiscal corriente,pasivo,5,credito,220201,1
+22020107,Vigencia fiscal corriente cxp,pasivo,5,credito,220201,1
+220202,Vigencias fiscales anteriores,pasivo,4,credito,2202,0
+22020206,Vigencias fiscales anteriores,pasivo,5,credito,220202,1
+2203,Impuesto sobre las ventas por pagar,pasivo,3,credito,22,0
+220301,IVA Venta de bienes,pasivo,4,credito,2203,0
+22030106,IVA Venta de bienes 19%,pasivo,5,credito,220301,1
+22030107,IVA Venta de bienes 5%,pasivo,5,credito,220301,1
+220302,IVA Venta de servicios,pasivo,4,credito,2203,0
+22030206,IVA Venta de servicios 19%,pasivo,5,credito,220302,1
+220303,Devoluciones IVA en compras de bienes,pasivo,4,credito,2203,0
+22030306,Devoluciones IVA en compras de bienes 19,pasivo,5,credito,220303,1
+22030307,Devoluciones IVA en compras de bienes 5%,pasivo,5,credito,220303,1
+220304,Devoluciones IVA en compras de servicios,pasivo,4,credito,2203,0
+22030406,Devoluciones IVA en compras de servicios,pasivo,5,credito,220304,1
+220305,IVA Compra de bienes,pasivo,4,credito,2203,0
+22030506,IVA Compra de bienes 19%,pasivo,5,credito,220305,1
+22030507,IVA Compra de bienes 5%,pasivo,5,credito,220305,1
+220306,IVA Compra de servicios,pasivo,4,credito,2203,0
+22030606,IVA Compra de servicios 19%,pasivo,5,credito,220306,1
+22030607,IVA Compra de servicios 5%,pasivo,5,credito,220306,1
+220307,Devoluciones IVA en ventas de bienes,pasivo,4,credito,2203,0
+22030706,Devoluciones IVA en ventas de bienes 19%,pasivo,5,credito,220307,1
+22030707,Devoluciones IVA en ventas de bienes 5%,pasivo,5,credito,220307,1
+220308,Devoluciones IVA en ventas de servicios,pasivo,4,credito,2203,0
+22030806,Devoluciones IVA en ventas de servicios,pasivo,5,credito,220308,1
+220309,Impuesto a las ventas retenido,pasivo,4,credito,2203,0
+22030906,Impuesto a las ventas retenido,pasivo,5,credito,220309,1
+220310,Valor pagado,pasivo,4,credito,2203,0
+22031006,Valor pagado,pasivo,5,credito,220310,1
+220311,Por importaciones,pasivo,4,credito,2203,0
+22031106,Por importaciones,pasivo,5,credito,220311,1
+2204,De industria y comercio,pasivo,3,credito,22,0
+220401,Vigencia fiscal corriente,pasivo,4,credito,2204,0
+22040106,Vigencia fiscal corriente,pasivo,5,credito,220401,1
+22040107,Retenciones ICA practicadas,pasivo,5,credito,220401,1
+220402,Vigencias fiscales anteriores,pasivo,4,credito,2204,0
+22040206,Vigencias fiscales anteriores,pasivo,5,credito,220402,1
+2205,A la propiedad raiz,pasivo,3,credito,22,0
+220501,Impuesto predial,pasivo,4,credito,2205,0
+22050106,Impuesto predial,pasivo,5,credito,220501,1
+2208,De vehiculos,pasivo,3,credito,22,0
+220801,Vigencia fiscal corriente,pasivo,4,credito,2208,0
+22080106,Vigencia fiscal corriente,pasivo,5,credito,220801,1
+220802,Vigencias fiscales anteriores,pasivo,4,credito,2208,0
+22080206,Vigencias fiscales anteriores,pasivo,5,credito,220802,1
+2211,Otros impuestos,pasivo,3,credito,22,0
+221101,Contribución sobre transacciones financi,pasivo,4,credito,2211,0
+22110106,Contribución sobre transacciones financi,pasivo,5,credito,221101,1
+221103,Multas y sanciones,pasivo,4,credito,2211,0
+22110306,Multas y sanciones,pasivo,5,credito,221103,1
+221104,Intereses de mora,pasivo,4,credito,2211,0
+22110406,Intereses de mora,pasivo,5,credito,221104,1
+221107,Otros impuestos departamentales,pasivo,4,credito,2211,0
+22110706,Otros impuestos departamentales,pasivo,5,credito,221107,1
+221108,Otros impuestos municipales,pasivo,4,credito,2211,0
+22110806,Otros impuestos municipales,pasivo,5,credito,221108,1
+221110,Otros impuestos nacionales,pasivo,4,credito,2211,0
+22111006,Otros impuestos nacionales,pasivo,5,credito,221110,1
+2212,Impuesto diferido pasivo,pasivo,3,credito,22,0
+221201,Efectivo y equivalentes al efectivo,pasivo,4,credito,2212,0
+22120106,Impuesto diferido efectivo y equivalente,pasivo,5,credito,221201,1
+221202,Inversiones e instrumentos derivados,pasivo,4,credito,2212,0
+22120206,Impuesto diferido inversiones e instrume,pasivo,5,credito,221202,1
+221203,Cuentas por cobrar,pasivo,4,credito,2212,0
+22120306,Impuesto diferido cuentas por cobrar,pasivo,5,credito,221203,1
+22120307,Impuesto diferido cxc,pasivo,5,credito,221203,1
+221204,Inventarios,pasivo,4,credito,2212,0
+22120406,Impuesto diferido Inventarios,pasivo,5,credito,221204,1
+221205,Propiedades. planta y equipo,pasivo,4,credito,2212,0
+22120506,Impuesto diferido Propiedades. planta y,pasivo,5,credito,221205,1
+221208,Otros activos,pasivo,4,credito,2212,0
+22120806,Impuesto diferido Otros activos,pasivo,5,credito,221208,1
+23,BENEFICIOS A LOS EMPLEADOS,pasivo,2,credito,2,0
+2301,Beneficios a los empleados a corto plazo,pasivo,3,credito,23,0
+230101,Nomina por pagar,pasivo,4,credito,2301,0
+23010106,Nomina por pagar,pasivo,5,credito,230101,1
+230102,Cesantias,pasivo,4,credito,2301,0
+23010206,Cesantias,pasivo,5,credito,230102,1
+230103,Intereses sobre cesantías,pasivo,4,credito,2301,0
+23010306,Intereses sobre cesantías,pasivo,5,credito,230103,1
+230104,Vacaciones,pasivo,4,credito,2301,0
+23010406,Vacaciones,pasivo,5,credito,230104,1
+230106,Prima de servicios,pasivo,4,credito,2301,0
+23010606,Prima de servicios,pasivo,5,credito,230106,1
+230108,Bonificaciones,pasivo,4,credito,2301,0
+23010806,Bonificaciones,pasivo,5,credito,230108,1
+230109,Otras primas,pasivo,4,credito,2301,0
+23010906,Otras primas,pasivo,5,credito,230109,1
+230110,Aportes a riesgos laborales,pasivo,4,credito,2301,0
+23011006,Aportes a riesgos laborales,pasivo,5,credito,230110,1
+230114,Capacitación. bienestar social y estímul,pasivo,4,credito,2301,0
+23011406,Capacitación. bienestar social y estímul,pasivo,5,credito,230114,1
+230115,Dotación y suministro a trabajadores,pasivo,4,credito,2301,0
+23011506,Dotación y suministro a trabajadores,pasivo,5,credito,230115,1
+230118,Gastos de viaje,pasivo,4,credito,2301,0
+23011806,Gastos de viaje,pasivo,5,credito,230118,1
+230119,Comisiones,pasivo,4,credito,2301,0
+23011906,Comisiones,pasivo,5,credito,230119,1
+230120,Aportes a fondos pensionales - empleado,pasivo,4,credito,2301,0
+23012006,Aportes a fondos pensionales - empleado,pasivo,5,credito,230120,1
+230121,Aportes a seguridad social en salud - em,pasivo,4,credito,2301,0
+23012106,Aportes a seguridad social en salud - em,pasivo,5,credito,230121,1
+230122,Aportes a cajas de compensación familiar,pasivo,4,credito,2301,0
+23012206,Aportes a cajas de compensación familiar,pasivo,5,credito,230122,1
+230123,Otros salarios y prestaciones sociales,pasivo,4,credito,2301,0
+23012306,Otros salarios y prestaciones sociales,pasivo,5,credito,230123,1
+2303,Beneficios por terminación del vínculo l,pasivo,3,credito,23,0
+230301,Indemnizaciones,pasivo,4,credito,2303,0
+23030106,Indemnizaciones,pasivo,5,credito,230301,1
+24,PASIVOS ESTIMADOS Y PROVISIONES,pasivo,2,credito,2,0
+2401,Litigios y demandas,pasivo,3,credito,24,0
+240101,Civiles,pasivo,4,credito,2401,0
+24010106,Civiles,pasivo,5,credito,240101,1
+240102,Penales,pasivo,4,credito,2401,0
+24010206,Penales,pasivo,5,credito,240102,1
+240103,Administrativas,pasivo,4,credito,2401,0
+24010306,Administrativas,pasivo,5,credito,240103,1
+240104,Obligaciones fiscales,pasivo,4,credito,2401,0
+24010406,Obligaciones fiscales,pasivo,5,credito,240104,1
+240105,Demandas y litigios Laborales,pasivo,4,credito,2401,0
+24010506,Demandas y litigios Laborales,pasivo,5,credito,240105,1
+240106,Otros litigios y demandas,pasivo,4,credito,2401,0
+24010606,Otros litigios y demandas,pasivo,5,credito,240106,1
+2402,Para costos y gastos,pasivo,3,credito,24,0
+240201,Intereses,pasivo,4,credito,2402,0
+24020106,Intereses,pasivo,5,credito,240201,1
+240202,Comisiones,pasivo,4,credito,2402,0
+24020206,Comisiones,pasivo,5,credito,240202,1
+240203,Honorarios,pasivo,4,credito,2402,0
+24020306,Honorarios,pasivo,5,credito,240203,1
+240211,Otros costos y gastos estimados,pasivo,4,credito,2402,0
+24021106,Otros costos y gastos estimados,pasivo,5,credito,240211,1
+24021110,Ordenes pendientes por factura,pasivo,5,credito,240211,1
+2403,Para obligaciones fiscales,pasivo,3,credito,24,0
+240301,De renta y complementarios,pasivo,4,credito,2403,0
+24030106,De renta y complementarios,pasivo,5,credito,240301,1
+240302,De industria y comercio,pasivo,4,credito,2403,0
+24030206,De industria y comercio,pasivo,5,credito,240302,1
+240304,De vehículos,pasivo,4,credito,2403,0
+24030406,De vehículos,pasivo,5,credito,240304,1
+240306,Otros,pasivo,4,credito,2403,0
+24030606,Otros,pasivo,5,credito,240306,1
+25,Otros PASIVOS- ANTICIPOS Y AVANCES RECIB,pasivo,2,credito,2,0
+2501,Otros pasivos -anticipos y avances recib,pasivo,3,credito,25,0
+250101,Por servicios de salud,pasivo,4,credito,2501,0
+25010106,Copagos y cuotas moderadoras,pasivo,5,credito,250101,1
+250102,Sobre contratos,pasivo,4,credito,2501,0
+25010206,Sobre contratos,pasivo,5,credito,250102,1
+250104,Otros anticipos y avances recibidos,pasivo,4,credito,2501,0
+25010406,Otros anticipos y avances recibidos,pasivo,5,credito,250104,1
+25010407,Recaudo particulares,pasivo,5,credito,250104,1
+25010408,Partidas conciliatorias,pasivo,5,credito,250104,1
+2505,Cuentas en participacion,pasivo,3,credito,25,0
+250501,En prestación de servicios,pasivo,4,credito,2505,0
+25050106,En prestación de servicios,pasivo,5,credito,250501,1
+3,PATRIMONIO,patrimonio,1,credito,,0
+31,PATRIMONIO DE LAS ENTIDADES,patrimonio,2,credito,3,0
+3101,Capital suscrito y pagado,patrimonio,3,credito,31,0
+310101,Capital autorizado,patrimonio,4,credito,3101,0
+31010106,Capital autorizado,patrimonio,5,credito,310101,1
+310102,Capital por suscribir (db),patrimonio,4,credito,3101,0
+31010206,Capital por suscribir (db),patrimonio,5,credito,310102,1
+310103,Capital suscrito por cobrar (db),patrimonio,4,credito,3101,0
+31010306,Capital suscrito por cobrar (db),patrimonio,5,credito,310103,1
+32,SUPERAVIT DE CAPITAL,patrimonio,2,credito,3,0
+3201,Superavit de capital,patrimonio,3,credito,32,0
+320101,Prima en colocación de acciones,patrimonio,4,credito,3201,0
+32010106,Prima en colocación de acciones,patrimonio,5,credito,320101,1
+3202,Donaciones,patrimonio,3,credito,32,0
+320201,En dinero,patrimonio,4,credito,3202,0
+32020106,En dinero,patrimonio,5,credito,320201,1
+32020107,En especie,patrimonio,5,credito,320201,1
+33,RESERVAS,patrimonio,2,credito,3,0
+3301,Reservas obligatorias,patrimonio,3,credito,33,0
+330101,Reservas obligatorias-reserva legal,patrimonio,4,credito,3301,0
+33010106,Reservas obligatorias-reserva legal,patrimonio,5,credito,330101,1
+3302,Reservas estatutarias,patrimonio,3,credito,33,0
+330201,Reservas estatutarias-para futuras capit,patrimonio,4,credito,3302,0
+33020106,Reservas estatutarias-para futuras capit,patrimonio,5,credito,330201,1
+34,DIVIDENDOS O PARTICIPACIONES DECRETADOS,patrimonio,2,credito,3,0
+3401,Dividendos decretados en acciones,patrimonio,3,credito,34,0
+340101,Dividendos decretados en acciones,patrimonio,4,credito,3401,0
+34010106,Dividendos decretados en acciones,patrimonio,5,credito,340101,1
+35,RESULTADOS DEL EJERCICIO,patrimonio,2,credito,3,0
+3501,Resultados del ejercicio,patrimonio,3,credito,35,0
+350101,Resultado del ejercicio de operaciones c,patrimonio,4,credito,3501,0
+35010106,Resultado del ejercicio de operaciones c,patrimonio,5,credito,350101,1
+3502,Resultados acumulados,patrimonio,3,credito,35,0
+350201,Utilidades o excedentes acumulados,patrimonio,4,credito,3502,0
+35020106,Utilidades o excedentes acumulados,patrimonio,5,credito,350201,1
+350205,Pérdidas acumuladas,patrimonio,4,credito,3502,0
+35020506,Pérdidas acumuladas,patrimonio,5,credito,350205,1
+3503,Transición -posterior al nuevo marco téc,patrimonio,3,credito,35,0
+3504,Otros resultados integrales,patrimonio,3,credito,35,0
+350401,Ganancias o pérdidas por cambios en el s,patrimonio,4,credito,3504,0
+35040106,Ganancias o pérdidas por cambios en el s,patrimonio,5,credito,350401,1
+4,INGRESOS,ingreso,1,credito,,0
+41,INGRESOS DE ACTIVIDADES ORDINARIAS DE LA,ingreso,2,credito,4,0
+4101,Ingresos de las Instituciones Prestadora,ingreso,3,credito,41,0
+410101,Unidad funcional de urgencias,ingreso,4,credito,4101,0
+41010106,Unidad funcional de urgencias,ingreso,5,credito,410101,1
+410102,Unidad funcional de consulta externa,ingreso,4,credito,4101,0
+41010206,Unidad funcional de consulta externa,ingreso,5,credito,410102,1
+41010207,Descuentos otorgados CE,ingreso,5,credito,410102,1
+41010299,Provision de ingresos no facturados,ingreso,5,credito,410102,1
+410103,Unidad funcional de hospitalización e in,ingreso,4,credito,4101,0
+41010306,Unidad funcional de hospitalización e in,ingreso,5,credito,410103,1
+410104,Unidad funcional de quirófanos y salas d,ingreso,4,credito,4101,0
+41010406,Unidad funcional de quirófanos y salas d,ingreso,5,credito,410104,1
+410105,Unidad funcional de apoyo diagnostico,ingreso,4,credito,4101,0
+41010506,Unidad funcional de apoyo diagnostico,ingreso,5,credito,410105,1
+410106,Unidad funcional de apoyo terapéutico,ingreso,4,credito,4101,0
+41010606,Unidad funcional de apoyo terapéutico,ingreso,5,credito,410106,1
+410107,Unidad funcional de mercadeo,ingreso,4,credito,4101,0
+41010706,Unidad funcional de mercadeo,ingreso,5,credito,410107,1
+410108,Otras actividades relacionadas con la sa,ingreso,4,credito,4101,0
+41010806,Otras actividades relacionadas con la sa,ingreso,5,credito,410108,1
+4175,Devoluciones en ventas,ingreso,3,credito,41,0
+41750101,Devoluciones en ventas,ingreso,5,credito,4175,1
+42,INGRESOS FINANCIEROS,ingreso,2,credito,4,0
+4201,Financieros,ingreso,3,credito,42,0
+420102,Inversiones en instrumentos de deuda a,ingreso,4,credito,4201,0
+42010206,Inversiones en instrumentos de deuda a,ingreso,5,credito,420102,1
+420123,Intereses,ingreso,4,credito,4201,0
+42012306,Intereses,ingreso,5,credito,420123,1
+42012307,Intereses presuntivos,ingreso,5,credito,420123,1
+4202,Dividendos y participaciones,ingreso,3,credito,42,0
+420201,De sociedades anónimas y/o asimiladas,ingreso,4,credito,4202,0
+42020106,De sociedades anónimas y/o asimiladas,ingreso,5,credito,420201,1
+4204,Arrendamientos operativos,ingreso,3,credito,42,0
+420402,Construcciones o edificaciones,ingreso,4,credito,4204,0
+42040206,Construcciones o edificaciones,ingreso,5,credito,420402,1
+420403,Maquinaria,ingreso,4,credito,4204,0
+42040306,Maquinaria,ingreso,5,credito,420403,1
+420404,Equipo médico científico,ingreso,4,credito,4204,0
+42040406,Equipo médico científico,ingreso,5,credito,420404,1
+420405,Equipo de oficina,ingreso,4,credito,4204,0
+42040506,Equipo de oficina,ingreso,5,credito,420405,1
+420406,Muebles y enseres,ingreso,4,credito,4204,0
+42040606,Muebles y enseres,ingreso,5,credito,420406,1
+4207,Honorarios,ingreso,3,credito,42,0
+420701,Asesorías,ingreso,4,credito,4207,0
+42070106,Asesorías,ingreso,5,credito,420701,1
+4208,Servicios,ingreso,3,credito,42,0
+420801,Administrativos,ingreso,4,credito,4208,0
+42080106,Administrativos,ingreso,5,credito,420801,1
+420802,Otros servicios,ingreso,4,credito,4208,0
+42080206,Otros servicios,ingreso,5,credito,420802,1
+4209,Ingreso por disposición de activos,ingreso,3,credito,42,0
+4210,Recuperaciones deterioro,ingreso,3,credito,42,0
+4211,Recuperaciones,ingreso,3,credito,42,0
+421106,Reintegro provisiones,ingreso,4,credito,4211,0
+42110606,Reintegro de Incapacidades,ingreso,5,credito,421106,1
+421108,De depreciación,ingreso,4,credito,4211,0
+42110806,De depreciación,ingreso,5,credito,421108,1
+421109,Reintegro de Otros costos y gastos,ingreso,4,credito,4211,0
+42110906,Reintegro de Otros costos y gastos,ingreso,5,credito,421109,1
+421110,Otras recuperaciones,ingreso,4,credito,4211,0
+42111006,Otras recuperaciones,ingreso,5,credito,421110,1
+4212,Indemnizaciones,ingreso,3,credito,42,0
+4213,Reversión de las pérdidas por deterioro,ingreso,3,credito,42,0
+4214,Diversos,ingreso,3,credito,42,0
+421401,Aprovechamientos,ingreso,4,credito,4214,0
+42140106,Aprovechamientos,ingreso,5,credito,421401,1
+421402,Auxilios,ingreso,4,credito,4214,0
+42140206,Auxilios,ingreso,5,credito,421402,1
+421406,Multas y recargos,ingreso,4,credito,4214,0
+42140606,Multas y recargos,ingreso,5,credito,421406,1
+421409,Recobro de daños,ingreso,4,credito,4214,0
+42140906,Recobro de daños,ingreso,5,credito,421409,1
+421412,Sobrantes caja menor,ingreso,4,credito,4214,0
+42141206,Sobrantes caja menor,ingreso,5,credito,421412,1
+421413,Útiles. papelería y fotocopias,ingreso,4,credito,4214,0
+42141306,Útiles. papelería y fotocopias,ingreso,5,credito,421413,1
+421414,Ajuste al peso,ingreso,4,credito,4214,0
+42141406,Ajuste al peso,ingreso,5,credito,421414,1
+421416,Otros ingresos diversos,ingreso,4,credito,4214,0
+42141606,Otros ingresos diversos,ingreso,5,credito,421416,1
+4215,Ajuste por diferencia en cambio,ingreso,3,credito,42,0
+421501,Efectivo y equivalentes al efectivo,ingreso,4,credito,4215,0
+42150106,Efectivo y equivalentes al efectivo,ingreso,5,credito,421501,1
+421502,Cuentas por cobrar,ingreso,4,credito,4215,0
+42150206,Cuentas por cobrar,ingreso,5,credito,421502,1
+421505,Inversiones,ingreso,4,credito,4215,0
+42150506,Inversiones,ingreso,5,credito,421505,1
+5,GASTOS,gasto,1,debito,,0
+51,DE ADMINISTRACION,gasto,2,debito,5,0
+5101,Beneficios a los empleados,gasto,3,debito,51,0
+510101,Sueldos,gasto,4,debito,5101,0
+51010106,Sueldos,gasto,5,debito,510101,1
+51010107,Apoyo aprendices,gasto,5,debito,510101,1
+510102,Salario integral,gasto,4,debito,5101,0
+51010206,Salario integral,gasto,5,debito,510102,1
+510106,Horas extras y recargos,gasto,4,debito,5101,0
+51010606,Horas extras,gasto,5,debito,510106,1
+51010607,Recargos Nocturnos,gasto,5,debito,510106,1
+51010608,Recargos dominicales y festivos,gasto,5,debito,510106,1
+510107,Subsidio de alimentación,gasto,4,debito,5101,0
+51010706,Bonos de alimentacion,gasto,5,debito,510107,1
+51010707,Alimentación directa,gasto,5,debito,510107,1
+510108,Auxilio de transporte,gasto,4,debito,5101,0
+51010806,Auxilio de transporte,gasto,5,debito,510108,1
+510109,Bonificaciones,gasto,4,debito,5101,0
+51010906,Bonificacion Salarial,gasto,5,debito,510109,1
+51010907,Bonificacion no Salarial,gasto,5,debito,510109,1
+510112,Otros beneficios económicos,gasto,4,debito,5101,0
+51011206,Auxilio de movilidad y rodamiento,gasto,5,debito,510112,1
+51011207,Otros beneficios económicos,gasto,5,debito,510112,1
+5102,Otros gastos por nómina,gasto,3,debito,51,0
+510201,Incapacidades,gasto,4,debito,5102,0
+51020106,Incapacidades,gasto,5,debito,510201,1
+510205,Indemnizaciones laborales,gasto,4,debito,5102,0
+51020506,Indemnizaciones laborales,gasto,5,debito,510205,1
+5103,Aportes seguridad social,gasto,3,debito,51,0
+510301,Aportes arl,gasto,4,debito,5103,0
+51030106,Aportes arl,gasto,5,debito,510301,1
+510302,Aportes a eps,gasto,4,debito,5103,0
+51030206,Aportes a eps,gasto,5,debito,510302,1
+510303,Aportes a fondos de pensiones y/o cesant,gasto,4,debito,5103,0
+51030306,Aportes a fondos de pensiones y/o cesant,gasto,5,debito,510303,1
+510304,Aportes cajas de compensación familiar,gasto,4,debito,5103,0
+51030406,Aportes cajas de compensación familiar,gasto,5,debito,510304,1
+5104,Aportes sobre la nomina,gasto,3,debito,51,0
+510401,Aportes icbf,gasto,4,debito,5104,0
+51040106,Aportes icbf,gasto,5,debito,510401,1
+510402,Sena,gasto,4,debito,5104,0
+51040206,Sena,gasto,5,debito,510402,1
+5105,Prestaciones sociales,gasto,3,debito,51,0
+510501,Cesantías,gasto,4,debito,5105,0
+51050106,Cesantías,gasto,5,debito,510501,1
+510502,Intereses sobre cesantías,gasto,4,debito,5105,0
+51050206,Intereses sobre cesantías,gasto,5,debito,510502,1
+510503,Vacaciones,gasto,4,debito,5105,0
+51050306,Vacaciones,gasto,5,debito,510503,1
+510505,Prima de servicios,gasto,4,debito,5105,0
+51050506,Prima de servicios,gasto,5,debito,510505,1
+510508,Bienestar social y estimulos,gasto,4,debito,5105,0
+51050806,Bienestar social y estimulos,gasto,5,debito,5105,1
+51050807,Bienestar social y estimulos,gasto,5,debito,510508,1
+5106,Gastos de personal diversos,gasto,3,debito,51,0
+510601,Comisiones,gasto,4,debito,5106,0
+51060106,Comisiones,gasto,5,debito,510601,1
+510602,Viáticos ocasionales,gasto,4,debito,5106,0
+51060206,Viáticos ocasionales,gasto,5,debito,510602,1
+510604,Dotación y suministro a trabajadores,gasto,4,debito,5106,0
+51060406,Dotación y suministro a trabajadores,gasto,5,debito,510604,1
+510605,Capacitación al personal,gasto,4,debito,5106,0
+51060506,Capacitación al personal,gasto,5,debito,510605,1
+51060507,Auxilios de Educacion,gasto,5,debito,510605,1
+510607,Elementos de proteccion personal,gasto,4,debito,5106,0
+51060706,Elementos de proteccion personal,gasto,5,debito,510607,1
+510608,Gastos medicos y drogas,gasto,4,debito,5106,0
+51060806,Gastos medicos y drogas,gasto,5,debito,510608,1
+5107,Gastos por honorarios,gasto,3,debito,51,0
+510702,Revisoría fiscal,gasto,4,debito,5107,0
+51070206,Revisoría fiscal,gasto,5,debito,510702,1
+510703,Auditoría externa,gasto,4,debito,5107,0
+51070306,Auditoría externa,gasto,5,debito,510703,1
+510705,Asesoría jurídica,gasto,4,debito,5107,0
+51070506,Asesoría jurídica,gasto,5,debito,510705,1
+510706,Asesoría financiera,gasto,4,debito,5107,0
+51070606,Asesoría financiera,gasto,5,debito,510706,1
+510707,Asesoría técnica,gasto,4,debito,5107,0
+51070706,Asesoría técnica,gasto,5,debito,510707,1
+510708,Otros honorarios,gasto,4,debito,5107,0
+51070806,Otros honorarios ART 383 ET,gasto,5,debito,510708,1
+5108,Gastos por impuestos,gasto,3,debito,51,0
+510801,Industria y comercio,gasto,4,debito,5108,0
+51080106,Industria y comercio,gasto,5,debito,510801,1
+51080107,Avisos y tableros,gasto,5,debito,510801,1
+51080108,Sobretasa bomberil,gasto,5,debito,510801,1
+510803,Impuesto predial,gasto,4,debito,5108,0
+51080306,Impuesto predial,gasto,5,debito,510803,1
+510807,De vehículos,gasto,4,debito,5108,0
+51080706,De vehículos,gasto,5,debito,510807,1
+510810,Iva asumido,gasto,4,debito,5108,0
+51081006,IVA asumido compras 19%,gasto,5,debito,510810,1
+51081007,IVA asumido compras 5%,gasto,5,debito,510810,1
+51081008,IVA asumido servicios 19%,gasto,5,debito,510810,1
+51081009,IVA asumido honorarios 19%,gasto,5,debito,510810,1
+51081010,IVA asumido arrendamientos 19%,gasto,5,debito,510810,1
+51081011,IVA asumido seguros 19%,gasto,5,debito,510810,1
+51081012,IVA asumido gastos generales 19%,gasto,5,debito,510810,1
+510812,Otros impuestos,gasto,4,debito,5108,0
+51081206,Impuesto al consumo,gasto,5,debito,510812,1
+51081207,Impuesto a las bolsas,gasto,5,debito,510812,1
+51081208,Tasa especial de seg y conv ciudadana,gasto,5,debito,510812,1
+51081209,Impuesto de timbre,gasto,5,debito,510812,1
+51081210,Impuesto de timbre,gasto,5,debito,510812,1
+5109,Arrendamientos operativos,gasto,3,debito,51,0
+510902,Construcciones o edificaciones,gasto,4,debito,5109,0
+51090206,Construcciones o edificaciones,gasto,5,debito,510902,1
+51090207,Administracion de Locales,gasto,5,debito,510902,1
+510903,Maquinaria,gasto,4,debito,5109,0
+51090306,Maquinaria,gasto,5,debito,510903,1
+510904,Equipo médico-científico,gasto,4,debito,5109,0
+51090406,Equipo médico-científico,gasto,5,debito,510904,1
+510905,Equipo de oficina,gasto,4,debito,5109,0
+51090506,Equipo de oficina,gasto,5,debito,510905,1
+510906,Muebles y enseres,gasto,4,debito,5109,0
+51090606,Muebles y enseres,gasto,5,debito,510906,1
+510907,Equipo de transporte,gasto,4,debito,5109,0
+51090706,Equipo de transporte,gasto,5,debito,510907,1
+510908,Otros activos,gasto,4,debito,5109,0
+51090806,Otros activos,gasto,5,debito,510908,1
+5111,Contribuciones y afiliaciones,gasto,3,debito,51,0
+511101,Contribuciones,gasto,4,debito,5111,0
+51110106,Contribuciones,gasto,5,debito,511101,1
+511102,Afiliaciones y sostenimiento,gasto,4,debito,5111,0
+51110206,Afiliaciones y sostenimiento,gasto,5,debito,511102,1
+5112,Seguros,gasto,3,debito,51,0
+511201,Manejo,gasto,4,debito,5112,0
+51120106,Manejo,gasto,5,debito,511201,1
+511202,Cumplimiento,gasto,4,debito,5112,0
+51120206,Cumplimiento,gasto,5,debito,511202,1
+511203,Vida colectiva,gasto,4,debito,5112,0
+51120306,Vida colectiva,gasto,5,debito,511203,1
+511204,Incendio,gasto,4,debito,5112,0
+51120406,Incendio,gasto,5,debito,511204,1
+511205,Terremoto,gasto,4,debito,5112,0
+51120506,Terremoto,gasto,5,debito,511205,1
+511206,Sustracción y hurto,gasto,4,debito,5112,0
+51120606,Sustracción y hurto,gasto,5,debito,511206,1
+511207,Equipo de transporte,gasto,4,debito,5112,0
+51120706,Equipo de transporte,gasto,5,debito,511207,1
+511210,Responsabilidad civil y extracontractual,gasto,4,debito,5112,0
+51121006,Responsabilidad civil y extracontractual,gasto,5,debito,511210,1
+511212,Obligatorio accidente de tránsito,gasto,4,debito,5112,0
+51121206,Obligatorio accidente de tránsito,gasto,5,debito,511212,1
+511214,Transporte,gasto,4,debito,5112,0
+51121406,Transporte,gasto,5,debito,511214,1
+511215,Seguros de educación,gasto,4,debito,5112,0
+51121506,Seguros de educación,gasto,5,debito,511215,1
+5113,Servicios,gasto,3,debito,51,0
+511301,Servicio de aseo,gasto,4,debito,5113,0
+51130106,Servicio de aseo,gasto,5,debito,511301,1
+511302,Vigilancia,gasto,4,debito,5113,0
+51130206,Vigilancia,gasto,5,debito,511302,1
+511303,Temporales,gasto,4,debito,5113,0
+51130306,Temporales,gasto,5,debito,511303,1
+511304,Asistencia técnica,gasto,4,debito,5113,0
+51130406,Asistencia técnica,gasto,5,debito,511304,1
+511305,Procesamiento electrónico de datos,gasto,4,debito,5113,0
+51130506,Licencias y Software,gasto,5,debito,511305,1
+511306,Acueducto y alcantarillado,gasto,4,debito,5113,0
+51130606,Acueducto y alcantarillado,gasto,5,debito,511306,1
+511307,Energía eléctrica,gasto,4,debito,5113,0
+51130706,Energía eléctrica,gasto,5,debito,511307,1
+511308,Telefonia e internet,gasto,4,debito,5113,0
+51130806,Telefonia e internet,gasto,5,debito,511308,1
+511309,Transporte. fletes y acarreos,gasto,4,debito,5113,0
+51130906,Transporte. fletes y acarreos,gasto,5,debito,511309,1
+511310,Gas,gasto,4,debito,5113,0
+51131006,Gas,gasto,5,debito,511310,1
+511311,Publicidad,gasto,4,debito,5113,0
+51131106,Publicidad,gasto,5,debito,511311,1
+511312,Comunicaciones,gasto,4,debito,5113,0
+51131206,Comunicaciones,gasto,5,debito,511312,1
+511313,Otros servicios,gasto,4,debito,5113,0
+51131306,Otros servicios,gasto,5,debito,511313,1
+511314,Servicio de restaurante,gasto,4,debito,5113,0
+51131406,Servicio de restaurante,gasto,5,debito,511314,1
+5114,Gastos legales,gasto,3,debito,51,0
+511401,Notariales,gasto,4,debito,5114,0
+51140106,Notariales,gasto,5,debito,511401,1
+511402,Registro mercantil,gasto,4,debito,5114,0
+51140206,Registro mercantil,gasto,5,debito,511402,1
+511403,Trámites y licencias,gasto,4,debito,5114,0
+51140306,Trámites y licencias,gasto,5,debito,511403,1
+511404,Aduaneros,gasto,4,debito,5114,0
+51140406,Aduaneros,gasto,5,debito,511404,1
+511406,Otros gastos legales,gasto,4,debito,5114,0
+51140606,Otros gastos legales,gasto,5,debito,511406,1
+5115,Gastos de reparacion y mantenimiento,gasto,3,debito,51,0
+511502,Construcciones y edificaciones,gasto,4,debito,5115,0
+51150206,Construcciones y edificaciones,gasto,5,debito,511502,1
+511503,Maquinaria y equipo,gasto,4,debito,5115,0
+51150306,Maquinaria y equipo,gasto,5,debito,511503,1
+511504,Equipo médico-científico,gasto,4,debito,5115,0
+51150406,Equipo médico-científico,gasto,5,debito,511504,1
+511505,Equipo de oficina,gasto,4,debito,5115,0
+51150506,Equipo de oficina,gasto,5,debito,511505,1
+511506,Equipo de computación y comunicación,gasto,4,debito,5115,0
+51150606,Equipo de computación y comunicación,gasto,5,debito,511506,1
+511509,Equipo de transporte,gasto,4,debito,5115,0
+51150906,Equipo de transporte,gasto,5,debito,511509,1
+511512,Otros mantenimientos y reparaciones,gasto,4,debito,5115,0
+51151206,Otros mantenimientos y reparaciones,gasto,5,debito,511512,1
+5116,Adecuación e instalación,gasto,3,debito,51,0
+511601,Instalaciones eléctricas,gasto,4,debito,5116,0
+51160106,Instalaciones eléctricas,gasto,5,debito,511601,1
+511602,Arreglos ornamentales,gasto,4,debito,5116,0
+51160206,Arreglos ornamentales,gasto,5,debito,511602,1
+511603,Reparaciones locativas,gasto,4,debito,5116,0
+51160306,Reparaciones locativas,gasto,5,debito,511603,1
+51160307,Muebles y enseres,gasto,5,debito,511603,1
+51160308,Equipo de oficina,gasto,5,debito,511603,1
+5117,Gastos de transporte,gasto,3,debito,51,0
+511701,Alojamiento y manutención,gasto,4,debito,5117,0
+51170106,Alojamiento y manutención,gasto,5,debito,511701,1
+511703,Pasajes aéreos,gasto,4,debito,5117,0
+51170306,Pasajes aéreos,gasto,5,debito,511703,1
+511704,Pasajes terrestres,gasto,4,debito,5117,0
+51170406,Pasajes terrestres,gasto,5,debito,511704,1
+511705,Otros gastos de transporte,gasto,4,debito,5117,0
+51170506,Otros gastos de transporte,gasto,5,debito,511705,1
+5118,Depreciación de propiedades. planta y eq,gasto,3,debito,51,0
+511801,Edificaciones,gasto,4,debito,5118,0
+51180106,Edificaciones,gasto,5,debito,511801,1
+511802,Maquinaria y equipo,gasto,4,debito,5118,0
+51180206,Maquinaria y equipo,gasto,5,debito,511802,1
+511803,Equipo de oficina,gasto,4,debito,5118,0
+51180306,Equipo de oficina,gasto,5,debito,511803,1
+511804,Equipo de computación y comunicación,gasto,4,debito,5118,0
+51180406,Equipo de computación y comunicación,gasto,5,debito,511804,1
+511805,Equipo médico-científico,gasto,4,debito,5118,0
+51180506,Equipo médico-científico,gasto,5,debito,511805,1
+511806,Equipo de transporte,gasto,4,debito,5118,0
+51180606,Equipo de transporte,gasto,5,debito,511806,1
+5121,Deterioro de inversiones,gasto,3,debito,51,0
+512101,Inversiones en instrumentos de deuda a,gasto,4,debito,5121,0
+51210106,Inversiones en instrumentos de deuda a,gasto,5,debito,512101,1
+5122,Deterioro de cuentas por cobrar,gasto,3,debito,51,0
+512202,Deudores del sistema- costo amortizado,gasto,4,debito,5122,0
+51220206,Deudores del sistema- costo amortizado,gasto,5,debito,512202,1
+5123,Deterioro de inventarios,gasto,3,debito,51,0
+512301,Inventarios para ser vendidos,gasto,4,debito,5123,0
+51230106,Inventarios para ser vendidos,gasto,5,debito,512301,1
+5124,Deterioro de propiedades. planta y equip,gasto,3,debito,51,0
+512401,Terrenos,gasto,4,debito,5124,0
+51240106,Terrenos,gasto,5,debito,512401,1
+512402,Construcciones y edificaciones,gasto,4,debito,5124,0
+51240206,Construcciones y edificaciones,gasto,5,debito,512402,1
+512403,Maquinaria y equipo,gasto,4,debito,5124,0
+51240306,Maquinaria y equipo,gasto,5,debito,512403,1
+512404,Equipo de oficina,gasto,4,debito,5124,0
+51240406,Equipo de oficina,gasto,5,debito,512404,1
+512405,Equipo de computación y comunicación,gasto,4,debito,5124,0
+51240506,Equipo de computación y comunicación,gasto,5,debito,512405,1
+512406,Equipo médico científico,gasto,4,debito,5124,0
+51240606,Equipo médico científico,gasto,5,debito,512406,1
+512408,Equipo de transporte,gasto,4,debito,5124,0
+51240806,Equipo de transporte,gasto,5,debito,512408,1
+5134,Provisiones,gasto,3,debito,51,0
+513401,Litigios y demandas,gasto,4,debito,5134,0
+51340106,Litigios y demandas,gasto,5,debito,513401,1
+513402,Para costos y gastos,gasto,4,debito,5134,0
+51340206,Para costos y gastos,gasto,5,debito,513402,1
+513403,Para obligaciones fiscales,gasto,4,debito,5134,0
+51340306,Para obligaciones fiscales,gasto,5,debito,513403,1
+5135,Ajuste por diferencia en cambio,gasto,3,debito,51,0
+513501,Dif en cambio efectivo y equivalentes al,gasto,4,debito,5135,0
+51350106,Dif en cambio efectivo y equivalentes al,gasto,5,debito,513501,1
+513502,Dif en cambio cuentas por cobrar,gasto,4,debito,5135,0
+51350206,Dif en cambio cuentas por cobrar,gasto,5,debito,513502,1
+513504,Dif en cambio inversiones,gasto,4,debito,5135,0
+51350406,Dif en cambio inversiones,gasto,5,debito,513504,1
+513513,Dif en cambio cuentas por pagar,gasto,4,debito,5135,0
+51351306,Dif en cambio cuentas por pagar,gasto,5,debito,513513,1
+5138,Otros gastos,gasto,3,debito,51,0
+513801,Libros. suscripciones. periódicos y revi,gasto,4,debito,5138,0
+51380106,Libros. suscripciones. periódicos y revi,gasto,5,debito,513801,1
+513803,Gastos de representación y relaciones pú,gasto,4,debito,5138,0
+51380306,Gastos de representación y relaciones pú,gasto,5,debito,513803,1
+513804,Elementos de aseo y cafetería,gasto,4,debito,5138,0
+51380406,Elementos de aseo y cafetería,gasto,5,debito,513804,1
+513805,Útiles. papelería y fotocopias,gasto,4,debito,5138,0
+51380506,Útiles. papelería y fotocopias,gasto,5,debito,513805,1
+513806,Combustibles y lubricantes,gasto,4,debito,5138,0
+51380606,Combustibles y lubricantes,gasto,5,debito,513806,1
+513807,Envases y empaques,gasto,4,debito,5138,0
+51380706,Envases y empaques,gasto,5,debito,513807,1
+513808,Taxis y buses,gasto,4,debito,5138,0
+51380806,Taxis y buses,gasto,5,debito,513808,1
+513809,Estampillas,gasto,4,debito,5138,0
+51380906,Estampillas,gasto,5,debito,513809,1
+513812,Parqueaderos,gasto,4,debito,5138,0
+51381206,Parqueaderos,gasto,5,debito,513812,1
+513813,Indemnización por daños a terceros,gasto,4,debito,5138,0
+51381306,Indemnización por daños a terceros,gasto,5,debito,513813,1
+513814,Otros gastos diversos,gasto,4,debito,5138,0
+51381406,Otros gastos diversos,gasto,5,debito,513814,1
+53,FINANCIEROS,gasto,2,debito,5,0
+5301,Gastos financieros,gasto,3,debito,53,0
+530101,Gastos bancarios,gasto,4,debito,5301,0
+53010105,Gastos bancarios,gasto,5,debito,530101,1
+53010106,Gravamen - GMF,gasto,5,debito,530101,1
+530102,Comisiones,gasto,4,debito,5301,0
+53010206,Comisiones,gasto,5,debito,530102,1
+53010207,IVA en comisiones,gasto,5,debito,530102,1
+530103,Intereses,gasto,4,debito,5301,0
+53010306,Intereses,gasto,5,debito,530103,1
+53010307,Intereses Mora,gasto,5,debito,530103,1
+530106,Descuentos comerciales condicionados,gasto,4,debito,5301,0
+53010606,Descuentos comerciales condicionados,gasto,5,debito,530106,1
+530107,Otros gastos no deducibles,gasto,4,debito,5301,0
+53010706,Gastos no deduucibles por soporte,gasto,5,debito,530107,1
+53010707,Ajuste al peso,gasto,5,debito,530107,1
+53010708,Impuestos asumidos,gasto,5,debito,530107,1
+53010709,"Multas, sanciones y litigios",gasto,5,debito,530107,1
+53010710,Multas sanciones y litigios,gasto,5,debito,530107,1
+5302,Gastos no deducibles,gasto,3,debito,53,0
+530202,Gastos no deducibles,gasto,4,debito,5302,0
+53020205,Gastos no deducibles por soporte,gasto,5,debito,530202,1
+53020206,Impuestos asumidos,gasto,5,debito,530202,1
+53020207,"Multas, sanciones y litigios",gasto,5,debito,530202,1
+53020208,Intereses Mora,gasto,5,debito,530202,1
+55,IMPUESTO A LAS GANANCIAS,gasto,2,debito,5,0
+5502,Impuesto a las ganancias diferido,gasto,3,debito,55,0
+550201,Impuesto diferido,gasto,4,debito,5502,0
+55020106,Impuesto a las ganancias diferido,gasto,5,debito,550201,1
+5505,Impuesto de renta y complementarios,gasto,3,debito,55,0
+550501,Impuesto de renta y complementarios,gasto,4,debito,5505,0
+55050106,Impuesto de renta y complementarios,gasto,5,debito,550501,1
+59,GANANCIAS Y PERDIDAS,gasto,2,debito,5,0
+6,COSTOS,costo,1,debito,,0
+61,COSTOS POR ATENCIÓN EN SALUD,costo,2,debito,6,0
+6101,Unidad funcional de urgencias,costo,3,debito,61,0
+610101,Costos de nomina,costo,4,debito,6101,0
+61010101,Sueldos,costo,5,debito,610101,1
+61010102,Salario integral,costo,5,debito,610101,1
+61010103,Horas extras,costo,5,debito,610101,1
+61010104,Recargos Nocturnos,costo,5,debito,610101,1
+61010105,Recargos dominicales y festivos,costo,5,debito,610101,1
+61010106,Bonos de alimentacion,costo,5,debito,610101,1
+61010107,Alimentación directa,costo,5,debito,610101,1
+61010108,Auxilio de transporte,costo,5,debito,610101,1
+61010109,Bonificacion Salarial,costo,5,debito,610101,1
+61010110,Bonificacion no Salarial,costo,5,debito,610101,1
+61010111,Auxilio de movilidad y rodamiento,costo,5,debito,610101,1
+61010112,Otros beneficios económicos,costo,5,debito,610101,1
+61010113,Incapacidades,costo,5,debito,610101,1
+61010114,Indemnizaciones laborales,costo,5,debito,610101,1
+61010115,Aportes arl,costo,5,debito,610101,1
+61010116,Aportes a eps,costo,5,debito,610101,1
+61010117,Aportes a fondos de pensiones y/o cesant,costo,5,debito,610101,1
+61010118,Aportes cajas de compensación familiar,costo,5,debito,610101,1
+61010119,Aportes icbf,costo,5,debito,610101,1
+61010120,Sena,costo,5,debito,610101,1
+61010121,Cesantías,costo,5,debito,610101,1
+61010122,Intereses sobre cesantías,costo,5,debito,610101,1
+61010123,Vacaciones,costo,5,debito,610101,1
+61010124,Prima de servicios,costo,5,debito,610101,1
+61010125,Comisiones,costo,5,debito,610101,1
+61010126,Viáticos ocasionales,costo,5,debito,610101,1
+61010127,Dotación y suministro a trabajadores,costo,5,debito,610101,1
+61010128,Capacitación al personal,costo,5,debito,610101,1
+61010129,Auxilios de Educacion,costo,5,debito,610101,1
+61010131,Elementos de proteccion personal,costo,5,debito,610101,1
+61010132,Bienestar social y estimulos,costo,5,debito,610101,1
+610102,Honorarios medicos,costo,4,debito,6101,0
+61010201,Honorarios médicos,costo,5,debito,610102,1
+610103,Impuestos asumidos,costo,4,debito,6101,0
+61010301,IVA asumido compras 19%,costo,5,debito,610103,1
+61010302,IVA asumido compras 5%,costo,5,debito,610103,1
+61010303,IVA asumido servicios 19%,costo,5,debito,610103,1
+61010304,IVA asumido honorarios 19%,costo,5,debito,610103,1
+61010305,IVA asumido arrendamientos 19%,costo,5,debito,610103,1
+61010306,Otros impuestos,costo,5,debito,610103,1
+610104,Arrendamientos operativos,costo,4,debito,6101,0
+61010401,Construcciones o edificaciones,costo,5,debito,610104,1
+61010402,Maquinaria,costo,5,debito,610104,1
+61010403,Equipo médico-científico,costo,5,debito,610104,1
+61010404,Equipo de oficina,costo,5,debito,610104,1
+61010405,Muebles y enseres,costo,5,debito,610104,1
+61010406,Equipo de transporte,costo,5,debito,610104,1
+61010407,Adminsitracion de Locales,costo,5,debito,610104,1
+61010408,Otros activos,costo,5,debito,610104,1
+610105,Contribuciones y afiliaciones,costo,4,debito,6101,0
+61010501,Contribuciones,costo,5,debito,610105,1
+61010502,Afiliaciones y sostenimiento,costo,5,debito,610105,1
+610106,Seguros,costo,4,debito,6101,0
+61010601,Manejo,costo,5,debito,610106,1
+61010602,Cumplimiento,costo,5,debito,610106,1
+61010603,Vida colectiva,costo,5,debito,610106,1
+61010604,Incendio,costo,5,debito,610106,1
+61010605,Terremoto,costo,5,debito,610106,1
+61010606,Sustracción y hurto,costo,5,debito,610106,1
+61010607,Equipo de transporte,costo,5,debito,610106,1
+61010608,Responsabilidad civil y extracontractual,costo,5,debito,610106,1
+61010609,Obligatorio accidente de tránsito,costo,5,debito,610106,1
+61010610,Transporte,costo,5,debito,610106,1
+610107,Servicios,costo,4,debito,6101,0
+61010701,Servicio de aseo,costo,5,debito,610107,1
+61010702,Vigilancia,costo,5,debito,610107,1
+61010703,Temporales,costo,5,debito,610107,1
+61010704,Asistencia técnica,costo,5,debito,610107,1
+61010705,Procesamiento electrónico de datos,costo,5,debito,610107,1
+61010706,Acueducto y alcantarillado,costo,5,debito,610107,1
+61010707,Energía eléctrica,costo,5,debito,610107,1
+61010708,Teléfono,costo,5,debito,610107,1
+61010709,Transporte. fletes y acarreos,costo,5,debito,610107,1
+61010710,Gas,costo,5,debito,610107,1
+61010711,Publicidad,costo,5,debito,610107,1
+61010712,Comunicaciones,costo,5,debito,610107,1
+61010713,Otros servicios,costo,5,debito,610107,1
+61010714,Servicio de restaurante,costo,5,debito,610107,1
+610108,Gastos legales,costo,4,debito,6101,0
+61010801,Notariales,costo,5,debito,610108,1
+61010802,Registro mercantil,costo,5,debito,610108,1
+61010803,Trámites y licencias,costo,5,debito,610108,1
+61010804,Aduaneros,costo,5,debito,610108,1
+61010805,Otros gastos legales,costo,5,debito,610108,1
+610109,Gastos de reparacion y mantenimiento,costo,4,debito,6101,0
+61010901,Construcciones y edificaciones,costo,5,debito,610109,1
+61010902,Maquinaria y equipo,costo,5,debito,610109,1
+61010903,Equipo médico-científico,costo,5,debito,610109,1
+61010904,Equipo de oficina,costo,5,debito,610109,1
+61010905,Equipo de computación y comunicación,costo,5,debito,610109,1
+61010906,Equipo de transporte,costo,5,debito,610109,1
+61010907,Otros mantenimientos y reparaciones,costo,5,debito,610109,1
+610110,Adecuación e instalación,costo,4,debito,6101,0
+61011001,Instalaciones eléctricas,costo,5,debito,610110,1
+61011002,Arreglos ornamentales,costo,5,debito,610110,1
+61011003,Reparaciones locativas,costo,5,debito,610110,1
+610111,Gastos de transporte,costo,4,debito,6101,0
+61011101,Alojamiento y manutención,costo,5,debito,610111,1
+61011102,Pasajes aéreos,costo,5,debito,610111,1
+61011103,Pasajes terrestres,costo,5,debito,610111,1
+61011104,Otros gastos de transporte,costo,5,debito,610111,1
+610112,Depreciación de propiedades. planta y eq,costo,4,debito,6101,0
+61011201,Edificaciones,costo,5,debito,610112,1
+61011202,Maquinaria y equipo,costo,5,debito,610112,1
+61011203,Equipo de oficina,costo,5,debito,610112,1
+61011204,Equipo de computación y comunicación,costo,5,debito,610112,1
+61011205,Equipo médico-científico,costo,5,debito,610112,1
+61011206,Equipo de transporte,costo,5,debito,610112,1
+610113,Otros costos,costo,4,debito,6101,0
+61011301,Elementos de aseo y cafetería,costo,5,debito,610113,1
+61011302,Útiles. papelería y fotocopias,costo,5,debito,610113,1
+61011303,Taxis y buses,costo,5,debito,610113,1
+61011304,Parqueaderos,costo,5,debito,610113,1
+61011305,Otros costos diversos,costo,5,debito,610113,1
+61011306,Envases y empaques,costo,5,debito,610113,1
+610114,Consumos de inventario,costo,4,debito,6101,0
+61011401,Consumos de Medicamentos,costo,5,debito,610114,1
+61011402,Consumos de Material médico quirúrgico,costo,5,debito,610114,1
+61011403,Consumos de Materiales reactivos y de la,costo,5,debito,610114,1
+61011404,Consumos de Materiales odontológicos,costo,5,debito,610114,1
+61011405,Consumos de Materiales para imagenologia,costo,5,debito,610114,1
+61011406,Consumos de Banco de sangre,costo,5,debito,610114,1
+61011407,Consumos de Elementos de aseo y lavander,costo,5,debito,610114,1
+61011408,Consumos de Otros materiales,costo,5,debito,610114,1
+61011409,Deterioro de inventarios,costo,5,debito,610114,1
+6102,Unidad funcional de consulta externa,costo,3,debito,61,0
+610201,Costos de nomina,costo,4,debito,6102,0
+61020101,Sueldos,costo,5,debito,610201,1
+61020102,Salario integral,costo,5,debito,610201,1
+61020103,Horas extras,costo,5,debito,610201,1
+61020104,Recargos Nocturnos,costo,5,debito,610201,1
+61020105,Recargos dominicales y festivos,costo,5,debito,610201,1
+61020106,Bonos de alimentacion,costo,5,debito,610201,1
+61020107,Alimentación directa,costo,5,debito,610201,1
+61020108,Auxilio de transporte,costo,5,debito,610201,1
+61020109,Bonificacion Salarial,costo,5,debito,610201,1
+61020110,Bonificacion no Salarial,costo,5,debito,610201,1
+61020111,Auxilio de movilidad y rodamiento,costo,5,debito,610201,1
+61020112,Otros beneficios económicos,costo,5,debito,610201,1
+61020113,Incapacidades,costo,5,debito,610201,1
+61020114,Indemnizaciones laborales,costo,5,debito,610201,1
+61020115,Aportes arl,costo,5,debito,610201,1
+61020116,Aportes a eps,costo,5,debito,610201,1
+61020117,Aportes a fondos de pensiones y/o cesant,costo,5,debito,610201,1
+61020118,Aportes cajas de compensación familiar,costo,5,debito,610201,1
+61020119,Aportes icbf,costo,5,debito,610201,1
+61020120,Sena,costo,5,debito,610201,1
+61020121,Cesantías,costo,5,debito,610201,1
+61020122,Intereses sobre cesantías,costo,5,debito,610201,1
+61020123,Vacaciones,costo,5,debito,610201,1
+61020124,Prima de servicios,costo,5,debito,610201,1
+61020125,Comisiones,costo,5,debito,610201,1
+61020126,Viáticos ocasionales,costo,5,debito,610201,1
+61020127,Dotación y suministro a trabajadores,costo,5,debito,610201,1
+61020128,Capacitación al personal,costo,5,debito,610201,1
+61020129,Auxilios de Educacion,costo,5,debito,610201,1
+61020130,Apoyo aprendices,costo,5,debito,610201,1
+61020131,Elementos de proteccion personal,costo,5,debito,610201,1
+61020132,Bienestar social y estimulos,costo,5,debito,610201,1
+610202,Honorarios medicos,costo,4,debito,6102,0
+61020201,Honorarios médicos,costo,5,debito,610202,1
+61020202,Honorarios medicos art 383,costo,5,debito,610202,1
+61020203,Honorarios financieros,costo,5,debito,610202,1
+61020204,Asesoria tecnica,costo,5,debito,610202,1
+610203,Impuestos asumidos,costo,4,debito,6102,0
+61020301,IVA asumido compras 19%,costo,5,debito,610203,1
+61020302,IVA asumido compras 5%,costo,5,debito,610203,1
+61020303,IVA asumido servicios 19%,costo,5,debito,610203,1
+61020304,IVA asumido honorarios 19%,costo,5,debito,610203,1
+61020305,IVA asumido arrendamientos 19%,costo,5,debito,610203,1
+61020306,Otros impuestos,costo,5,debito,610203,1
+61020308,Tasa especial de seg y conv ciudadana,costo,5,debito,610203,1
+610204,Arrendamientos operativos,costo,4,debito,6102,0
+61020401,Construcciones o edificaciones,costo,5,debito,610204,1
+61020402,Maquinaria,costo,5,debito,610204,1
+61020403,Equipo médico-científico,costo,5,debito,610204,1
+61020404,Equipo de oficina,costo,5,debito,610204,1
+61020405,Muebles y enseres,costo,5,debito,610204,1
+61020406,Equipo de transporte,costo,5,debito,610204,1
+61020407,Administracion de Locales,costo,5,debito,610204,1
+61020408,Otros activos,costo,5,debito,610204,1
+610205,Contribuciones y afiliaciones,costo,4,debito,6102,0
+61020501,Contribuciones,costo,5,debito,610205,1
+61020502,Afiliaciones y sostenimiento,costo,5,debito,610205,1
+610206,Seguros,costo,4,debito,6102,0
+61020601,Manejo,costo,5,debito,610206,1
+61020602,Cumplimiento,costo,5,debito,610206,1
+61020603,Vida colectiva,costo,5,debito,610206,1
+61020604,Incendio,costo,5,debito,610206,1
+61020605,Terremoto,costo,5,debito,610206,1
+61020606,Sustracción y hurto,costo,5,debito,610206,1
+61020607,Equipo de transporte,costo,5,debito,610206,1
+61020608,Responsabilidad civil y extracontractual,costo,5,debito,610206,1
+61020609,Obligatorio accidente de tránsito,costo,5,debito,610206,1
+61020610,Transporte,costo,5,debito,610206,1
+610207,Servicios,costo,4,debito,6102,0
+61020701,Servicio de aseo,costo,5,debito,610207,1
+61020702,Vigilancia,costo,5,debito,610207,1
+61020703,Temporales,costo,5,debito,610207,1
+61020704,Asistencia técnica,costo,5,debito,610207,1
+61020705,Procesamiento electrónico de datos,costo,5,debito,610207,1
+61020706,Acueducto y alcantarillado,costo,5,debito,610207,1
+61020707,Energía eléctrica,costo,5,debito,610207,1
+61020708,Teléfono,costo,5,debito,610207,1
+61020709,Transporte. fletes y acarreos,costo,5,debito,610207,1
+61020710,Gas,costo,5,debito,610207,1
+61020711,Publicidad,costo,5,debito,610207,1
+61020712,Comunicaciones,costo,5,debito,610207,1
+61020713,Otros servicios,costo,5,debito,610207,1
+61020714,Servicio de restaurante,costo,5,debito,610207,1
+610208,Gastos legales,costo,4,debito,6102,0
+61020801,Notariales,costo,5,debito,610208,1
+61020802,Registro mercantil,costo,5,debito,610208,1
+61020803,Trámites y licencias,costo,5,debito,610208,1
+61020804,Aduaneros,costo,5,debito,610208,1
+61020805,Otros gastos legales,costo,5,debito,610208,1
+610209,Gastos de reparacion y mantenimiento,costo,4,debito,6102,0
+61020901,Construcciones y edificaciones,costo,5,debito,610209,1
+61020902,Maquinaria y equipo,costo,5,debito,610209,1
+61020903,Equipo médico-científico,costo,5,debito,610209,1
+61020904,Equipo de oficina,costo,5,debito,610209,1
+61020905,Equipo de computación y comunicación,costo,5,debito,610209,1
+61020906,Equipo de transporte,costo,5,debito,610209,1
+61020907,Otros mantenimientos y reparaciones,costo,5,debito,610209,1
+610210,Adecuación e instalación,costo,4,debito,6102,0
+61021001,Instalaciones eléctricas,costo,5,debito,610210,1
+61021002,Arreglos ornamentales,costo,5,debito,610210,1
+61021003,Reparaciones locativas,costo,5,debito,610210,1
+61021004,Adecuacion maquinaria y equipo,costo,5,debito,610210,1
+610211,Gastos de transporte,costo,4,debito,6102,0
+61021101,Alojamiento y manutención,costo,5,debito,610211,1
+61021102,Pasajes aéreos,costo,5,debito,610211,1
+61021103,Pasajes terrestres,costo,5,debito,610211,1
+61021104,Otros gastos de transporte,costo,5,debito,610211,1
+610212,Depreciación de propiedades. planta y eq,costo,4,debito,6102,0
+61021201,Edificaciones,costo,5,debito,610212,1
+61021202,Maquinaria y equipo,costo,5,debito,610212,1
+61021203,Equipo de oficina,costo,5,debito,610212,1
+61021204,Equipo de computación y comunicación,costo,5,debito,610212,1
+61021205,Equipo médico-científico,costo,5,debito,610212,1
+61021206,Equipo de transporte,costo,5,debito,610212,1
+610213,Otros costos,costo,4,debito,6102,0
+61021301,Elementos de aseo y cafetería,costo,5,debito,610213,1
+61021302,Útiles. papelería y fotocopias,costo,5,debito,610213,1
+61021303,Taxis y buses,costo,5,debito,610213,1
+61021304,Parqueaderos,costo,5,debito,610213,1
+61021305,Otros costos diversos,costo,5,debito,610213,1
+61021306,Envases y empaques,costo,5,debito,610213,1
+610214,Consumos de inventario,costo,4,debito,6102,0
+61021401,Consumos de Medicamentos,costo,5,debito,610214,1
+61021402,Consumos de Material médico quirúrgico,costo,5,debito,610214,1
+61021403,Consumos de Materiales reactivos y de la,costo,5,debito,610214,1
+61021404,Consumos de Materiales odontológicos,costo,5,debito,610214,1
+61021405,Consumos de Materiales para imagenologia,costo,5,debito,610214,1
+61021406,Consumos de Banco de sangre,costo,5,debito,610214,1
+61021407,Consumos de Elementos de aseo y lavander,costo,5,debito,610214,1
+61021408,Consumos de Otros materiales,costo,5,debito,610214,1
+61021409,Deterioro de inventarios,costo,5,debito,610214,1
+61021410,Material oftalmologico,costo,5,debito,610214,1
+61021499,Descuentos comerciales,costo,5,debito,610214,1
+6103,Unidad funcional de hospitalizacion e in,costo,3,debito,61,0
+610301,Costos de nomina,costo,4,debito,6103,0
+61030101,Sueldos,costo,5,debito,610301,1
+61030102,Salario integral,costo,5,debito,610301,1
+61030103,Horas extras,costo,5,debito,610301,1
+61030104,Recargos Nocturnos,costo,5,debito,610301,1
+61030105,Recargos dominicales y festivos,costo,5,debito,610301,1
+61030106,Bonos de alimentacion,costo,5,debito,610301,1
+61030107,Alimentación directa,costo,5,debito,610301,1
+61030108,Auxilio de transporte,costo,5,debito,610301,1
+61030109,Bonificacion Salarial,costo,5,debito,610301,1
+61030110,Bonificacion no Salarial,costo,5,debito,610301,1
+61030111,Auxilio de movilidad y rodamiento,costo,5,debito,610301,1
+61030112,Otros beneficios económicos,costo,5,debito,610301,1
+61030113,Incapacidades,costo,5,debito,610301,1
+61030114,Indemnizaciones laborales,costo,5,debito,610301,1
+61030115,Aportes arl,costo,5,debito,610301,1
+61030116,Aportes a eps,costo,5,debito,610301,1
+61030117,Aportes a fondos de pensiones y/o cesant,costo,5,debito,610301,1
+61030118,Aportes cajas de compensación familiar,costo,5,debito,610301,1
+61030119,Aportes icbf,costo,5,debito,610301,1
+61030120,Sena,costo,5,debito,610301,1
+61030121,Cesantías,costo,5,debito,610301,1
+61030122,Intereses sobre cesantías,costo,5,debito,610301,1
+61030123,Vacaciones,costo,5,debito,610301,1
+61030124,Prima de servicios,costo,5,debito,610301,1
+61030125,Comisiones,costo,5,debito,610301,1
+61030126,Viáticos ocasionales,costo,5,debito,610301,1
+61030127,Dotación y suministro a trabajadores,costo,5,debito,610301,1
+61030128,Capacitación al personal,costo,5,debito,610301,1
+61030129,Auxilios de Educacion,costo,5,debito,610301,1
+61030131,Elementos de proteccion personal,costo,5,debito,610301,1
+61030132,Bienestar social y estimulos,costo,5,debito,610301,1
+610302,Honorarios medicos,costo,4,debito,6103,0
+61030201,Honorarios médicos,costo,5,debito,610302,1
+610303,Impuestos asumidos,costo,4,debito,6103,0
+61030301,IVA asumido compras 19%,costo,5,debito,610303,1
+61030302,IVA asumido compras 5%,costo,5,debito,610303,1
+61030303,IVA asumido servicios 19%,costo,5,debito,610303,1
+61030304,IVA asumido honorarios 19%,costo,5,debito,610303,1
+61030305,IVA asumido arrendamientos 19%,costo,5,debito,610303,1
+61030306,Otros impuestos,costo,5,debito,610303,1
+610304,Arrendamientos operativos,costo,4,debito,6103,0
+61030401,Construcciones o edificaciones,costo,5,debito,610304,1
+61030402,Maquinaria,costo,5,debito,610304,1
+61030403,Equipo médico-científico,costo,5,debito,610304,1
+61030404,Equipo de oficina,costo,5,debito,610304,1
+61030405,Muebles y enseres,costo,5,debito,610304,1
+61030406,Equipo de transporte,costo,5,debito,610304,1
+61030407,Otros activos,costo,5,debito,610304,1
+61030408,Otros activos,costo,5,debito,610304,1
+610305,Contribuciones y afiliaciones,costo,4,debito,6103,0
+61030501,Contribuciones,costo,5,debito,610305,1
+61030502,Afiliaciones y sostenimiento,costo,5,debito,610305,1
+610306,Seguros,costo,4,debito,6103,0
+61030601,Manejo,costo,5,debito,610306,1
+61030602,Cumplimiento,costo,5,debito,610306,1
+61030603,Vida colectiva,costo,5,debito,610306,1
+61030604,Incendio,costo,5,debito,610306,1
+61030605,Terremoto,costo,5,debito,610306,1
+61030606,Sustracción y hurto,costo,5,debito,610306,1
+61030607,Equipo de transporte,costo,5,debito,610306,1
+61030608,Responsabilidad civil y extracontractual,costo,5,debito,610306,1
+61030609,Obligatorio accidente de tránsito,costo,5,debito,610306,1
+61030610,Transporte,costo,5,debito,610306,1
+610307,Servicios,costo,4,debito,6103,0
+61030701,Servicio de aseo,costo,5,debito,610307,1
+61030702,Vigilancia,costo,5,debito,610307,1
+61030703,Temporales,costo,5,debito,610307,1
+61030704,Asistencia técnica,costo,5,debito,610307,1
+61030705,Procesamiento electrónico de datos,costo,5,debito,610307,1
+61030706,Acueducto y alcantarillado,costo,5,debito,610307,1
+61030707,Energía eléctrica,costo,5,debito,610307,1
+61030708,Teléfono,costo,5,debito,610307,1
+61030709,Transporte. fletes y acarreos,costo,5,debito,610307,1
+61030710,Gas,costo,5,debito,610307,1
+61030711,Publicidad,costo,5,debito,610307,1
+61030712,Comunicaciones,costo,5,debito,610307,1
+61030713,Otros servicios,costo,5,debito,610307,1
+61030714,Servicio de restaurante,costo,5,debito,610307,1
+610308,Gastos legales,costo,4,debito,6103,0
+61030801,Notariales,costo,5,debito,610308,1
+61030802,Registro mercantil,costo,5,debito,610308,1
+61030803,Trámites y licencias,costo,5,debito,610308,1
+61030804,Aduaneros,costo,5,debito,610308,1
+61030805,Otros gastos legales,costo,5,debito,610308,1
+610309,Gastos de reparacion y mantenimiento,costo,4,debito,6103,0
+61030901,Construcciones y edificaciones,costo,5,debito,610309,1
+61030902,Maquinaria y equipo,costo,5,debito,610309,1
+61030903,Equipo médico-científico,costo,5,debito,610309,1
+61030904,Equipo de oficina,costo,5,debito,610309,1
+61030905,Equipo de computación y comunicación,costo,5,debito,610309,1
+61030906,Equipo de transporte,costo,5,debito,610309,1
+61030907,Otros mantenimientos y reparaciones,costo,5,debito,610309,1
+610310,Adecuación e instalación,costo,4,debito,6103,0
+61031001,Instalaciones eléctricas,costo,5,debito,610310,1
+61031002,Arreglos ornamentales,costo,5,debito,610310,1
+61031003,Reparaciones locativas,costo,5,debito,610310,1
+610311,Gastos de transporte,costo,4,debito,6103,0
+61031101,Alojamiento y manutención,costo,5,debito,610311,1
+61031102,Pasajes aéreos,costo,5,debito,610311,1
+61031103,Pasajes terrestres,costo,5,debito,610311,1
+61031104,Otros gastos de transporte,costo,5,debito,610311,1
+610312,Depreciación de propiedades. planta y eq,costo,4,debito,6103,0
+61031201,Edificaciones,costo,5,debito,610312,1
+61031202,Maquinaria y equipo,costo,5,debito,610312,1
+61031203,Equipo de oficina,costo,5,debito,610312,1
+61031204,Equipo de computación y comunicación,costo,5,debito,610312,1
+61031205,Equipo médico-científico,costo,5,debito,610312,1
+61031206,Equipo de transporte,costo,5,debito,610312,1
+610313,Otros costos,costo,4,debito,6103,0
+61031301,Elementos de aseo y cafetería,costo,5,debito,610313,1
+61031302,Útiles. papelería y fotocopias,costo,5,debito,610313,1
+61031303,Taxis y buses,costo,5,debito,610313,1
+61031304,Parqueaderos,costo,5,debito,610313,1
+61031305,Otros costos diversos,costo,5,debito,610313,1
+61031306,Envases y empaques,costo,5,debito,610313,1
+610314,Consumos de inventario,costo,4,debito,6103,0
+61031401,Consumos de Medicamentos,costo,5,debito,610314,1
+61031402,Consumos de Material médico quirúrgico,costo,5,debito,610314,1
+61031403,Consumos de Materiales reactivos y de la,costo,5,debito,610314,1
+61031404,Consumos de Materiales odontológicos,costo,5,debito,610314,1
+61031405,Consumos de Materiales para imagenologia,costo,5,debito,610314,1
+61031406,Consumos de Banco de sangre,costo,5,debito,610314,1
+61031407,Consumos de Elementos de aseo y lavander,costo,5,debito,610314,1
+61031408,Consumos de Otros materiales,costo,5,debito,610314,1
+61031409,Deterioro de inventarios,costo,5,debito,610314,1
+6104,Unidad funcional de quirofanos y salas d,costo,3,debito,61,0
+610401,Costos de nomina,costo,4,debito,6104,0
+61040101,Sueldos,costo,5,debito,610401,1
+61040102,Salario integral,costo,5,debito,610401,1
+61040103,Horas extras,costo,5,debito,610401,1
+61040104,Recargos Nocturnos,costo,5,debito,610401,1
+61040105,Recargos dominicales y festivos,costo,5,debito,610401,1
+61040106,Bonos de alimentacion,costo,5,debito,610401,1
+61040107,Alimentación directa,costo,5,debito,610401,1
+61040108,Auxilio de transporte,costo,5,debito,610401,1
+61040109,Bonificacion Salarial,costo,5,debito,610401,1
+61040110,Bonificacion no Salarial,costo,5,debito,610401,1
+61040111,Auxilio de movilidad y rodamiento,costo,5,debito,610401,1
+61040112,Otros beneficios económicos,costo,5,debito,610401,1
+61040113,Incapacidades,costo,5,debito,610401,1
+61040114,Indemnizaciones laborales,costo,5,debito,610401,1
+61040115,Aportes arl,costo,5,debito,610401,1
+61040116,Aportes a eps,costo,5,debito,610401,1
+61040117,Aportes a fondos de pensiones y/o cesant,costo,5,debito,610401,1
+61040118,Aportes cajas de compensación familiar,costo,5,debito,610401,1
+61040119,Aportes icbf,costo,5,debito,610401,1
+61040120,Sena,costo,5,debito,610401,1
+61040121,Cesantías,costo,5,debito,610401,1
+61040122,Intereses sobre cesantías,costo,5,debito,610401,1
+61040123,Vacaciones,costo,5,debito,610401,1
+61040124,Prima de servicios,costo,5,debito,610401,1
+61040125,Comisiones,costo,5,debito,610401,1
+61040126,Viáticos ocasionales,costo,5,debito,610401,1
+61040127,Dotación y suministro a trabajadores,costo,5,debito,610401,1
+61040128,Capacitación al personal,costo,5,debito,610401,1
+61040129,Auxilios de Educacion,costo,5,debito,610401,1
+61040131,Elementos de proteccion personal,costo,5,debito,610401,1
+61040132,Bienestar social y estimulos,costo,5,debito,610401,1
+610402,Honorarios medicos,costo,4,debito,6104,0
+61040201,Honorarios médicos,costo,5,debito,610402,1
+610403,Impuestos asumidos,costo,4,debito,6104,0
+61040301,IVA asumido compras 19%,costo,5,debito,610403,1
+61040302,IVA asumido compras 5%,costo,5,debito,610403,1
+61040303,IVA asumido servicios 19%,costo,5,debito,610403,1
+61040304,IVA asumido honorarios 19%,costo,5,debito,610403,1
+61040305,IVA asumido arrendamientos 19%,costo,5,debito,610403,1
+61040306,Otros impuestos,costo,5,debito,610403,1
+610404,Arrendamientos operativos,costo,4,debito,6104,0
+61040401,Construcciones o edificaciones,costo,5,debito,610404,1
+61040402,Maquinaria,costo,5,debito,610404,1
+61040403,Equipo médico-científico,costo,5,debito,610404,1
+61040404,Equipo de oficina,costo,5,debito,610404,1
+61040405,Muebles y enseres,costo,5,debito,610404,1
+61040406,Equipo de transporte,costo,5,debito,610404,1
+61040407,Adminsitracion de Locales,costo,5,debito,610404,1
+61040408,Otros activos,costo,5,debito,610404,1
+610405,Contribuciones y afiliaciones,costo,4,debito,6104,0
+61040501,Contribuciones,costo,5,debito,610405,1
+61040502,Afiliaciones y sostenimiento,costo,5,debito,610405,1
+610406,Seguros,costo,4,debito,6104,0
+61040601,Manejo,costo,5,debito,610406,1
+61040602,Cumplimiento,costo,5,debito,610406,1
+61040603,Vida colectiva,costo,5,debito,610406,1
+61040604,Incendio,costo,5,debito,610406,1
+61040605,Terremoto,costo,5,debito,610406,1
+61040606,Sustracción y hurto,costo,5,debito,610406,1
+61040607,Equipo de transporte,costo,5,debito,610406,1
+61040608,Responsabilidad civil y extracontractual,costo,5,debito,610406,1
+61040609,Obligatorio accidente de tránsito,costo,5,debito,610406,1
+61040610,Transporte,costo,5,debito,610406,1
+610407,Servicios,costo,4,debito,6104,0
+61040701,Servicio de aseo,costo,5,debito,610407,1
+61040702,Vigilancia,costo,5,debito,610407,1
+61040703,Temporales,costo,5,debito,610407,1
+61040704,Asistencia técnica,costo,5,debito,610407,1
+61040705,Procesamiento electrónico de datos,costo,5,debito,610407,1
+61040706,Acueducto y alcantarillado,costo,5,debito,610407,1
+61040707,Energía eléctrica,costo,5,debito,610407,1
+61040708,Teléfono,costo,5,debito,610407,1
+61040709,Transporte. fletes y acarreos,costo,5,debito,610407,1
+61040710,Gas,costo,5,debito,610407,1
+61040711,Publicidad,costo,5,debito,610407,1
+61040712,Comunicaciones,costo,5,debito,610407,1
+61040713,Otros servicios,costo,5,debito,610407,1
+61040714,Servicio de restaurante,costo,5,debito,610407,1
+610408,Gastos legales,costo,4,debito,6104,0
+61040801,Notariales,costo,5,debito,610408,1
+61040802,Registro mercantil,costo,5,debito,610408,1
+61040803,Trámites y licencias,costo,5,debito,610408,1
+61040804,Aduaneros,costo,5,debito,610408,1
+61040805,Otros gastos legales,costo,5,debito,610408,1
+610409,Gastos de reparacion y mantenimiento,costo,4,debito,6104,0
+61040901,Construcciones y edificaciones,costo,5,debito,610409,1
+61040902,Maquinaria y equipo,costo,5,debito,610409,1
+61040903,Equipo médico-científico,costo,5,debito,610409,1
+61040904,Equipo de oficina,costo,5,debito,610409,1
+61040905,Equipo de computación y comunicación,costo,5,debito,610409,1
+61040906,Equipo de transporte,costo,5,debito,610409,1
+61040907,Otros mantenimientos y reparaciones,costo,5,debito,610409,1
+610410,Adecuación e instalación,costo,4,debito,6104,0
+61041001,Instalaciones eléctricas,costo,5,debito,610410,1
+61041002,Arreglos ornamentales,costo,5,debito,610410,1
+61041003,Reparaciones locativas,costo,5,debito,610410,1
+610411,Gastos de transporte,costo,4,debito,6104,0
+61041101,Alojamiento y manutención,costo,5,debito,610411,1
+61041102,Pasajes aéreos,costo,5,debito,610411,1
+61041103,Pasajes terrestres,costo,5,debito,610411,1
+61041104,Otros gastos de transporte,costo,5,debito,610411,1
+610412,Depreciación de propiedades. planta y eq,costo,4,debito,6104,0
+61041201,Edificaciones,costo,5,debito,610412,1
+61041202,Maquinaria y equipo,costo,5,debito,610412,1
+61041203,Equipo de oficina,costo,5,debito,610412,1
+61041204,Equipo de computación y comunicación,costo,5,debito,610412,1
+61041205,Equipo médico-científico,costo,5,debito,610412,1
+61041206,Equipo de transporte,costo,5,debito,610412,1
+610413,Otros costos,costo,4,debito,6104,0
+61041301,Elementos de aseo y cafetería,costo,5,debito,610413,1
+61041302,Útiles. papelería y fotocopias,costo,5,debito,610413,1
+61041303,Taxis y buses,costo,5,debito,610413,1
+61041304,Parqueaderos,costo,5,debito,610413,1
+61041305,Otros costos diversos,costo,5,debito,610413,1
+61041306,Envases y empaques,costo,5,debito,610413,1
+610414,Consumos de inventario,costo,4,debito,6104,0
+61041401,Consumos de Medicamentos,costo,5,debito,610414,1
+61041402,Consumos de Material médico quirúrgico,costo,5,debito,610414,1
+61041403,Consumos de Materiales reactivos y de la,costo,5,debito,610414,1
+61041404,Consumos de Materiales odontológicos,costo,5,debito,610414,1
+61041405,Consumos de Materiales para imagenologia,costo,5,debito,610414,1
+61041406,Consumos de Banco de sangre,costo,5,debito,610414,1
+61041407,Consumos de Elementos de aseo y lavander,costo,5,debito,610414,1
+61041408,Consumos de Otros materiales,costo,5,debito,610414,1
+61041409,Deterioro de inventarios,costo,5,debito,610414,1
+6105,Unidad funcional de apoyo diagnostico,costo,3,debito,61,0
+610501,Costos de nomina,costo,4,debito,6105,0
+61050101,Sueldos,costo,5,debito,610501,1
+61050102,Salario integral,costo,5,debito,610501,1
+61050103,Horas extras,costo,5,debito,610501,1
+61050104,Recargos Nocturnos,costo,5,debito,610501,1
+61050105,Recargos dominicales y festivos,costo,5,debito,610501,1
+61050106,Bonos de alimentacion,costo,5,debito,610501,1
+61050107,Alimentación directa,costo,5,debito,610501,1
+61050108,Auxilio de transporte,costo,5,debito,610501,1
+61050109,Bonificacion Salarial,costo,5,debito,610501,1
+61050110,Bonificacion no Salarial,costo,5,debito,610501,1
+61050111,Auxilio de movilidad y rodamiento,costo,5,debito,610501,1
+61050112,Otros beneficios económicos,costo,5,debito,610501,1
+61050113,Incapacidades,costo,5,debito,610501,1
+61050114,Indemnizaciones laborales,costo,5,debito,610501,1
+61050115,Aportes arl,costo,5,debito,610501,1
+61050116,Aportes a eps,costo,5,debito,610501,1
+61050117,Aportes a fondos de pensiones y/o cesant,costo,5,debito,610501,1
+61050118,Aportes cajas de compensación familiar,costo,5,debito,610501,1
+61050119,Aportes icbf,costo,5,debito,610501,1
+61050120,Sena,costo,5,debito,610501,1
+61050121,Cesantías,costo,5,debito,610501,1
+61050122,Intereses sobre cesantías,costo,5,debito,610501,1
+61050123,Vacaciones,costo,5,debito,610501,1
+61050124,Prima de servicios,costo,5,debito,610501,1
+61050125,Comisiones,costo,5,debito,610501,1
+61050126,Viáticos ocasionales,costo,5,debito,610501,1
+61050127,Dotación y suministro a trabajadores,costo,5,debito,610501,1
+61050128,Capacitación al personal,costo,5,debito,610501,1
+61050129,Auxilios de Educacion,costo,5,debito,610501,1
+61050130,Apoyo aprendices,costo,5,debito,610501,1
+61050131,Elementos de proteccion personal,costo,5,debito,610501,1
+61050132,Bienestar social y estimulos,costo,5,debito,610501,1
+610502,Honorarios medicos,costo,4,debito,6105,0
+61050201,Honorarios médicos,costo,5,debito,610502,1
+610503,Impuestos asumidos,costo,4,debito,6105,0
+61050301,IVA asumido compras 19%,costo,5,debito,610503,1
+61050302,IVA asumido compras 5%,costo,5,debito,610503,1
+61050303,IVA asumido servicios 19%,costo,5,debito,610503,1
+61050304,IVA asumido honorarios 19%,costo,5,debito,610503,1
+61050305,IVA asumido arrendamientos 19%,costo,5,debito,610503,1
+61050306,Otros impuestos,costo,5,debito,610503,1
+610504,Arrendamientos operativos,costo,4,debito,6105,0
+61050401,Construcciones o edificaciones,costo,5,debito,610504,1
+61050402,Maquinaria,costo,5,debito,610504,1
+61050403,Equipo médico-científico,costo,5,debito,610504,1
+61050404,Equipo de oficina,costo,5,debito,610504,1
+61050405,Muebles y enseres,costo,5,debito,610504,1
+61050406,Equipo de transporte,costo,5,debito,610504,1
+61050407,Adminsitracion de Locales,costo,5,debito,610504,1
+61050408,Otros activos,costo,5,debito,610504,1
+610505,Contribuciones y afiliaciones,costo,4,debito,6105,0
+61050501,Contribuciones,costo,5,debito,610505,1
+61050502,Afiliaciones y sostenimiento,costo,5,debito,610505,1
+610506,Seguros,costo,4,debito,6105,0
+61050601,Manejo,costo,5,debito,610506,1
+61050602,Cumplimiento,costo,5,debito,610506,1
+61050603,Vida colectiva,costo,5,debito,610506,1
+61050604,Incendio,costo,5,debito,610506,1
+61050605,Terremoto,costo,5,debito,610506,1
+61050606,Sustracción y hurto,costo,5,debito,610506,1
+61050607,Equipo de transporte,costo,5,debito,610506,1
+61050608,Responsabilidad civil y extracontractual,costo,5,debito,610506,1
+61050609,Obligatorio accidente de tránsito,costo,5,debito,610506,1
+61050610,Transporte,costo,5,debito,610506,1
+610507,Servicios,costo,4,debito,6105,0
+61050701,Servicio de aseo,costo,5,debito,610507,1
+61050702,Vigilancia,costo,5,debito,610507,1
+61050703,Temporales,costo,5,debito,610507,1
+61050704,Asistencia técnica,costo,5,debito,610507,1
+61050705,Procesamiento electrónico de datos,costo,5,debito,610507,1
+61050706,Acueducto y alcantarillado,costo,5,debito,610507,1
+61050707,Energía eléctrica,costo,5,debito,610507,1
+61050708,Telefonia e internet,costo,5,debito,610507,1
+61050709,Transporte. fletes y acarreos,costo,5,debito,610507,1
+61050710,Gas,costo,5,debito,610507,1
+61050711,Publicidad,costo,5,debito,610507,1
+61050712,Comunicaciones,costo,5,debito,610507,1
+61050713,Otros servicios,costo,5,debito,610507,1
+61050714,Servicio de restaurante,costo,5,debito,610507,1
+610508,Gastos legales,costo,4,debito,6105,0
+61050801,Notariales,costo,5,debito,610508,1
+61050802,Registro mercantil,costo,5,debito,610508,1
+61050803,Trámites y licencias,costo,5,debito,610508,1
+61050804,Aduaneros,costo,5,debito,610508,1
+61050805,Otros gastos legales,costo,5,debito,610508,1
+610509,Gastos de reparacion y mantenimiento,costo,4,debito,6105,0
+61050901,Construcciones y edificaciones,costo,5,debito,610509,1
+61050902,Maquinaria y equipo,costo,5,debito,610509,1
+61050903,Equipo médico-científico,costo,5,debito,610509,1
+61050904,Equipo de oficina,costo,5,debito,610509,1
+61050905,Equipo de computación y comunicación,costo,5,debito,610509,1
+61050906,Equipo de transporte,costo,5,debito,610509,1
+61050907,Otros mantenimientos y reparaciones,costo,5,debito,610509,1
+610510,Adecuación e instalación,costo,4,debito,6105,0
+61051001,Instalaciones eléctricas,costo,5,debito,610510,1
+61051002,Arreglos ornamentales,costo,5,debito,610510,1
+61051003,Reparaciones locativas,costo,5,debito,610510,1
+610511,Gastos de transporte,costo,4,debito,6105,0
+61051101,Alojamiento y manutención,costo,5,debito,610511,1
+61051102,Pasajes aéreos,costo,5,debito,610511,1
+61051103,Pasajes terrestres,costo,5,debito,610511,1
+61051104,Otros gastos de transporte,costo,5,debito,610511,1
+610512,Depreciación de propiedades. planta y eq,costo,4,debito,6105,0
+61051201,Edificaciones,costo,5,debito,610512,1
+61051202,Maquinaria y equipo,costo,5,debito,610512,1
+61051203,Equipo de oficina,costo,5,debito,610512,1
+61051204,Equipo de computación y comunicación,costo,5,debito,610512,1
+61051205,Equipo médico-científico,costo,5,debito,610512,1
+61051206,Equipo de transporte,costo,5,debito,610512,1
+610513,Otros costos,costo,4,debito,6105,0
+61051301,Elementos de aseo y cafetería,costo,5,debito,610513,1
+61051302,Útiles. papelería y fotocopias,costo,5,debito,610513,1
+61051303,Taxis y buses,costo,5,debito,610513,1
+61051304,Parqueaderos,costo,5,debito,610513,1
+61051305,Otros costos diversos,costo,5,debito,610513,1
+61051306,Envases y empaques,costo,5,debito,610513,1
+610514,Consumos de inventario,costo,4,debito,6105,0
+61051401,Consumos de Medicamentos,costo,5,debito,610514,1
+61051402,Consumos de Material médico quirúrgico,costo,5,debito,610514,1
+61051403,Consumos de Materiales reactivos y de la,costo,5,debito,610514,1
+61051404,Consumos de Materiales odontológicos,costo,5,debito,610514,1
+61051405,Consumos de Materiales para imagenologia,costo,5,debito,610514,1
+61051406,Consumos de Banco de sangre,costo,5,debito,610514,1
+61051407,Consumos de Elementos de aseo y lavander,costo,5,debito,610514,1
+61051408,Consumos de Otros materiales,costo,5,debito,610514,1
+61051409,Deterioro de inventarios,costo,5,debito,610514,1
+6106,Unidad funcional de apoyo terapeutico,costo,3,debito,61,0
+610601,Costos de nomina,costo,4,debito,6106,0
+61060101,Sueldos,costo,5,debito,610601,1
+61060102,Salario integral,costo,5,debito,610601,1
+61060103,Horas extras,costo,5,debito,610601,1
+61060104,Recargos Nocturnos,costo,5,debito,610601,1
+61060105,Recargos dominicales y festivos,costo,5,debito,610601,1
+61060106,Bonos de alimentacion,costo,5,debito,610601,1
+61060107,Alimentación directa,costo,5,debito,610601,1
+61060108,Auxilio de transporte,costo,5,debito,610601,1
+61060109,Bonificacion Salarial,costo,5,debito,610601,1
+61060110,Bonificacion no Salarial,costo,5,debito,610601,1
+61060111,Auxilio de movilidad y rodamiento,costo,5,debito,610601,1
+61060112,Otros beneficios económicos,costo,5,debito,610601,1
+61060113,Incapacidades,costo,5,debito,610601,1
+61060114,Indemnizaciones laborales,costo,5,debito,610601,1
+61060115,Aportes arl,costo,5,debito,610601,1
+61060116,Aportes a eps,costo,5,debito,610601,1
+61060117,Aportes a fondos de pensiones y/o cesant,costo,5,debito,610601,1
+61060118,Aportes cajas de compensación familiar,costo,5,debito,610601,1
+61060119,Aportes icbf,costo,5,debito,610601,1
+61060120,Sena,costo,5,debito,610601,1
+61060121,Cesantías,costo,5,debito,610601,1
+61060122,Intereses sobre cesantías,costo,5,debito,610601,1
+61060123,Vacaciones,costo,5,debito,610601,1
+61060124,Prima de servicios,costo,5,debito,610601,1
+61060125,Comisiones,costo,5,debito,610601,1
+61060126,Viáticos ocasionales,costo,5,debito,610601,1
+61060127,Dotación y suministro a trabajadores,costo,5,debito,610601,1
+61060128,Capacitación al personal,costo,5,debito,610601,1
+61060129,Auxilios de Educacion,costo,5,debito,610601,1
+61060130,Apoyo aprendices,costo,5,debito,610601,1
+61060131,Elementos de proteccion personal,costo,5,debito,610601,1
+61060132,Bienestar social y estimulos,costo,5,debito,610601,1
+610602,Honorarios medicos,costo,4,debito,6106,0
+61060201,Honorarios médicos,costo,5,debito,610602,1
+610603,Impuestos asumidos,costo,4,debito,6106,0
+61060301,IVA asumido compras 19%,costo,5,debito,610603,1
+61060302,IVA asumido compras 5%,costo,5,debito,610603,1
+61060303,IVA asumido servicios 19%,costo,5,debito,610603,1
+61060304,IVA asumido honorarios 19%,costo,5,debito,610603,1
+61060305,IVA asumido arrendamientos 19%,costo,5,debito,610603,1
+61060306,Otros impuestos,costo,5,debito,610603,1
+610604,Arrendamientos operativos,costo,4,debito,6106,0
+61060401,Construcciones o edificaciones,costo,5,debito,610604,1
+61060402,Maquinaria,costo,5,debito,610604,1
+61060403,Equipo médico-científico,costo,5,debito,610604,1
+61060404,Equipo de oficina,costo,5,debito,610604,1
+61060405,Muebles y enseres,costo,5,debito,610604,1
+61060406,Equipo de transporte,costo,5,debito,610604,1
+61060407,Adminsitracion de Locales,costo,5,debito,610604,1
+61060408,Otros activos,costo,5,debito,610604,1
+610605,Contribuciones y afiliaciones,costo,4,debito,6106,0
+61060501,Contribuciones,costo,5,debito,610605,1
+61060502,Afiliaciones y sostenimiento,costo,5,debito,610605,1
+610606,Seguros,costo,4,debito,6106,0
+61060601,Manejo,costo,5,debito,610606,1
+61060602,Cumplimiento,costo,5,debito,610606,1
+61060603,Vida colectiva,costo,5,debito,610606,1
+61060604,Incendio,costo,5,debito,610606,1
+61060605,Terremoto,costo,5,debito,610606,1
+61060606,Sustracción y hurto,costo,5,debito,610606,1
+61060607,Equipo de transporte,costo,5,debito,610606,1
+61060608,Responsabilidad civil y extracontractual,costo,5,debito,610606,1
+61060609,Obligatorio accidente de tránsito,costo,5,debito,610606,1
+61060610,Transporte,costo,5,debito,610606,1
+610607,Servicios,costo,4,debito,6106,0
+61060701,Servicio de aseo,costo,5,debito,610607,1
+61060702,Vigilancia,costo,5,debito,610607,1
+61060703,Temporales,costo,5,debito,610607,1
+61060704,Asistencia técnica,costo,5,debito,610607,1
+61060705,Procesamiento electrónico de datos,costo,5,debito,610607,1
+61060706,Acueducto y alcantarillado,costo,5,debito,610607,1
+61060707,Energía eléctrica,costo,5,debito,610607,1
+61060708,Teléfono,costo,5,debito,610607,1
+61060709,Transporte. fletes y acarreos,costo,5,debito,610607,1
+61060710,Gas,costo,5,debito,610607,1
+61060711,Publicidad,costo,5,debito,610607,1
+61060712,Comunicaciones,costo,5,debito,610607,1
+61060713,Otros servicios,costo,5,debito,610607,1
+61060714,Servicio de restaurante,costo,5,debito,610607,1
+610608,Gastos legales,costo,4,debito,6106,0
+61060801,Notariales,costo,5,debito,610608,1
+61060802,Registro mercantil,costo,5,debito,610608,1
+61060803,Trámites y licencias,costo,5,debito,610608,1
+61060804,Aduaneros,costo,5,debito,610608,1
+61060805,Otros gastos legales,costo,5,debito,610608,1
+610609,Gastos de reparacion y mantenimiento,costo,4,debito,6106,0
+61060901,Construcciones y edificaciones,costo,5,debito,610609,1
+61060902,Maquinaria y equipo,costo,5,debito,610609,1
+61060903,Equipo médico-científico,costo,5,debito,610609,1
+61060904,Equipo de oficina,costo,5,debito,610609,1
+61060905,Equipo de computación y comunicación,costo,5,debito,610609,1
+61060906,Equipo de transporte,costo,5,debito,610609,1
+61060907,Otros mantenimientos y reparaciones,costo,5,debito,610609,1
+610610,Adecuación e instalación,costo,4,debito,6106,0
+61061001,Instalaciones eléctricas,costo,5,debito,610610,1
+61061002,Arreglos ornamentales,costo,5,debito,610610,1
+61061003,Reparaciones locativas,costo,5,debito,610610,1
+610611,Gastos de transporte,costo,4,debito,6106,0
+61061101,Alojamiento y manutención,costo,5,debito,610611,1
+61061102,Pasajes aéreos,costo,5,debito,610611,1
+61061103,Pasajes terrestres,costo,5,debito,610611,1
+61061104,Otros gastos de transporte,costo,5,debito,610611,1
+610612,Depreciación de propiedades. planta y eq,costo,4,debito,6106,0
+61061201,Edificaciones,costo,5,debito,610612,1
+61061202,Maquinaria y equipo,costo,5,debito,610612,1
+61061203,Equipo de oficina,costo,5,debito,610612,1
+61061204,Equipo de computación y comunicación,costo,5,debito,610612,1
+61061205,Equipo médico-científico,costo,5,debito,610612,1
+61061206,Equipo de transporte,costo,5,debito,610612,1
+610613,Otros costos,costo,4,debito,6106,0
+61061301,Elementos de aseo y cafetería,costo,5,debito,610613,1
+61061302,Útiles. papelería y fotocopias,costo,5,debito,610613,1
+61061303,Taxis y buses,costo,5,debito,610613,1
+61061304,Parqueaderos,costo,5,debito,610613,1
+61061305,Otros costos diversos,costo,5,debito,610613,1
+61061306,Envases y empaques,costo,5,debito,610613,1
+610614,Consumos de inventario,costo,4,debito,6106,0
+61061401,Consumos de Medicamentos,costo,5,debito,610614,1
+61061402,Consumos de Material médico quirúrgico,costo,5,debito,610614,1
+61061403,Consumos de Materiales reactivos y de la,costo,5,debito,610614,1
+61061404,Consumos de Materiales odontológicos,costo,5,debito,610614,1
+61061405,Consumos de Materiales para imagenologia,costo,5,debito,610614,1
+61061406,Consumos de Banco de sangre,costo,5,debito,610614,1
+61061407,Consumos de Elementos de aseo y lavander,costo,5,debito,610614,1
+61061408,Consumos de Otros materiales,costo,5,debito,610614,1
+61061409,Deterioro de inventarios,costo,5,debito,610614,1
+6107,Unidad funcional de mercadeo,costo,3,debito,61,0
+610701,Costos de nomina,costo,4,debito,6107,0
+61070101,Sueldos,costo,5,debito,610701,1
+61070102,Salario integral,costo,5,debito,610701,1
+61070103,Horas extras,costo,5,debito,610701,1
+61070104,Recargos Nocturnos,costo,5,debito,610701,1
+61070105,Recargos dominicales y festivos,costo,5,debito,610701,1
+61070106,Bonos de alimentacion,costo,5,debito,610701,1
+61070107,Alimentación directa,costo,5,debito,610701,1
+61070108,Auxilio de transporte,costo,5,debito,610701,1
+61070109,Bonificacion Salarial,costo,5,debito,610701,1
+61070110,Bonificacion no Salarial,costo,5,debito,610701,1
+61070111,Auxilio de movilidad y rodamiento,costo,5,debito,610701,1
+61070112,Otros beneficios económicos,costo,5,debito,610701,1
+61070113,Incapacidades,costo,5,debito,610701,1
+61070114,Indemnizaciones laborales,costo,5,debito,610701,1
+61070115,Aportes arl,costo,5,debito,610701,1
+61070116,Aportes a eps,costo,5,debito,610701,1
+61070117,Aportes a fondos de pensiones y/o cesant,costo,5,debito,610701,1
+61070118,Aportes cajas de compensación familiar,costo,5,debito,610701,1
+61070119,Aportes icbf,costo,5,debito,610701,1
+61070120,Sena,costo,5,debito,610701,1
+61070121,Cesantías,costo,5,debito,610701,1
+61070122,Intereses sobre cesantías,costo,5,debito,610701,1
+61070123,Vacaciones,costo,5,debito,610701,1
+61070124,Prima de servicios,costo,5,debito,610701,1
+61070125,Comisiones,costo,5,debito,610701,1
+61070126,Viáticos ocasionales,costo,5,debito,610701,1
+61070127,Dotación y suministro a trabajadores,costo,5,debito,610701,1
+61070128,Capacitación al personal,costo,5,debito,610701,1
+61070129,Auxilios de Educacion,costo,5,debito,610701,1
+61070130,Apoyo aprendices,costo,5,debito,610701,1
+61070131,Elementos de proteccion personal,costo,5,debito,610701,1
+61070132,Bienestar social y estimulos,costo,5,debito,610701,1
+610702,Honorarios medicos,costo,4,debito,6107,0
+61070201,Honorarios médicos,costo,5,debito,610702,1
+610703,Impuestos asumidos,costo,4,debito,6107,0
+61070301,IVA asumido compras 19%,costo,5,debito,610703,1
+61070302,IVA asumido compras 5%,costo,5,debito,610703,1
+61070303,IVA asumido servicios 19%,costo,5,debito,610703,1
+61070304,IVA asumido honorarios 19%,costo,5,debito,610703,1
+61070305,IVA asumido arrendamientos 19%,costo,5,debito,610703,1
+61070306,Otros impuestos,costo,5,debito,610703,1
+610704,Arrendamientos operativos,costo,4,debito,6107,0
+61070401,Construcciones o edificaciones,costo,5,debito,610704,1
+61070402,Maquinaria,costo,5,debito,610704,1
+61070403,Equipo médico-científico,costo,5,debito,610704,1
+61070404,Equipo de oficina,costo,5,debito,610704,1
+61070405,Muebles y enseres,costo,5,debito,610704,1
+61070406,Equipo de transporte,costo,5,debito,610704,1
+61070407,Administracion de Locales,costo,5,debito,610704,1
+61070408,Otros activos,costo,5,debito,610704,1
+610705,Contribuciones y afiliaciones,costo,4,debito,6107,0
+61070501,Contribuciones,costo,5,debito,610705,1
+61070502,Afiliaciones y sostenimiento,costo,5,debito,610705,1
+610706,Seguros,costo,4,debito,6107,0
+61070601,Manejo,costo,5,debito,610706,1
+61070602,Cumplimiento,costo,5,debito,610706,1
+61070603,Vida colectiva,costo,5,debito,610706,1
+61070604,Incendio,costo,5,debito,610706,1
+61070605,Terremoto,costo,5,debito,610706,1
+61070606,Sustracción y hurto,costo,5,debito,610706,1
+61070607,Equipo de transporte,costo,5,debito,610706,1
+61070608,Responsabilidad civil y extracontractual,costo,5,debito,610706,1
+61070609,Obligatorio accidente de tránsito,costo,5,debito,610706,1
+61070610,Transporte,costo,5,debito,610706,1
+610707,Servicios,costo,4,debito,6107,0
+61070701,Servicio de aseo,costo,5,debito,610707,1
+61070702,Vigilancia,costo,5,debito,610707,1
+61070703,Temporales,costo,5,debito,610707,1
+61070704,Asistencia técnica,costo,5,debito,610707,1
+61070705,Procesamiento electrónico de datos,costo,5,debito,610707,1
+61070706,Acueducto y alcantarillado,costo,5,debito,610707,1
+61070707,Energía eléctrica,costo,5,debito,610707,1
+61070708,Teléfono,costo,5,debito,610707,1
+61070709,Transporte. fletes y acarreos,costo,5,debito,610707,1
+61070710,Gas,costo,5,debito,610707,1
+61070711,Publicidad,costo,5,debito,610707,1
+61070712,Comunicaciones,costo,5,debito,610707,1
+61070713,Otros servicios,costo,5,debito,610707,1
+61070714,Servicio de restaurante,costo,5,debito,610707,1
+610708,Gastos legales,costo,4,debito,6107,0
+61070801,Notariales,costo,5,debito,610708,1
+61070802,Registro mercantil,costo,5,debito,610708,1
+61070803,Trámites y licencias,costo,5,debito,610708,1
+61070804,Aduaneros,costo,5,debito,610708,1
+61070805,Otros gastos legales,costo,5,debito,610708,1
+610709,Gastos de reparacion y mantenimiento,costo,4,debito,6107,0
+61070901,Construcciones y edificaciones,costo,5,debito,610709,1
+61070902,Maquinaria y equipo,costo,5,debito,610709,1
+61070903,Equipo médico-científico,costo,5,debito,610709,1
+61070904,Equipo de oficina,costo,5,debito,610709,1
+61070905,Equipo de computación y comunicación,costo,5,debito,610709,1
+61070906,Equipo de transporte,costo,5,debito,610709,1
+61070907,Otros mantenimientos y reparaciones,costo,5,debito,610709,1
+610710,Adecuación e instalación,costo,4,debito,6107,0
+61071001,Instalaciones eléctricas,costo,5,debito,610710,1
+61071002,Arreglos ornamentales,costo,5,debito,610710,1
+61071003,Reparaciones locativas,costo,5,debito,610710,1
+610711,Gastos de transporte,costo,4,debito,6107,0
+61071101,Alojamiento y manutención,costo,5,debito,610711,1
+61071102,Pasajes aéreos,costo,5,debito,610711,1
+61071103,Pasajes terrestres,costo,5,debito,610711,1
+61071104,Otros gastos de transporte,costo,5,debito,610711,1
+610712,Depreciación de propiedades. planta y eq,costo,4,debito,6107,0
+61071201,Edificaciones,costo,5,debito,610712,1
+61071202,Maquinaria y equipo,costo,5,debito,610712,1
+61071203,Equipo de oficina,costo,5,debito,610712,1
+61071204,Equipo de computación y comunicación,costo,5,debito,610712,1
+61071205,Equipo médico-científico,costo,5,debito,610712,1
+61071206,Equipo de transporte,costo,5,debito,610712,1
+610713,Otros costos,costo,4,debito,6107,0
+61071301,Elementos de aseo y cafetería,costo,5,debito,610713,1
+61071302,Útiles. papelería y fotocopias,costo,5,debito,610713,1
+61071303,Taxis y buses,costo,5,debito,610713,1
+61071304,Parqueaderos,costo,5,debito,610713,1
+61071305,Otros costos diversos,costo,5,debito,610713,1
+61071306,Envases y empaques,costo,5,debito,610713,1
+610714,Consumos de inventario,costo,4,debito,6107,0
+61071401,Consumos de Medicamentos,costo,5,debito,610714,1
+61071402,Consumos de Material médico quirúrgico,costo,5,debito,610714,1
+61071403,Consumos de Materiales reactivos y de la,costo,5,debito,610714,1
+61071404,Consumos de Materiales odontológicos,costo,5,debito,610714,1
+61071405,Consumos de Materiales para imagenologia,costo,5,debito,610714,1
+61071406,Consumos de Banco de sangre,costo,5,debito,610714,1
+61071407,Consumos de Elementos de aseo y lavander,costo,5,debito,610714,1
+61071408,Consumos de Otros materiales,costo,5,debito,610714,1
+61071409,Deterioro de inventarios,costo,5,debito,610714,1
+6108,Otras actividades relacionadas con la sa,costo,3,debito,61,0
+610801,Costos de nomina,costo,4,debito,6108,0
+61080101,Sueldos,costo,5,debito,610801,1
+61080102,Salario integral,costo,5,debito,610801,1
+61080103,Horas extras,costo,5,debito,610801,1
+61080104,Recargos Nocturnos,costo,5,debito,610801,1
+61080105,Recargos dominicales y festivos,costo,5,debito,610801,1
+61080106,Bonos de alimentacion,costo,5,debito,610801,1
+61080107,Alimentación directa,costo,5,debito,610801,1
+61080108,Auxilio de transporte,costo,5,debito,610801,1
+61080109,Bonificacion Salarial,costo,5,debito,610801,1
+61080110,Bonificacion no Salarial,costo,5,debito,610801,1
+61080111,Auxilio de movilidad y rodamiento,costo,5,debito,610801,1
+61080112,Otros beneficios económicos,costo,5,debito,610801,1
+61080113,Incapacidades,costo,5,debito,610801,1
+61080114,Indemnizaciones laborales,costo,5,debito,610801,1
+61080115,Aportes arl,costo,5,debito,610801,1
+61080116,Aportes a eps,costo,5,debito,610801,1
+61080117,Aportes a fondos de pensiones y/o cesant,costo,5,debito,610801,1
+61080118,Aportes cajas de compensación familiar,costo,5,debito,610801,1
+61080119,Aportes icbf,costo,5,debito,610801,1
+61080120,Sena,costo,5,debito,610801,1
+61080121,Cesantías,costo,5,debito,610801,1
+61080122,Intereses sobre cesantías,costo,5,debito,610801,1
+61080123,Vacaciones,costo,5,debito,610801,1
+61080124,Prima de servicios,costo,5,debito,610801,1
+61080125,Comisiones,costo,5,debito,610801,1
+61080126,Viáticos ocasionales,costo,5,debito,610801,1
+61080127,Dotación y suministro a trabajadores,costo,5,debito,610801,1
+61080128,Capacitación al personal,costo,5,debito,610801,1
+61080129,Auxilios de Educacion,costo,5,debito,610801,1
+61080131,Elementos de proteccion personal,costo,5,debito,610801,1
+61080132,Bienestar social y estimulos,costo,5,debito,610801,1
+610802,Honorarios medicos,costo,4,debito,6108,0
+61080201,Honorarios médicos,costo,5,debito,610802,1
+610803,Impuestos asumidos,costo,4,debito,6108,0
+61080301,IVA asumido compras 19%,costo,5,debito,610803,1
+61080302,IVA asumido compras 5%,costo,5,debito,610803,1
+61080303,IVA asumido servicios 19%,costo,5,debito,610803,1
+61080304,IVA asumido honorarios 19%,costo,5,debito,610803,1
+61080305,IVA asumido arrendamientos 19%,costo,5,debito,610803,1
+61080306,Otros impuestos,costo,5,debito,610803,1
+610804,Arrendamientos operativos,costo,4,debito,6108,0
+61080401,Construcciones o edificaciones,costo,5,debito,610804,1
+61080402,Maquinaria,costo,5,debito,610804,1
+61080403,Equipo médico-científico,costo,5,debito,610804,1
+61080404,Equipo de oficina,costo,5,debito,610804,1
+61080405,Muebles y enseres,costo,5,debito,610804,1
+61080406,Equipo de transporte,costo,5,debito,610804,1
+61080407,Administracion de Locales,costo,5,debito,610804,1
+61080408,Otros activos,costo,5,debito,610804,1
+610805,Contribuciones y afiliaciones,costo,4,debito,6108,0
+61080501,Contribuciones,costo,5,debito,610805,1
+61080502,Afiliaciones y sostenimiento,costo,5,debito,610805,1
+610806,Seguros,costo,4,debito,6108,0
+61080601,Manejo,costo,5,debito,610806,1
+61080602,Cumplimiento,costo,5,debito,610806,1
+61080603,Vida colectiva,costo,5,debito,610806,1
+61080604,Incendio,costo,5,debito,610806,1
+61080605,Terremoto,costo,5,debito,610806,1
+61080606,Sustracción y hurto,costo,5,debito,610806,1
+61080607,Equipo de transporte,costo,5,debito,610806,1
+61080608,Responsabilidad civil y extracontractual,costo,5,debito,610806,1
+61080609,Obligatorio accidente de tránsito,costo,5,debito,610806,1
+61080610,Transporte,costo,5,debito,610806,1
+610807,Servicios,costo,4,debito,6108,0
+61080701,Servicio de aseo,costo,5,debito,610807,1
+61080702,Vigilancia,costo,5,debito,610807,1
+61080703,Temporales,costo,5,debito,610807,1
+61080704,Asistencia técnica,costo,5,debito,610807,1
+61080705,Procesamiento electrónico de datos,costo,5,debito,610807,1
+61080706,Acueducto y alcantarillado,costo,5,debito,610807,1
+61080707,Energía eléctrica,costo,5,debito,610807,1
+61080708,Teléfono,costo,5,debito,610807,1
+61080709,Transporte. fletes y acarreos,costo,5,debito,610807,1
+61080710,Gas,costo,5,debito,610807,1
+61080711,Publicidad,costo,5,debito,610807,1
+61080712,Comunicaciones,costo,5,debito,610807,1
+61080713,Otros servicios,costo,5,debito,610807,1
+61080714,Servicio de restaurante,costo,5,debito,610807,1
+610808,Gastos legales,costo,4,debito,6108,0
+61080801,Notariales,costo,5,debito,610808,1
+61080802,Registro mercantil,costo,5,debito,610808,1
+61080803,Trámites y licencias,costo,5,debito,610808,1
+61080804,Aduaneros,costo,5,debito,610808,1
+61080805,Otros gastos legales,costo,5,debito,610808,1
+610809,Gastos de reparacion y mantenimiento,costo,4,debito,6108,0
+61080901,Construcciones y edificaciones,costo,5,debito,610809,1
+61080902,Maquinaria y equipo,costo,5,debito,610809,1
+61080903,Equipo médico-científico,costo,5,debito,610809,1
+61080904,Equipo de oficina,costo,5,debito,610809,1
+61080905,Equipo de computación y comunicación,costo,5,debito,610809,1
+61080906,Equipo de transporte,costo,5,debito,610809,1
+61080907,Otros mantenimientos y reparaciones,costo,5,debito,610809,1
+610810,Adecuación e instalación,costo,4,debito,6108,0
+61081001,Instalaciones eléctricas,costo,5,debito,610810,1
+61081002,Arreglos ornamentales,costo,5,debito,610810,1
+61081003,Reparaciones locativas,costo,5,debito,610810,1
+610811,Gastos de transporte,costo,4,debito,6108,0
+61081101,Alojamiento y manutención,costo,5,debito,610811,1
+61081102,Pasajes aéreos,costo,5,debito,610811,1
+61081103,Pasajes terrestres,costo,5,debito,610811,1
+61081104,Otros gastos de transporte,costo,5,debito,610811,1
+610812,Depreciación de propiedades. planta y eq,costo,4,debito,6108,0
+61081201,Edificaciones,costo,5,debito,610812,1
+61081202,Maquinaria y equipo,costo,5,debito,610812,1
+61081203,Equipo de oficina,costo,5,debito,610812,1
+61081204,Equipo de computación y comunicación,costo,5,debito,610812,1
+61081205,Equipo médico-científico,costo,5,debito,610812,1
+61081206,Equipo de transporte,costo,5,debito,610812,1
+610813,Otros costos,costo,4,debito,6108,0
+61081301,Elementos de aseo y cafetería,costo,5,debito,610813,1
+61081302,Útiles. papelería y fotocopias,costo,5,debito,610813,1
+61081303,Taxis y buses,costo,5,debito,610813,1
+61081304,Parqueaderos,costo,5,debito,610813,1
+61081305,Otros costos diversos,costo,5,debito,610813,1

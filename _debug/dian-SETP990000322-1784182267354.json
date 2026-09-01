@@ -1,0 +1,63 @@
+{
+  "invoice_number": "SETP990000322",
+  "signed_filename": "SETP990000322",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000322,
+    "issue_date": "2026-07-16",
+    "issuer": {
+      "nit": "900746052",
+      "name": "NEURUM S.A.S",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "800567890",
+      "name": "Alimentos Frescos del Valle SAS",
+      "city_code": "76520",
+      "city_name": "Palmira",
+      "department_code": "76",
+      "department_name": "Valle del Cauca",
+      "address": "Variante Palmira Km 3",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Switch Cisco 24 puertos",
+        "quantity": 1,
+        "unit_price": 3200000,
+        "unit_code": "EA",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "00",
+    "status_description": "Procesado Correctamente.",
+    "status_message": "La Factura electrónica SETP990000322, ha sido autorizada.",
+    "xml_document_key": "d085c89ff74dedfbb6dc98d840548ee4d6ea6db1ff48d7c2041b81912edab38aedf883cb461d722e6a1c51be36c0df2a",
+    "errors": [
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

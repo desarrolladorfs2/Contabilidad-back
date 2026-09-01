@@ -1,0 +1,81 @@
+{
+  "invoice_number": "SETP991000008",
+  "signed_filename": "SETP991000008",
+  "payload": {
+    "prefix": "SETP",
+    "number": 991000008,
+    "issue_date": "2026-07-29",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Neurum AP",
+      "trade_name": "Neurum IPS",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "CL 27 46 70 LC 201 203 205",
+      "tax_level_code": "R-99-PN",
+      "email": "Admin@neurum.com.co",
+      "document_type": "31",
+      "person_type": "1"
+    },
+    "customer": {
+      "nit": "1035873202",
+      "name": "Lina Marcela Patiño",
+      "city_code": "05001",
+      "city_name": "Medellín",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1 #2-3",
+      "tax_level_code": "R-99-PN",
+      "document_type": "31",
+      "person_type": "1"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "resolution_start_date": "2019-01-19",
+    "resolution_end_date": "2030-01-19",
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Capacitación / Entrenamiento",
+        "quantity": 1,
+        "unit_price": 80000,
+        "unit_code": "HUR",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 2,
+        "description": "Switch Cisco 24 puertos",
+        "quantity": 1,
+        "unit_price": 3200000,
+        "unit_code": "EA",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 10
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "00",
+    "status_description": "Procesado Correctamente.",
+    "status_message": "La Factura electrónica SETP991000008, ha sido autorizada.",
+    "xml_document_key": "8e5f2c02fdedefa918d96fb22a5e8e692cc95fe470eb83c2ba1bf23e26fd1f512fdd9ffa12fd5b8c2e7bd87a88604497",
+    "errors": [
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

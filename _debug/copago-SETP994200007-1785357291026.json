@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "status_code": "99",
+  "status_description": "Validación contiene errores en campos mandatorios.",
+  "status_message": "Documento con errores en campos mandatorios.",
+  "xml_document_key": "5a57e8e905055ac8d34fdde6b504ebc27ebc29c36063102cdd780bebc5321f20b3440dc03ab30a0e369ed37b40abbdb2",
+  "errors": [
+    "Regla: FAK61, Rechazo: Si el valor de AdditionalAccountID es igual a \"2\" y el grupo no es informado.",
+    "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+  ],
+  "http_status": 200
+}

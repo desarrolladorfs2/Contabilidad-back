@@ -1,0 +1,167 @@
+import {
+  Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn,
+  ManyToOne, JoinColumn, Index,
+} from 'typeorm';
+import { Factura } from './Invoice';
+import { Company } from './Company';
+import { Tercero } from './Tercero';
+import { CentroCosto } from './contabilidad/CentroCosto';
+import { Sede } from './contabilidad/Sede';
+
+export type EstadoNotaCredito = 'draft' | 'enviada' | 'aprobada' | 'aceptada' | 'rechazada';
+
+/** @deprecated Usar EstadoNotaCredito */
+export type CreditNoteStatus = EstadoNotaCredito;
+
+/** Nota Crédito electrónica. Tabla: notas_credito */
+@Entity('notas_credito')
+@Index(['company_id', 'fecha_emision'])
+@Index(['company_id', 'estado'])
+@Index(['factura_id'])
+@Index(['cliente_tercero_id'])
+export class NotaCredito {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
+
+  @ManyToOne(() => Company, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'company_id' })
+  company!: Company;
+
+  @Column()
+  company_id!: string;
+
+  /** RESTRICT: no se puede anular una factura si tiene notas crédito activas */
+  @ManyToOne(() => Factura, (f) => f.notas_credito, { onDelete: 'RESTRICT' })
+  @JoinColumn({ name: 'factura_id' })
+  factura!: Factura;
+
+  @Column()
+  factura_id!: string;
+
+  /**
+   * Desnormalización del cliente para reportes directos sin join a Factura.
+   * Se copia de Factura.cliente_tercero_id al crear la nota crédito.
+   */
+  @Column({ nullable: true })
+  cliente_tercero_id?: string;
+
+  @ManyToOne(() => Tercero, { nullable: true, onDelete: 'SET NULL', eager: false })
+  @JoinColumn({ name: 'cliente_tercero_id' })
+  cliente_tercero?: Tercero;
+
+  /**
+   * Centro de costo y sede: se copian de la Factura referenciada al crear la nota
+   * (no se seleccionan manualmente), para que quede trazado el mismo origen.
+   */
+  @Column({ nullable: true })
+  centro_costo_id?: string;
+
+  @ManyToOne(() => CentroCosto, { nullable: true, onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'centro_costo_id' })
+  centro_costo?: CentroCosto;
+
+  @Column({ nullable: true })
+  sede_id?: string;
+
+  @ManyToOne(() => Sede, { nullable: true, onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'sede_id' })
+  sede?: Sede;
+
+  /**
+   * Ciudad de facturación: se copia de la Factura referenciada al crear la
+   * nota (igual que centro_costo_id/sede_id), para que quede trazada la
+   * misma información de origen.
+   */
+  @Column({ length: 20, nullable: true })
+  ciudad_codigo?: string;
+
+  @Column({ length: 200, nullable: true })
+  ciudad_nombre?: string;
+
+  @Column({ length: 50 })
+  numero_nota_credito!: string;
+
+  @Column({ length: 20, default: 'NC' })
+  prefijo!: string;
+
+  @Column()
+  numero!: number;
+
+  @Column({ type: 'date' })
+  fecha_emision!: string;
+
+  @Column({ type: 'text', nullable: true })
+  descripcion?: string;
+
+  @Column({ type: 'text', nullable: true })
+  cude?: string;
+
+  /** Natural key -> cat_codigos_discrepancia.codigo */
+  @Column({ length: 5, nullable: true })
+  codigo_discrepancia?: string;
+
+  @Column({ type: 'text', nullable: true })
+  descripcion_discrepancia?: string;
+
+  @Column({ default: 'draft' })
+  estado!: EstadoNotaCredito;
+
+  @Column({ length: 10, nullable: true })
+  dian_status_code?: string;
+
+  @Column({ type: 'text', nullable: true })
+  dian_status_description?: string;
+
+  /** Respuesta cruda de la DIAN. Excluida de SELECTs por defecto. */
+  @Column({ type: 'text', nullable: true, select: false })
+  dian_response?: string;
+
+  // Totales
+  @Column({ type: 'decimal', precision: 18, scale: 2, default: 0 })
+  subtotal!: number;
+
+  @Column({ type: 'decimal', precision: 18, scale: 2, default: 0 })
+  total_impuestos!: number;
+
+  @Column({ type: 'decimal', precision: 18, scale: 2, default: 0 })
+  total!: number;
+
+  /** Natural key -> cat_monedas.codigo_iso (ISO 4217) */
+  @Column({ length: 10, default: 'COP' })
+  moneda!: string;
+
+  /** Lineas en formato JSON para el XML DIAN. */
+  @Column({ type: 'simple-json', nullable: true, select: false })
+  lineas?: Record<string, unknown>[];
+
+  /** XML firmado en base64. Excluido de queries de reportes. */
+  @Column({ type: 'text', nullable: true, select: false })
+  xml_base64?: string;
+
+  /** PDF en base64. Excluido de queries de reportes. */
+  @Column({ type: 'text', nullable: true, select: false })
+  pdf_base64?: string;
+
+  /** ZIP (XML + PDF) en base64. Excluido de queries de reportes. */
+  @Column({ type: 'text', nullable: true, select: false })
+  zip_base64?: string;
+
+  @Column({ length: 200, nullable: true })
+  archivo_firmado?: string;
+
+  /** Usuario que creó el registro. Desnormalizado: sobrevive borrado/renombrado de usuario. */
+  @Column({ nullable: true })
+  creado_por_usuario_id?: string;
+
+  @Column({ length: 120, nullable: true })
+  creado_por_nombre?: string;
+
+  @CreateDateColumn()
+  created_at!: Date;
+
+  @UpdateDateColumn()
+  updated_at!: Date;
+}
+
+/** @deprecated Usar NotaCredito */
+export { NotaCredito as CreditNote };

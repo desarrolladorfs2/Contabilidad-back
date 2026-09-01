@@ -1,0 +1,63 @@
+{
+  "invoice_number": "SETP990000176",
+  "signed_filename": "SETP990000176",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000176,
+    "issue_date": "2026-06-11",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Akribeia SAS",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle39a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "1030405060",
+      "name": "Carlos Alberto Ruiz",
+      "city_code": "08001",
+      "city_name": "",
+      "department_code": "08",
+      "department_name": "",
+      "address": "Calle 10 # 8-30",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Prueba",
+        "quantity": 1,
+        "unit_price": 391938,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "00",
+    "status_description": "Procesado Correctamente.",
+    "status_message": "La Factura electrónica SETP990000176, ha sido autorizada.",
+    "xml_document_key": "e97f56806ece8e8e85a3b16087be50f85fd24b6072b70df430a09de2f7755a61911a1d76da468604b91fb41a2f75e582",
+    "errors": [
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

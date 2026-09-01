@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "status_code": "99",
+  "status_description": "Validación contiene errores en campos mandatorios.",
+  "status_message": "Documento con errores en campos mandatorios.",
+  "xml_document_key": "2ce161f2d21b9573c129314dfe5d609882a51ae75dfd0ce0a89d371399a73e5cfb2aa80c74bad1faaacacd852b26e7d2",
+  "errors": [
+    "Regla: ZB01, Rechazo: Fallo en el Schema XML del archivo - cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2\":PhysicalLocation}'. One of '{\"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2\":Person, \"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2\":AgentParty, \"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2\":ServiceProviderParty, \"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2\":PowerOfAttorney, \"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2\":FinancialAccount}' is expected. -",
+    "Regla: FAK61, Rechazo: Si el valor de AdditionalAccountID es igual a \"2\" y el grupo no es informado.",
+    "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+  ],
+  "http_status": 200
+}

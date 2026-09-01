@@ -1,0 +1,7 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+xmlsig>=1.0.0,<2.0.0          # Versión compatible con la lógica de firma de Odoo (usa xmlsig 1.x)
+lxml>=5.0.0
+cryptography>=42.0.0,<44.0.0  # Compatible con xmlsig 1.x
+pydantic>=2.7.0
+python-multipart>=0.0.9

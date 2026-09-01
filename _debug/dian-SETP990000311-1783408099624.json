@@ -1,0 +1,71 @@
+{
+  "invoice_number": "SETP990000311",
+  "signed_filename": "SETP990000311",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000311,
+    "issue_date": "2026-07-07",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Akribeia SAS",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "900123456",
+      "name": "Tecnologías Innovadoras SAS",
+      "city_code": "11001",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá D.C.",
+      "address": "Calle 93 # 15-32",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "we",
+        "quantity": 1,
+        "unit_price": 391391,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "99",
+    "status_description": "Validación contiene errores en campos mandatorios.",
+    "status_message": "Documento con errores en campos mandatorios.",
+    "xml_document_key": "53a148d2e9ed53fcd2b0c0a6c384e386d0cb0cabb8100f6889d3d3cde2d687249867d46f90cbd769ae19f60af742fdfd",
+    "errors": [
+      "Regla: FAB10b, Rechazo: Error al validar regla: Valida el rango de numeracion autorizado",
+      "Regla: FAJ44b, Rechazo: Error al validar regla: NIT o documento de identificación del emisor debe corresponder al informado en el RUT y debe coincidir con la Razón Social o Nombre comercial registrado.",
+      "Regla: FAB19b, Rechazo: Error al validar regla: Valida NIT",
+      "Regla: 90, Rechazo: Error al validar regla: Valida duplicidad documento",
+      "Regla: FAD09e, Rechazo: Error al validar regla: Validate SigningTime Issued Date",
+      "Regla: ZE02, Rechazo: Error al validar regla: Valida firma del documento",
+      "Regla: FAB27b, Rechazo: Error al validar regla: Valida el software",
+      "Regla: FAJ26, Rechazo: Error al validar regla: Valida TaxLevelCode",
+      "Regla: FAD06, Rechazo: Error al validar regla: Valida que valor del CUFE esté calculado correctamente"
+    ],
+    "http_status": 200
+  }
+}

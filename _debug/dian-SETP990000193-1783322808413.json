@@ -1,0 +1,118 @@
+{
+  "invoice_number": "SETP990000193",
+  "signed_filename": "SETP990000193",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000193,
+    "issue_date": "2026-07-06",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Neurum IPS",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "900123456",
+      "name": "Tecnologías Innovadoras SAS",
+      "city_code": "11001",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá D.C.",
+      "address": "Calle 93 # 15-32",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "1",
+        "quantity": 1,
+        "unit_price": 88133134,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 2,
+        "description": "2",
+        "quantity": 1,
+        "unit_price": 439193,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 3,
+        "description": "3",
+        "quantity": 1,
+        "unit_price": 831311,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 4,
+        "description": "4",
+        "quantity": 1,
+        "unit_price": 1284381,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 5,
+        "description": "5",
+        "quantity": 1,
+        "unit_price": 596095,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 6,
+        "description": "6",
+        "quantity": 1,
+        "unit_price": 348184,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "00",
+    "status_description": "Procesado Correctamente.",
+    "status_message": "La Factura electrónica SETP990000193, ha sido autorizada.",
+    "xml_document_key": "a566a74635bf1f12abd4e07975f1bbcecdd22af4412a791aeaa5e3dacdf0707d87e84448aa34e18882c523020ec310e5",
+    "errors": [
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

@@ -1,0 +1,612 @@
+import { Router, Response } from 'express';
+import { AppDataSource } from '../config/database';
+import { EntityManager } from 'typeorm';
+import { Factura, EstadoFactura } from '../entities/Invoice';
+import { FacturaLinea } from '../entities/InvoiceLinea';
+import { NotaCredito } from '../entities/CreditNote';
+import { NotaDebito } from '../entities/DebitNote';
+import { Company } from '../entities/Company';
+import { CompanySettings } from '../entities/CompanySettings';
+import { authMiddleware, requireRole, AuthRequest } from '../middleware/auth.middleware';
+import * as fs from 'fs';
+import * as path from 'path';
+import { resolveUploadPath } from '../services/uploads.service';
+import {
+  generateInvoiceXml,
+  generateInvoicePdf,
+  signXml,
+  sendToDAIN,
+} from '../services/dian.service';
+import { buildInvoiceXmlPayload } from '../utils/dian-payload.utils';
+import { registrarAuditoria, AUDITORIA_ACCION, AUDITORIA_ENTIDAD } from '../services/auditoria.service';
+import { generarAsientoDesdeFactura } from '../services/asiento-generator';
+import { normalizeEmail, normalizeNit } from '../utils/normalize.utils';
+
+const router = Router();
+router.use(authMiddleware);
+
+async function getSettings(companyId: string): Promise<CompanySettings | null> {
+  return AppDataSource.getRepository(CompanySettings).findOne({ where: { company_id: companyId } });
+}
+
+async function getCompany(companyId: string): Promise<Company | null> {
+  return AppDataSource.getRepository(Company).findOne({ where: { id: companyId } });
+}
+
+// Carga una factura incluyendo las columnas con select:false que se necesiten.
+// Por defecto trae dian_response. Pasar extra_cols para los blobs adicionales.
+async function findInvoiceBlob(
+  id: string, companyId: string,
+  cols: ('xml_base64' | 'pdf_base64' | 'zip_base64' | 'dian_response' | 'generation_payload' | 'lineas')[] = ['dian_response']
+) {
+  let qb = AppDataSource.getRepository(Factura)
+    .createQueryBuilder('inv')
+    .leftJoinAndSelect('inv.centro_costo', 'centro_costo')
+    .leftJoinAndSelect('inv.sede', 'sede')
+    .leftJoinAndSelect('sede.municipio', 'sede_municipio')
+    .where('inv.id = :id AND inv.company_id = :cid', { id, cid: companyId });
+  cols.forEach(c => qb = qb.addSelect(`inv.${c}`));
+  return qb.getOne();
+}
+
+/** Mapeo tax_type del frontend → codigo DIAN de cat_tipos_tributo */
+function mapTaxType(taxType: string): string {
+  const t = (taxType || '').toUpperCase();
+  if (t === 'IVA')  return '01';
+  if (t === 'INC')  return '04';
+  if (t === 'ICA')  return '03';
+  return 'ZZ';
+}
+
+/**
+ * Doble escritura: persiste las líneas en factura_lineas (tabla relacional).
+ * Se llama después de guardar la factura. Borra las líneas previas para
+ * soportar actualizaciones idempotentes.
+ */
+// Hallazgo #3: acepta un EntityManager opcional (el de una transacción en curso)
+// para que el borrado+recreación de líneas pueda participar en la misma
+// transacción que el guardado de la factura — ver el bloque final de POST /.
+// Si no se pasa ninguno, usa el manager global (comportamiento anterior, para
+// los llamadores que no necesitan atomicidad extra, como PUT).
+async function saveInvoiceLineas(invoiceId: string, rawLines: unknown[], manager: EntityManager = AppDataSource.manager): Promise<void> {
+  if (!Array.isArray(rawLines) || rawLines.length === 0) return;
+  const repo = manager.getRepository(FacturaLinea);
+  // Borrar líneas previas (para PUT / re-envío)
+  await repo.delete({ factura_id: invoiceId });
+  const lineas = rawLines.map((l: any, idx: number) => {
+    const tributo  = mapTaxType(l.tax_type ?? '');
+    const esIva    = tributo === '01';
+    const esInc    = tributo === '04';
+    const precio   = Number(l.unit_price   ?? 0);
+    const cantidad = Number(l.quantity      ?? 1);
+    const dcto_pct = Number(l.discount_rate ?? 0);
+    const dcto_val = Number(l.discount_amount ?? (precio * cantidad * dcto_pct / 100));
+    const subtotal = precio * cantidad - dcto_val;
+    const valorIva = esIva ? Number(l.tax_amount ?? 0) : 0;
+    const valorInc = esInc ? Number(l.tax_amount ?? 0) : 0;
+    const total    = Number(l.line_total ?? (subtotal + valorIva + valorInc));
+    return repo.create({
+      factura_id:           invoiceId,
+      linea_numero:         idx + 1,
+      descripcion:          String(l.description ?? '').substring(0, 500),
+      cantidad,
+      unidad_medida_codigo: String(l.unit_code ?? 'EA').substring(0, 10),
+      precio_unitario:      precio,
+      descuento_pct:        dcto_pct,
+      descuento_valor:      dcto_val,
+      subtotal,
+      tipo_tributo_codigo:  tributo,
+      tarifa_iva:           esIva ? Number(l.tax_rate ?? 0) : 0,
+      tarifa_inc:           esInc ? Number(l.tax_rate ?? 0) : 0,
+      valor_iva:            valorIva,
+      valor_inc:            valorInc,
+      total,
+      codigo_unspsc:        l.unspsc_code ? String(l.unspsc_code).substring(0, 20) : undefined,
+      cuenta_puc_codigo:    l.cuenta_puc_codigo ? String(l.cuenta_puc_codigo).substring(0, 20) : undefined,
+      cuenta_puc_nombre:    l.cuenta_puc_nombre ? String(l.cuenta_puc_nombre).substring(0, 200) : undefined,
+      // Hallazgo UX centro de costo/sede por línea: si el frontend no envía un
+      // valor propio (línea marcada como "hereda de la factura"), queda NULL
+      // y la línea hereda el centro_costo/sede de la cabecera de la factura.
+      centro_costo_id:      l.centro_costo_id ? String(l.centro_costo_id) : undefined,
+      sede_id:              l.sede_id ? String(l.sede_id) : undefined,
+    });
+  });
+  await repo.save(lineas);
+}
+
+
+// GET /api/invoices?page=1&limit=20&status=&search=&date_from=&date_to=&export=csv
+router.get('/', async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const { page = '1', limit = '20', status, search, date_from, date_to, export: exportFmt } = req.query as Record<string, string>;
+    const pageNum  = +page;
+    const limitNum = exportFmt === 'csv' ? 10000 : +limit; // sin paginación para export
+
+    const qb = AppDataSource.getRepository(Factura)
+      .createQueryBuilder('inv')
+      .where('inv.company_id = :cid', { cid: req.user!.companyId })
+      .orderBy('inv.fecha_emision', 'DESC')
+      .addOrderBy('inv.created_at', 'DESC');
+
+    if (status)    qb.andWhere('inv.estado = :status', { status });
+    if (search)    qb.andWhere('(inv.cliente_nombre LIKE :q OR inv.cliente_nit LIKE :q OR inv.numero_factura LIKE :q)', { q: `%${search}%` });
+    if (date_from) qb.andWhere('inv.fecha_emision >= :df', { df: date_from });
+    if (date_to)   qb.andWhere('inv.fecha_emision <= :dt', { dt: date_to });
+
+    if (exportFmt !== 'csv') {
+      qb.skip((pageNum - 1) * limitNum).take(limitNum);
+    }
+
+    const [items, total] = await qb.getManyAndCount();
+    res.json({ items, total, page: pageNum, limit: limitNum });
+  } catch (e) {
+    res.status(500).json({ error: 'Error listando facturas' });
+  }
+});
+
+// GET /api/invoices/:id
+router.get('/:id', async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const invoice = await findInvoiceBlob(req.params.id, req.user!.companyId, ['dian_response', 'generation_payload', 'lineas']);
+    if (!invoice) { res.status(404).json({ error: 'Factura no encontrada' }); return; }
+    const resp = invoice.dian_response ? (() => { try { return JSON.parse(invoice.dian_response!); } catch { return invoice.dian_response; } })() : null;
+    res.json({ ...invoice, dian_response: resp });
+  } catch (e) {
+    res.status(500).json({ error: 'Error obteniendo factura' });
+  }
+});
+
+// GET /api/invoices/:id/xml
+router.get('/:id/xml', async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const invoice = await findInvoiceBlob(req.params.id, req.user!.companyId, ['xml_base64']);
+    if (!invoice?.xml_base64) { res.status(404).json({ error: 'XML no disponible' }); return; }
+    const buf = Buffer.from(invoice.xml_base64, 'base64');
+    res.setHeader('Content-Type', 'application/xml');
+    res.setHeader('Content-Disposition', 'attachment; filename="' + invoice.numero_factura + '.xml"');
+    res.send(buf);
+  } catch (e) {
+    res.status(500).json({ error: 'Error descargando XML' });
+  }
+});
+
+// GET /api/invoices/:id/pdf
+router.get('/:id/pdf', async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const invoice = await findInvoiceBlob(req.params.id, req.user!.companyId, ['pdf_base64']);
+    if (!invoice?.pdf_base64) { res.status(404).json({ error: 'PDF no disponible' }); return; }
+    const buf = Buffer.from(invoice.pdf_base64, 'base64');
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'inline; filename="' + invoice.numero_factura + '.pdf"');
+    res.send(buf);
+  } catch (e) {
+    res.status(500).json({ error: 'Error descargando PDF' });
+  }
+});
+
+// GET /api/invoices/:id/zip
+router.get('/:id/zip', async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const invoice = await findInvoiceBlob(req.params.id, req.user!.companyId, ['zip_base64']);
+    if (!invoice?.zip_base64) { res.status(404).json({ error: 'ZIP no disponible' }); return; }
+    const buf = Buffer.from(invoice.zip_base64, 'base64');
+    const filename = (invoice.numero_factura || invoice.id) + '.zip';
+    res.setHeader('Content-Type', 'application/zip');
+    res.setHeader('Content-Disposition', 'attachment; filename="' + filename + '"');
+    res.send(buf);
+  } catch (e) {
+    res.status(500).json({ error: 'Error descargando ZIP' });
+  }
+});
+
+// GET /api/invoices/:id/credit-notes
+router.get('/:id/credit-notes', async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const invoice = await AppDataSource.getRepository(Factura).findOne({
+      where: { id: req.params.id, company_id: req.user!.companyId },
+    });
+    if (!invoice) { res.status(404).json({ error: 'Factura no encontrada' }); return; }
+    const items = await AppDataSource.getRepository(NotaCredito).find({
+      where: { factura_id: req.params.id },
+      order: { fecha_emision: 'DESC' },
+    });
+    res.json(items);
+  } catch (e) {
+    res.status(500).json({ error: 'Error listando notas credito' });
+  }
+});
+
+// GET /api/invoices/:id/debit-notes
+router.get('/:id/debit-notes', async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const invoice = await AppDataSource.getRepository(Factura).findOne({
+      where: { id: req.params.id, company_id: req.user!.companyId },
+    });
+    if (!invoice) { res.status(404).json({ error: 'Factura no encontrada' }); return; }
+    const items = await AppDataSource.getRepository(NotaDebito).find({
+      where: { factura_id: req.params.id },
+      order: { fecha_emision: 'DESC' },
+    });
+    res.json(items);
+  } catch (e) {
+    res.status(500).json({ error: 'Error listando notas debito' });
+  }
+});
+
+// POST /api/invoices
+router.post('/', requireRole('admin', 'operator'), async (req: AuthRequest, res: Response): Promise<void> => {
+  const facturaRepo = AppDataSource.getRepository(Factura);
+  let draftInvoice: Factura | undefined;
+  try {
+    if (!req.body.centro_costo_id) { res.status(400).json({ error: 'El centro de costo es obligatorio' }); return; }
+    if (!req.body.sede_id) { res.status(400).json({ error: 'La sede es obligatoria' }); return; }
+
+    const settings = await getSettings(req.user!.companyId);
+    if (!settings) { res.status(400).json({ error: 'Empresa sin configuracion DIAN' }); return; }
+
+    const company = await getCompany(req.user!.companyId);
+    if (!company) { res.status(400).json({ error: 'Empresa no encontrada' }); return; }
+
+    // Hallazgo #2: reservar el consecutivo de forma atómica ANTES de cualquier
+    // llamada externa (generación XML / firma / envío DIAN), para eliminar la
+    // condición de carrera que permitía duplicar o saltar números de factura
+    // cuando dos solicitudes llegaban simultáneamente.
+    let assignedNumber: number | undefined = settings.next_invoice_number ?? undefined;
+    if (settings.next_invoice_number) {
+      // UPDATE...RETURNING en una sola sentencia: el incremento y la lectura del
+      // valor resultante son una única operación atómica (soportado por SQLite
+      // 3.35+ y MariaDB 10.5+), cerrando la ventana teórica de carrera que
+      // quedaba entre un UPDATE y un SELECT separados.
+      const [freshRow] = await AppDataSource.query(
+        'UPDATE company_settings SET next_invoice_number = next_invoice_number + 1 WHERE company_id = ? RETURNING next_invoice_number',
+        [req.user!.companyId],
+      ) as { next_invoice_number: number }[];
+      assignedNumber = (freshRow?.next_invoice_number ?? 2) - 1;
+      settings.next_invoice_number = assignedNumber;
+    }
+
+    // Hallazgo #2: persistir un registro "enviando" con el consecutivo ya
+    // reservado, para que ningún fallo posterior (XML/firma/DIAN) deje un
+    // número reservado sin rastro en la base de datos — siempre queda al
+    // menos una factura en estado 'rechazada' documentando el intento.
+    draftInvoice = facturaRepo.create({
+      company_id:            req.user!.companyId,
+      prefijo:               settings.invoice_prefix ?? undefined,
+      numero:                assignedNumber,
+      // Placeholder hasta obtener el numero_factura definitivo del XML DIAN
+      // (la columna es NOT NULL); se sobreescribe abajo en cada rama.
+      numero_factura:        `${settings.invoice_prefix ?? ''}${assignedNumber ?? ''}`,
+      fecha_emision:         new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).slice(0, 10),
+      descripcion:           req.body.description || undefined,
+      notas:                 req.body.notes        || undefined,
+      estado:                'borrador' as any,
+      cliente_tipo_id:       req.body.customer?.id_type,
+      // Hallazgo #1: normalizar NIT (solo dígitos) y email (trim+minúsculas) antes de
+      // guardar el snapshot del cliente, para evitar duplicados de terceros por
+      // variaciones de formato (espacios, puntos, mayúsculas).
+      cliente_nit:           normalizeNit(req.body.customer?.id_number || req.body.customer?.nit),
+      cliente_nombre:        req.body.customer?.name ? String(req.body.customer.name).trim() : req.body.customer?.name,
+      cliente_correo:        normalizeEmail(req.body.customer?.email),
+      cliente_direccion:     req.body.customer?.address,
+      cliente_ciudad_codigo: req.body.customer?.city_code,
+      cliente_telefono:      req.body.customer?.phone,
+      subtotal:              req.body.subtotal,
+      total_impuestos:       req.body.tax_total,
+      iva_total:             req.body.iva_total ?? 0,
+      inc_total:             req.body.inc_total ?? 0,
+      total:                 (Number(req.body.subtotal) + Number(req.body.tax_total)),
+      centro_costo_id:       req.body.centro_costo_id,
+      sede_id:               req.body.sede_id,
+      moneda:                req.body.currency || 'COP',
+      condicion_pago:        req.body.payment_terms    || 'contado',
+      medio_pago:            req.body.payment_method_id || undefined,
+      fecha_vencimiento:     req.body.due_date          || undefined,
+      numero_cuotas:         req.body.cuotas_count      || undefined,
+      estado_pago:           'pendiente',
+      generation_payload:    req.body,
+      lineas:                req.body.lines,
+      created_by_user_id:    req.user!.id,
+      created_by_name:       req.user!.name,
+    });
+    await facturaRepo.save(draftInvoice);
+
+    const xmlPayload = buildInvoiceXmlPayload(req.body, company, settings);
+    const xmlResult = await generateInvoiceXml(xmlPayload) as Record<string, unknown>;
+    if (xmlResult.error || xmlResult.success === false) {
+      draftInvoice.estado = 'rechazada' as any;
+      draftInvoice.dian_status_code = undefined;
+      draftInvoice.dian_response = JSON.stringify({ error: xmlResult.error, detail: xmlResult.detail, stage: 'generar_xml' });
+      await facturaRepo.save(draftInvoice);
+      res.status(400).json({ error: xmlResult.error, detail: xmlResult.detail }); return;
+    }
+
+    const { xml_base64, cufe, invoice_number } = xmlResult as { xml_base64: string; cufe: string; invoice_number: string };
+
+    const issueDatetime = new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ') + '-05:00';
+
+    // Firmar primero para incluir la firma digital en el PDF
+    const signResult = await signXml(xml_base64, { invoice_number, cufe, software_id: settings.software_id, software_pin: settings.software_pin }, settings) as Record<string, unknown>;
+    if (signResult.error) {
+      draftInvoice.estado = 'rechazada' as any;
+      draftInvoice.numero_factura = invoice_number;
+      draftInvoice.cufe = cufe;
+      draftInvoice.dian_response = JSON.stringify({ error: signResult.error, stage: 'firmar_xml' });
+      await facturaRepo.save(draftInvoice);
+      res.status(400).json({ error: 'Error firmando XML', detail: signResult.error }); return;
+    }
+
+    const { zip_base64, signed_filename, signed_xml_base64 } = signResult as { zip_base64: string; signed_filename: string; signed_xml_base64?: string };
+
+    // Retención en la fuente (informativa, no va al XML DIAN)
+    const tieneRetencion   = !!req.body.tiene_retencion;
+    const tarifaRetencion  = Number(req.body.tarifa_retencion ?? 0);
+    const valorRetencion   = Number(req.body.valor_retencion  ?? 0);
+    const conceptoRet      = req.body.concepto_retencion || undefined;
+    // Ciudad de facturación (para centros de costo e informes)
+    const ciudadCodigo     = req.body.ciudad_codigo || undefined;
+    const ciudadNombre     = req.body.ciudad_nombre || undefined;
+
+    const pdfResult = await generateInvoicePdf({
+      ...xmlPayload,
+      cufe,
+      environment:         settings.environment,
+      signed_filename:     invoice_number,
+      issue_datetime:      issueDatetime,
+      pdf_primary_color:   settings.pdf_primary_color ?? '#1a56db',
+      pdf_secondary_color: settings.pdf_secondary_color ?? '#374151',
+      payment_means_id:    req.body.payment_means_id  || '1',
+      payment_method_id:   req.body.payment_method_id || '42',
+      signed_xml_b64:      signed_xml_base64 || undefined,
+      logo_base64:         settings.logo_path
+                             ? (() => { try { return fs.readFileSync(resolveUploadPath(settings.logo_path!)).toString('base64'); } catch { return undefined; } })()
+                             : undefined,
+      // Retención para el PDF
+      tiene_retencion:     tieneRetencion,
+      tarifa_retencion:    tarifaRetencion,
+      valor_retencion:     valorRetencion,
+      concepto_retencion:  conceptoRet,
+    }) as Record<string, unknown>;
+    const pdfBase64: string | undefined = (pdfResult.pdf_base64 as string) || undefined;
+
+    const dianResult = await sendToDAIN(zip_base64, signed_filename, settings.environment, settings) as Record<string, unknown>;
+
+    // === DEBUG: guarda respuesta DIAN en disco para diagnóstico ===
+    try {
+      const debugDir = path.join(process.cwd(), '_debug');
+      fs.mkdirSync(debugDir, { recursive: true });
+      fs.writeFileSync(
+        path.join(debugDir, `dian-${invoice_number}-${Date.now()}.json`),
+        JSON.stringify({ invoice_number, signed_filename, payload: xmlPayload, dian: dianResult }, null, 2),
+        'utf8',
+      );
+    } catch { /* no bloquear si falla el debug */ }
+
+    // Hallazgo #2: completar el mismo registro reservado ("enviando") con el
+    // resultado final, en vez de crear una fila nueva — ya existe desde antes
+    // de la generación del XML, con el consecutivo ya asignado.
+    const invoice = draftInvoice;
+    invoice.numero_factura        = invoice_number;
+    invoice.estado                = (dianResult.status_code === '00' ? 'aprobada' : dianResult.status_code ? 'rechazada' : 'enviada') as any;
+    invoice.cufe                  = cufe;
+    invoice.dian_status_code      = (dianResult.status_code as string) || undefined;
+    invoice.dian_response         = JSON.stringify(dianResult);
+    invoice.tiene_retencion       = tieneRetencion;
+    invoice.tarifa_retencion      = tarifaRetencion;
+    invoice.valor_retencion       = valorRetencion;
+    invoice.concepto_retencion    = conceptoRet;
+    invoice.ciudad_codigo         = ciudadCodigo;
+    invoice.ciudad_nombre         = ciudadNombre;
+    invoice.xml_base64            = xml_base64;
+    invoice.pdf_base64            = pdfBase64;
+    invoice.zip_base64            = zip_base64;
+    // Hallazgo #3: el resultado de DIAN ya no se puede "revertir" (la llamada
+    // externa ya ocurrió), así que envolver todo el flujo previo en una
+    // transacción de BD no tendría sentido — de hecho rompería a propósito el
+    // registro "enviando" reservado más arriba (hallazgo #2), que existe
+    // justamente para sobrevivir un fallo a mitad de camino. Lo que sí debe
+    // ser atómico es el guardado FINAL: la factura, sus líneas normalizadas y
+    // (si aplica) el asiento contable deben quedar todos guardados juntos o
+    // ninguno — antes, si `saveInvoiceLineas` fallaba después de que la
+    // factura ya se hubiera guardado como 'aprobada', quedaba una factura
+    // aprobada sin sus líneas, con un total que ya no cuadraba con nada.
+    await AppDataSource.transaction(async (manager) => {
+      await manager.getRepository(Factura).save(invoice);
+      // Hallazgo #1: doble escritura a factura_lineas (tabla normalizada) además
+      // del JSON embebido — la función ya existía pero nunca se invocaba.
+      await saveInvoiceLineas(invoice.id, req.body.lines, manager);
+    });
+    // La auditoría queda fuera de la transacción a propósito: ya tiene su
+    // propio try/catch que nunca debe romper el flujo principal (ver
+    // auditoria.service.ts), y no es un dato que deba revertirse junto con la
+    // factura si algo más falla después.
+    await registrarAuditoria({ req, accion: AUDITORIA_ACCION.CREAR, entidad: AUDITORIA_ENTIDAD.FACTURA, entidadId: invoice.id, datosNuevos: { invoice_number: invoice.numero_factura, total: invoice.total, status: invoice.estado } });
+
+    // Hook: generar asiento contable en borrador si la DIAN aprobó la factura
+    if (invoice.estado === 'aprobada') {
+      try { await generarAsientoDesdeFactura(invoice, req.user!.companyId); } catch (e) { console.error('[ASIENTO]', e); }
+    }
+
+    res.json({ ...invoice, dian_response: dianResult });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    // Hallazgo #2/#3: si el registro reservado quedó en "enviando" por un error
+    // inesperado, marcarlo "rechazada" para no dejar un consecutivo huérfano.
+    // Esto cubre dos casos: (a) el error ocurrió ANTES de la transacción final
+    // (draftInvoice.estado todavía es 'borrador' en BD y en memoria), y (b) la
+    // transacción final (factura + líneas) hizo rollback — en ese caso la BD
+    // volvió a 'borrador' aunque `draftInvoice.estado` ya se hubiera mutado en
+    // memoria a 'aprobada'/'rechazada'/'enviada' antes de intentar guardar, así
+    // que no basta con mirar el objeto en memoria: hay que releer de la BD.
+    if (typeof draftInvoice !== 'undefined') {
+      try {
+        const enBd = await facturaRepo.findOne({ where: { id: draftInvoice.id } });
+        if (enBd && enBd.estado === 'borrador') {
+          enBd.estado = 'rechazada' as any;
+          enBd.dian_response = JSON.stringify({ error: msg, stage: 'excepcion_inesperada' });
+          await facturaRepo.save(enBd);
+        }
+      } catch { /* no bloquear la respuesta de error por esto */ }
+    }
+    res.status(500).json({ error: 'Error generando factura', detail: msg });
+  }
+});
+
+// POST /api/invoices/:id/resend — re-enviar ZIP existente a la DIAN
+router.post('/:id/resend', requireRole('admin', 'operator'), async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const repo = AppDataSource.getRepository(Factura);
+    const invoice = await findInvoiceBlob(req.params.id, req.user!.companyId, ['zip_base64', 'dian_response']);
+    if (!invoice) { res.status(404).json({ error: 'Factura no encontrada' }); return; }
+    if (!invoice.zip_base64) { res.status(400).json({ error: 'No hay ZIP para reenviar' }); return; }
+
+    const settings = await getSettings(req.user!.companyId);
+    if (!settings) { res.status(400).json({ error: 'Empresa sin configuracion DIAN' }); return; }
+
+    const signed_filename = invoice.numero_factura;
+    const dianResult = await sendToDAIN(invoice.zip_base64, signed_filename, settings.environment, settings) as Record<string, unknown>;
+
+    invoice.dian_status_code = (dianResult.status_code as string) || undefined;
+    invoice.dian_response    = JSON.stringify(dianResult);
+    invoice.estado           = (dianResult.status_code === '00' ? 'aprobada' : dianResult.status_code ? 'rechazada' : 'enviada') as EstadoFactura;
+    await repo.save(invoice);
+
+    // Hook: generar asiento contable en borrador si la DIAN aprobó la factura
+    if (invoice.estado === 'aprobada') {
+      try { await generarAsientoDesdeFactura(invoice, req.user!.companyId); } catch (e) { console.error('[ASIENTO]', e); }
+    }
+
+    res.json({ ...invoice, dian_response: dianResult });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    res.status(500).json({ error: 'Error reenviando factura', detail: msg });
+  }
+});
+
+// PUT /api/invoices/:id — editar y reenviar factura rechazada
+router.put('/:id', requireRole('admin', 'operator'), async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const repo = AppDataSource.getRepository(Factura);
+    const invoice = await repo.findOne({ where: { id: req.params.id, company_id: req.user!.companyId } });
+    if (!invoice) { res.status(404).json({ error: 'Factura no encontrada' }); return; }
+    if (!['rechazada','enviada'].includes(invoice.estado)) {
+      res.status(400).json({ error: 'Solo se pueden editar facturas con estado rechazada o enviada' }); return;
+    }
+
+    const settings = await getSettings(req.user!.companyId);
+    if (!settings) { res.status(400).json({ error: 'Empresa sin configuracion DIAN' }); return; }
+
+    const company = await getCompany(req.user!.companyId);
+    if (!company) { res.status(400).json({ error: 'Empresa no encontrada' }); return; }
+
+    // Regenerar XML con el mismo número de factura (no incrementar contador)
+    const xmlPayload = buildInvoiceXmlPayload(req.body, company, settings, invoice.numero_factura);
+    const xmlResult = await generateInvoiceXml(xmlPayload) as Record<string, unknown>;
+    if (xmlResult.error || xmlResult.success === false) {
+      res.status(400).json({ error: xmlResult.error, detail: xmlResult.detail }); return;
+    }
+
+    const { xml_base64, cufe, invoice_number } = xmlResult as { xml_base64: string; cufe: string; invoice_number: string };
+
+    const issueDatetime = new Date().toLocaleString('sv-SE', { timeZone: 'America/Bogota' }).replace('T', ' ') + '-05:00';
+
+    // Firmar primero para incluir la firma digital en el PDF
+    const signResult = await signXml(xml_base64, { invoice_number, cufe, software_id: settings.software_id, software_pin: settings.software_pin }, settings) as Record<string, unknown>;
+    if (signResult.error) { res.status(400).json({ error: 'Error firmando XML', detail: signResult.error }); return; }
+
+    const { zip_base64, signed_filename, signed_xml_base64 } = signResult as { zip_base64: string; signed_filename: string; signed_xml_base64?: string };
+
+    // Retención en la fuente (PUT)
+    const tieneRetencionP  = !!req.body.tiene_retencion;
+    const tarifaRetencionP = Number(req.body.tarifa_retencion ?? 0);
+    const valorRetencionP  = Number(req.body.valor_retencion  ?? 0);
+    const conceptoRetP     = req.body.concepto_retencion || undefined;
+    // Ciudad de facturación (PUT)
+    const ciudadCodigoP    = req.body.ciudad_codigo || undefined;
+    const ciudadNombreP    = req.body.ciudad_nombre || undefined;
+
+    const pdfResult = await generateInvoicePdf({
+      ...xmlPayload,
+      cufe,
+      environment:         settings.environment,
+      signed_filename:     invoice_number,
+      issue_datetime:      issueDatetime,
+      pdf_primary_color:   settings.pdf_primary_color ?? '#1a56db',
+      pdf_secondary_color: settings.pdf_secondary_color ?? '#374151',
+      payment_means_id:    req.body.payment_means_id  || '1',
+      payment_method_id:   req.body.payment_method_id || '42',
+      signed_xml_b64:      signed_xml_base64 || undefined,
+      logo_base64:         settings.logo_path
+                             ? (() => { try { return fs.readFileSync(resolveUploadPath(settings.logo_path!)).toString('base64'); } catch { return undefined; } })()
+                             : undefined,
+      tiene_retencion:     tieneRetencionP,
+      tarifa_retencion:    tarifaRetencionP,
+      valor_retencion:     valorRetencionP,
+      concepto_retencion:  conceptoRetP,
+    }) as Record<string, unknown>;
+    const pdfBase64: string | undefined = (pdfResult.pdf_base64 as string) || undefined;
+    const dianResult = await sendToDAIN(zip_base64, signed_filename, settings.environment, settings) as Record<string, unknown>;
+
+    // === DEBUG: guarda respuesta DIAN en disco para diagnóstico ===
+    try {
+      const debugDir = path.join(process.cwd(), '_debug');
+      fs.mkdirSync(debugDir, { recursive: true });
+      fs.writeFileSync(
+        path.join(debugDir, `dian-${invoice_number}-${Date.now()}.json`),
+        JSON.stringify({ invoice_number, signed_filename, payload: xmlPayload, dian: dianResult }, null, 2),
+        'utf8',
+      );
+    } catch { /* no bloquear si falla el debug */ }
+
+    Object.assign(invoice, {
+      estado:             (dianResult.status_code === '00' ? 'aprobada' : dianResult.status_code ? 'rechazada' : 'enviada') as any,
+      cufe,
+      dian_status_code:   (dianResult.status_code as string) || undefined,
+      dian_response:      JSON.stringify(dianResult),
+      xml_base64,
+      pdf_base64:         pdfBase64,
+      zip_base64,
+      descripcion:        req.body.description   || invoice.descripcion,
+      notas:              req.body.notes          || invoice.notas,
+      subtotal:           req.body.subtotal,
+      total_impuestos:    req.body.tax_total,
+      iva_total:          req.body.iva_total ?? 0,
+      inc_total:          req.body.inc_total ?? 0,
+      total:              (Number(req.body.subtotal) + Number(req.body.tax_total)),
+      tiene_retencion:    tieneRetencionP,
+      tarifa_retencion:   tarifaRetencionP,
+      valor_retencion:    valorRetencionP,
+      concepto_retencion: conceptoRetP,
+      ciudad_codigo:      ciudadCodigoP,
+      ciudad_nombre:      ciudadNombreP,
+      // Condiciones de pago
+      condicion_pago:     req.body.payment_terms    || invoice.condicion_pago,
+      medio_pago:         req.body.payment_method_id || invoice.medio_pago,
+      fecha_vencimiento:  req.body.due_date          || invoice.fecha_vencimiento,
+      numero_cuotas:      req.body.cuotas_count      || invoice.numero_cuotas,
+      lineas:             req.body.lines,
+    });
+    // Hallazgo #3: igual que en POST /, la factura y sus líneas normalizadas se
+    // guardan juntas en una transacción — si saveInvoiceLineas falla, el
+    // guardado de `invoice` (que ya trae el resultado DIAN de este reenvío)
+    // también hace rollback en vez de quedar aprobada/rechazada sin sus líneas.
+    await AppDataSource.transaction(async (manager) => {
+      await manager.getRepository(Factura).save(invoice);
+      // Hallazgo #1: mantener sincronizada factura_lineas también al editar —
+      // saveInvoiceLineas borra las líneas previas de esta factura antes de
+      // recrearlas, así que es seguro llamarla de nuevo aquí.
+      await saveInvoiceLineas(invoice.id, req.body.lines, manager);
+    });
+
+    // Hook: generar asiento contable en borrador si la DIAN aprobó la factura
+    if (invoice.estado === 'aprobada') {
+      try { await generarAsientoDesdeFactura(invoice, req.user!.companyId); } catch (e) { console.error('[ASIENTO]', e); }
+    }
+
+    res.json({ ...invoice, dian_response: dianResult });
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    res.status(500).json({ error: 'Error generando factura', detail: msg });
+  }
+});
+
+export default router;

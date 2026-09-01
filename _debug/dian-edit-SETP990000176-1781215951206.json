@@ -1,0 +1,64 @@
+{
+  "invoice_number": "SETP990000176",
+  "signed_filename": "SETP990000176",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000176,
+    "issue_date": "2026-06-11",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Akribeia SAS",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle39a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "1030405060",
+      "name": "Carlos Alberto Ruiz",
+      "city_code": "08296",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá",
+      "address": "Calle 10 # 8-30",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Prueba",
+        "quantity": 1,
+        "unit_price": 391938,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "99",
+    "status_description": "Validación contiene errores en campos mandatorios.",
+    "status_message": "Documento con errores en campos mandatorios.",
+    "xml_document_key": "00eefc4d40b4c115a793e8c8ed2d8dde18ef63764ecba528719c9f65074b6d59e40c98c23b78f0d2038c4e200678ef1e",
+    "errors": [
+      "Regla: CDG01, Rechazo: El código del departamento no coincide con el del municipio",
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

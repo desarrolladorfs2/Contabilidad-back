@@ -1,0 +1,18 @@
+# dian-xml-builder
+# Módulo independiente de generación de XML DIAN
+
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.6.0
+lxml>=5.1.0
+python-multipart>=0.0.9
+pandas>=2.0
+openpyxl>=3.1
+# akribeia_health_edi: YA NO se instala aparte -- su código fuente está
+# copiado dentro de esta misma carpeta (./akribeia_health_edi/), y
+# xml_builder_cli.py lo agrega a sys.path junto con el resto de app/.
+
+# PDF generation (Representación Gráfica DIAN)
+reportlab>=4.0.0
+qrcode>=7.4.2
+pillow>=10.0.0

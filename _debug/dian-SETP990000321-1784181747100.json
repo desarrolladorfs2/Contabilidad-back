@@ -1,0 +1,63 @@
+{
+  "invoice_number": "SETP990000321",
+  "signed_filename": "SETP990000321",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000321,
+    "issue_date": "2026-07-16",
+    "issuer": {
+      "nit": "900746052",
+      "name": "NEURUM S.A.S",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "1020304050",
+      "name": "María Fernanda López",
+      "city_code": "11001",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá D.C.",
+      "address": "Cra 7 # 45-10 Apto 301",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "UPS 1500VA",
+        "quantity": 1,
+        "unit_price": 780000,
+        "unit_code": "EA",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "00",
+    "status_description": "Procesado Correctamente.",
+    "status_message": "La Factura electrónica SETP990000321, ha sido autorizada.",
+    "xml_document_key": "01e69d06a43148e0b8ad93e1087fcb6f1a121305f2b76660e0b19a131f23f85d4bef1da7f0dd7613b91d04f9c35ddf11",
+    "errors": [
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "invoice_number": "SETP990000188",
+  "signed_filename": "SETP990000188",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000188,
+    "issue_date": "2026-06-16",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Akribeia SAS",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "900234567",
+      "name": "Editorial Planeta Colombia",
+      "city_code": "11001",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá D.C.",
+      "address": "Cra 11A # 98-50",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Dominio .com",
+        "quantity": 1,
+        "unit_price": 200000,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 2,
+        "description": "Suscripción",
+        "quantity": 1,
+        "unit_price": 59600,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 5,
+        "discount_percent": 0
+      },
+      {
+        "id": 3,
+        "description": "Otro",
+        "quantity": 1,
+        "unit_price": 20000,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "04",
+        "tax_rate": 16,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "00",
+    "status_description": "Procesado Correctamente.",
+    "status_message": "La Factura electrónica SETP990000188, ha sido autorizada.",
+    "xml_document_key": "96225fea7ccbe033e32514344cbf1214e002a90808125edb0f8528fd835cdd0d1da837c8c766c0652743f83cb7146ab3",
+    "errors": [
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

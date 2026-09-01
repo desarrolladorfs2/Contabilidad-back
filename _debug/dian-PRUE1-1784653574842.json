@@ -1,0 +1,70 @@
+{
+  "invoice_number": "PRUE1",
+  "signed_filename": "PRUE1",
+  "payload": {
+    "prefix": "PRUE",
+    "number": 1,
+    "issue_date": "2026-07-21",
+    "issuer": {
+      "nit": "900746052",
+      "name": "NEURUM SAS",
+      "trade_name": "Neurum IPS",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "CL 27 46 70 LC 201 203 205",
+      "tax_level_code": "R-99-PN",
+      "email": "gesis2@neurum.com.co"
+    },
+    "customer": {
+      "nit": "1035873202",
+      "name": "Lina Marcela Patiño",
+      "city_code": "05001",
+      "city_name": "Medellín",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1 #2-3",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18764112661815",
+    "resolution_prefix": "PRUE",
+    "resolution_from": 1,
+    "resolution_to": 100,
+    "resolution_start_date": "2026-07-17",
+    "resolution_end_date": "2028-07-17",
+    "environment": "1",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Prueba software en producción",
+        "quantity": 1,
+        "unit_price": 100,
+        "unit_code": "EA",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "note": "Prueba en ambiente de produccion",
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "99",
+    "status_description": "Validación contiene errores en campos mandatorios.",
+    "status_message": "Documento con errores en campos mandatorios.",
+    "xml_document_key": "22ff665494bf898f5252a5ac634756d338bd630a1b4c7a36ffcfa58157951aa8bf6e8687ff1a31f77c2271cfe6feac3a",
+    "errors": [
+      "Regla: FAB07b, Rechazo: Fecha inicial del rango de numeración informado no corresponde a la fecha inicial de los rangos vigente para el contribuyente.",
+      "Regla: FAB08b, Rechazo: Fecha final del rango de numeración informado no corresponde a la fecha final del rango vigente para el ABS",
+      "Regla: FAD06, Rechazo: Valor del CUFE no está calculado correctamente.",
+      "Regla: RUT01, Notificación: La validación del estado del RUT próximamente estará disponible."
+    ],
+    "http_status": 200
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "invoice_number": "SETP990000192",
+  "signed_filename": "SETP990000192",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000192,
+    "issue_date": "2026-07-06",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Neurum IPS",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "900123456",
+      "name": "Tecnologías Innovadoras SAS",
+      "city_code": "11001",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá D.C.",
+      "address": "Calle 93 # 15-32",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "1",
+        "quantity": 1,
+        "unit_price": 219971,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 2,
+        "description": "2",
+        "quantity": 1,
+        "unit_price": 1737181,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 3,
+        "description": "3",
+        "quantity": 1,
+        "unit_price": 17217171,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "99",
+    "status_description": "Validación contiene errores en campos mandatorios.",
+    "status_message": "Documento con errores en campos mandatorios.",
+    "xml_document_key": "a6439345f38771fa5e608f7e572fde71ee508927309ba9c2a0a1274a7a6a0f93dbdf454b0e152ff56d47dcf173a604a9",
+    "errors": [
+      "Regla: 90, Rechazo: Documento procesado anteriormente."
+    ],
+    "http_status": 200
+  }
+}

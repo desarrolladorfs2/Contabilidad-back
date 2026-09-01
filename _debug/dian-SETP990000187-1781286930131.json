@@ -1,0 +1,74 @@
+{
+  "invoice_number": "SETP990000187",
+  "signed_filename": "SETP990000187",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000187,
+    "issue_date": "2026-06-12",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Akribeia SAS",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "900234567",
+      "name": "Editorial Planeta Colombia",
+      "city_code": "11001",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá D.C.",
+      "address": "Cra 11A # 98-50",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Dominio web",
+        "quantity": 2,
+        "unit_price": 120000,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 5,
+        "discount_percent": 40
+      },
+      {
+        "id": 2,
+        "description": "Compra",
+        "quantity": 1,
+        "unit_price": 39193,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 0,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "00",
+    "status_description": "Procesado Correctamente.",
+    "status_message": "La Factura electrónica SETP990000187, ha sido autorizada.",
+    "xml_document_key": "f01eb966a4d8a307eb9ef7d826acf48de87756dba9b34b6883c3ed82edfe6a0f9e9110adc85a2ba81b73cc7aebfc007f",
+    "errors": [
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

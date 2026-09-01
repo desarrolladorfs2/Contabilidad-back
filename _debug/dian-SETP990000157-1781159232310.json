@@ -1,0 +1,105 @@
+{
+  "invoice_number": "SETP990000157",
+  "signed_filename": "SETP990000157",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000157,
+    "issue_date": "2026-06-11",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Akribeia SAS",
+      "trade_name": "Akribeia ",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 39a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "900108281",
+      "name": "Cliente de Pruebas DIAN",
+      "city_code": "05001",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá",
+      "address": "Calle1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Desarrollo",
+        "quantity": 1,
+        "unit_price": 6000000,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 5,
+        "discount_percent": 10
+      },
+      {
+        "id": 2,
+        "description": "Soporte",
+        "quantity": 1,
+        "unit_price": 300000,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "04",
+        "tax_rate": 4,
+        "discount_percent": 0
+      },
+      {
+        "id": 3,
+        "description": "Prueba",
+        "quantity": 1,
+        "unit_price": 1000031,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 5,
+        "discount_percent": 0
+      },
+      {
+        "id": 4,
+        "description": "Prueba",
+        "quantity": 3,
+        "unit_price": 841891,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 0,
+        "discount_percent": 0
+      },
+      {
+        "id": 5,
+        "description": "Prueba",
+        "quantity": 1,
+        "unit_price": 29131,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "ZA",
+        "tax_rate": 0,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "99",
+    "status_description": "Validación contiene errores en campos mandatorios.",
+    "status_message": "Documento con errores en campos mandatorios.",
+    "xml_document_key": "c730a05765492772751147b56e8a83ef04f2ded7152b373ac1485bd6ab00bbf97fee135e734b99b192ad112616ec0679",
+    "errors": [],
+    "http_status": 200
+  }
+}

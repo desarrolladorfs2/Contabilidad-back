@@ -1,0 +1,76 @@
+{
+  "invoice_number": "SETP990000000",
+  "signed_filename": "SETP990000000",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000000,
+    "issue_date": "2026-07-24",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Neurum AP",
+      "trade_name": "Neurum IPs",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "CL 27 46 70 LC 201 203 205",
+      "tax_level_code": "R-99-PN",
+      "email": "Admin@neurum.com.co",
+      "document_type": "31",
+      "person_type": "1"
+    },
+    "customer": {
+      "nit": "1035873202",
+      "name": "Lina Marcela Patiño",
+      "city_code": "05001",
+      "city_name": "Medellín",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1 #2-3",
+      "tax_level_code": "R-99-PN",
+      "document_type": "31",
+      "person_type": "1"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "resolution_start_date": "0001-01-01",
+    "resolution_end_date": "0003-01-01",
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Switch Cisco 24 puertos",
+        "quantity": 1,
+        "unit_price": 3200000,
+        "unit_code": "EA",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "99",
+    "status_description": "Validación contiene errores en campos mandatorios.",
+    "status_message": "Documento con errores en campos mandatorios.",
+    "xml_document_key": "050f026c89d175b6d18e7110d7878ecd96e4326687d3f8c9f5dc6482c0afae8a623524e5f7577aeee9d7e5dcef02b3c5",
+    "errors": [
+      "Regla: FAD09b, Rechazo: Fecha de emision posterior a la fecha final de la autorizacion de la numeracion",
+      "Regla: FAK24b, Rechazo: DV no corresponde al NIT informado",
+      "Regla: FAK24, Rechazo: DV no corresponde al NIT informado",
+      "Regla: FAJ24, Rechazo: DV del NIT del emsior del documento no está correctamente calculado",
+      "Regla: FAB07b, Rechazo: Fecha inicial del rango de numeración informado no corresponde a la fecha inicial de los rangos vigente para el contribuyente.",
+      "Regla: FAB08b, Rechazo: Fecha final del rango de numeración informado no corresponde a la fecha final del rango vigente para el ABS",
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

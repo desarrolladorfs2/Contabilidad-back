@@ -1,0 +1,72 @@
+{
+  "invoice_number": "SETP990000160",
+  "signed_filename": "SETP990000160",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000160,
+    "issue_date": "2026-06-11",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Akribeia SAS",
+      "trade_name": "Akribeia ",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 39a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "900108281",
+      "name": "Cliente de Pruebas DIAN",
+      "city_code": "11001",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá",
+      "address": "Calle1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Prueba",
+        "quantity": 1,
+        "unit_price": 3891381,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 40
+      },
+      {
+        "id": 2,
+        "description": "Prueba",
+        "quantity": 1,
+        "unit_price": 193131,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 0,
+        "discount_percent": 10
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "00",
+    "status_description": "Procesado Correctamente.",
+    "status_message": "La Factura electrónica SETP990000160, ha sido autorizada.",
+    "xml_document_key": "9b6fc149b124fc1d66cce2b7da7bdabe949890f7e898cd8ade9a30f0ae7d863414032f770fe28c059585a81dc00bdbbb",
+    "errors": [],
+    "http_status": 200
+  }
+}

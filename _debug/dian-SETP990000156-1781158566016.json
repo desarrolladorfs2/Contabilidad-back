@@ -1,0 +1,61 @@
+{
+  "invoice_number": "SETP990000156",
+  "signed_filename": "SETP990000156",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000156,
+    "issue_date": "2026-06-11",
+    "issuer": {
+      "nit": "900746052",
+      "name": "Akribeia SAS",
+      "trade_name": "Akribeia ",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 39a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "900108281",
+      "name": "Cliente de Pruebas DIAN",
+      "city_code": "11001",
+      "city_name": "Bogotá",
+      "department_code": "11",
+      "department_name": "Bogotá",
+      "address": "Calle1",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Prueba",
+        "quantity": 1,
+        "unit_price": 10401491,
+        "unit_code": "EA",
+        "unspsc": "43231500",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "00",
+    "status_description": "Procesado Correctamente.",
+    "status_message": "La Factura electrónica SETP990000156, ha sido autorizada.",
+    "xml_document_key": "341299bca7f76ab1a6a8d4920c8a19b25d3e3feb8f95a74169b75c82fd018eed464fcbf0694e654e7f9c030257db3a68",
+    "errors": [],
+    "http_status": 200
+  }
+}

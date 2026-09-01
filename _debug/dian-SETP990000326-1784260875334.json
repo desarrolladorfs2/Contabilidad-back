@@ -1,0 +1,101 @@
+{
+  "invoice_number": "SETP990000326",
+  "signed_filename": "SETP990000326",
+  "payload": {
+    "prefix": "SETP",
+    "number": 990000326,
+    "issue_date": "2026-07-16",
+    "issuer": {
+      "nit": "900746052",
+      "name": "NEURUM S.A.S",
+      "trade_name": "Akribeia",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1a",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "1035873202",
+      "name": "Lina Marcela Patiño",
+      "city_code": "05001",
+      "city_name": "Medellín",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1 #2-3",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18760000001",
+    "resolution_prefix": "SETP",
+    "resolution_from": 990000000,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Exportación de datos (Exento)",
+        "quantity": 1,
+        "unit_price": 500000,
+        "unit_code": "EA",
+        "unspsc": "80000000",
+        "tax_type": "ZA",
+        "tax_rate": 0,
+        "discount_percent": 0
+      },
+      {
+        "id": 2,
+        "description": "Implementación de sistema",
+        "quantity": 1,
+        "unit_price": 3500000,
+        "unit_code": "EA",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 3,
+        "description": "Servidor HP ProLiant DL380",
+        "quantity": 1,
+        "unit_price": 18500000,
+        "unit_code": "EA",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      },
+      {
+        "id": 4,
+        "description": "Soporte técnico mensual",
+        "quantity": 1,
+        "unit_price": 850000,
+        "unit_code": "MON",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "note": "Prueba de texto",
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "99",
+    "status_description": "Validación contiene errores en campos mandatorios.",
+    "status_message": "Documento con errores en campos mandatorios.",
+    "xml_document_key": "9de1e2854dec353690d186750b46db965e5ed24c49ca8ed325e2594b4a5107b8bb6f487e187363f37e732bf3a35c4b81",
+    "errors": [
+      "Regla: FAV05, Rechazo: La unidad de la cantidad utilizada NO existe en la lista de unidades.",
+      "Regla: FAU04, Rechazo: Base Imponible es distinto a la suma de los valores de las bases imponibles de todas líneas de detalle.",
+      "Regla: FAS01b, Rechazo: Tributo IVA (01), INC (04) informado no coincide, revisar Porcentaje, Nombre y ID. Debe existir un TaxTotal a nivel del cabecera por cada  tipo de impuesto que se informa a nivel de línea con las características correspondiente al mismo impuesto.",
+      "Regla: FBB05, Notificación: La unidad de la cantidad utilizada no existe en la lista de unidades",
+      "Regla: FAJ43b, Notificación: Nombre informado No corresponde al registrado en el RUT con respecto al Nit suminstrado."
+    ],
+    "http_status": 200
+  }
+}

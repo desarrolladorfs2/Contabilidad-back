@@ -1,0 +1,34 @@
+# Dependencias de Python para los CLIs de backend/python/ (invocados como
+# procesos hijo desde el backend Node — ver src/utils/python-executable.util.ts).
+#
+# Instalación en el servidor de despliegue:
+#   python3 -m pip install -r requirements.txt
+# (si el sistema exige entornos gestionados externamente / PEP 668):
+#   python3 -m pip install -r requirements.txt --break-system-packages
+#
+# Recomendado (aísla del Python del sistema y evita el flag anterior):
+#   python3 -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+#   (y luego definir PYTHON_EXECUTABLE=/ruta/a/.venv/bin/python en el .env
+#    del backend, o dejar el venv activo en la sesión que arranca el proceso Node)
+
+# ── Construcción y firma de XML DIAN (UBL 2.1, XAdES-BES) ───────────────────
+lxml>=5.0
+cryptography>=42.0
+xmlsig>=0.4
+pytz>=2024.1
+
+# ── Validación de payloads (schemas.py, ds_builder.py) ──────────────────────
+pydantic>=2.0
+
+# ── Generación de PDFs (representación gráfica de factura/DS/eventos) ──────
+reportlab>=4.0
+qrcode>=7.4
+Pillow>=10.0
+
+# ── Transmisión SOAP a la DIAN (dian_sender.py) ─────────────────────────────
+requests>=2.31
+
+# ── Import incidental de python-signer/app/main.py (no se ejecuta como
+#    servidor en el flujo actual, pero queda declarado por si algo lo importa)
+fastapi>=0.110

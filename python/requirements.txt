@@ -1,0 +1,64 @@
+# Dependencias de Python para los CLIs de backend/python/ (invocados como
+# procesos hijo desde el backend Node — ver src/utils/python-executable.util.ts).
+#
+# Instalación en el servidor de despliegue:
+#   python3 -m pip install -r requirements.txt
+# (si el sistema exige entornos gestionados externamente / PEP 668):
+#   python3 -m pip install -r requirements.txt --break-system-packages
+#
+# Recomendado (aísla del Python del sistema y evita el flag anterior):
+#   python3 -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+#   (y luego definir PYTHON_EXECUTABLE=/ruta/a/.venv/bin/python en el .env
+#    del backend, o dejar el venv activo en la sesión que arranca el proceso Node)
+
+# ── Construcción y firma de XML DIAN (UBL 2.1, XAdES-BES) ───────────────────
+lxml>=5.0
+# Tope superior <44.0.0: es el mismo límite que ya usan
+# backend/python/lib/python-signer/requirements.txt y
+# backend/python/lib/dian-transmitter/requirements.txt, puesto ahí a
+# propósito porque xmlsig 1.x (la versión que usa la lógica de firma XAdES
+# heredada de Odoo) es compatible solo hasta cryptography 43.x. Este
+# archivo raíz no tenía ese tope -- un "pip install -r requirements.txt"
+# nuevo hoy instalaría cryptography 50.x y podría romper la firma de
+# facturas sin avisar. Revisado 2026-09-01 (migración a AWS).
+cryptography>=42.0,<44.0
+xmlsig>=1.0.0,<2.0.0
+pytz>=2024.1
+
+# ── Validación de payloads (schemas.py, ds_builder.py) ──────────────────────
+pydantic>=2.0
+
+# ── Generación de PDFs (representación gráfica de factura/DS/eventos) ──────
+reportlab>=4.0
+qrcode>=7.4
+Pillow>=10.0
+
+# ── Transmisión SOAP a la DIAN (dian_sender.py) ─────────────────────────────
+requests>=2.31
+
+# ── Import incidental de python-signer/app/main.py (no se ejecuta como
+#    servidor en el flujo actual, pero queda declarado por si algo lo importa)
+fastapi>=0.110
+
+# ── akribeia_health_edi (sección salud / RIPS) — YA INCLUIDO en este repo ──
+# Antes vivía en una carpeta aparte, hermana de este proyecto, e instalarlo
+# en un servidor nuevo era un paso manual fácil de olvidar. Ya se copió su
+# código fuente dentro del repositorio
+# (backend/python/lib/dian-xml-builder/akribeia_health_edi/), así que ya no
+# hace falta instalarlo por separado ni traer ninguna carpeta adicional —
+# xml_builder_cli.py ya agrega esa carpeta a sys.path, exactamente igual
+# que hace con el resto de app/.
+#
+# Lo único que sí hace falta declarar aquí son SUS dependencias (antes no
+# estaban en este archivo porque nada las necesitaba todavía):
+pandas>=2.0
+openpyxl>=3.1
+#
+# Nota: hoy en día la generación real del RIPS JSON (en facturas de salud)
+# la hace una función de TypeScript en el backend Node
+# (buildEventoRipsJson, en src/utils/dian-payload.utils.ts) — NO pasa por
+# este paquete. Lo único que usa akribeia_health_edi en la cadena Python
+# activa es schemas.py, y solo como referencia de tipo opcional (protegida
+# con try/except, no revienta si faltara). Se completa/mantiene de todos
+# modos por si en el futuro se retoma esa integración.

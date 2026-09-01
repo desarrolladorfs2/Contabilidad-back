@@ -1,0 +1,68 @@
+{
+  "invoice_number": "PRUE1",
+  "signed_filename": "PRUE1",
+  "payload": {
+    "prefix": "PRUE",
+    "number": 1,
+    "issue_date": "2026-07-20",
+    "issuer": {
+      "nit": "900746052",
+      "name": "NEURUM SAS",
+      "trade_name": "Neurum IPS",
+      "city_code": "05001",
+      "city_name": "Medellin",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "CL 27 46 70 LC 201 203 205",
+      "tax_level_code": "R-99-PN"
+    },
+    "customer": {
+      "nit": "1035873202",
+      "name": "Lina Marcela Patiño",
+      "city_code": "05001",
+      "city_name": "Medellín",
+      "department_code": "05",
+      "department_name": "Antioquia",
+      "address": "Calle 1 #2-3",
+      "tax_level_code": "R-99-PN"
+    },
+    "software_id": "1e032c89-6cba-4761-9d97-adbec23c1f1b",
+    "software_pin": "20261",
+    "technical_key_test": "fc8eac422eba16e22ffd8c6f94b3f40a6e38162c",
+    "resolution_number": "18764112661815",
+    "resolution_prefix": "PRUE",
+    "resolution_from": 1,
+    "resolution_to": 995000000,
+    "environment": "2",
+    "lines": [
+      {
+        "id": 1,
+        "description": "Prueba produccion 1",
+        "quantity": 1,
+        "unit_price": 100,
+        "unit_code": "EA",
+        "unspsc": "80000000",
+        "tax_type": "01",
+        "tax_rate": 19,
+        "discount_percent": 0
+      }
+    ],
+    "note": "Prueba de producccion #1",
+    "currency": "COP"
+  },
+  "dian": {
+    "success": true,
+    "status_code": "99",
+    "status_description": "Validación contiene errores en campos mandatorios.",
+    "status_message": "Documento con errores en campos mandatorios.",
+    "xml_document_key": "3399f790c4b0ae26caf5588581d576a369491ead26d4e6cf68e7f03f7fb42364e366596ff8907434dac69bbbea4f3492",
+    "errors": [
+      "Regla: FAB10a, Rechazo: El prefijo de numeración no es igual al código de la sucursal correspondiente a este punto de facturación",
+      "Regla: FAB05b, Rechazo: Número de la resolución que autoriza la numeración no corresponde a un número de resolución de este contribuyente emisor para este Proveedor de Autorización.",
+      "Regla: FAB10b, Rechazo: El prefijo no corresponde al prefijo de la autorización de numeración",
+      "Regla: FAB11b, Rechazo: Valor inicial del rango de numeración informado no corresponde a un valor inicial de los rangos vigente para el contribuyente emisor.",
+      "Regla: FAJ50, Notificación: El prefijo debe corresponder  al código de la sucursal de este punto de facturación"
+    ],
+    "http_status": 200
+  }
+}
